@@ -13,6 +13,9 @@
 		DA73EBBB1C8BA9FF00E89F15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA73EBB91C8BA9FF00E89F15 /* Main.storyboard */; };
 		DA73EBBD1C8BA9FF00E89F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA73EBBC1C8BA9FF00E89F15 /* Assets.xcassets */; };
 		DA73EBC01C8BA9FF00E89F15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA73EBBE1C8BA9FF00E89F15 /* LaunchScreen.storyboard */; };
+		DA73EBC91C8BAA2E00E89F15 /* SquadUp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBC71C8BAA2E00E89F15 /* SquadUp.xcdatamodeld */; };
+		DA73EBCB1C8BAB8500E89F15 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBCA1C8BAB8500E89F15 /* ThirdViewController.swift */; };
+		DA73EBCD1C8BAB9500E89F15 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBCC1C8BAB9500E89F15 /* FourthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		DA73EBBC1C8BA9FF00E89F15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA73EBBF1C8BA9FF00E89F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA73EBC11C8BA9FF00E89F15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA73EBC81C8BAA2E00E89F15 /* SquadUp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SquadUp.xcdatamodel; sourceTree = "<group>"; };
+		DA73EBCA1C8BAB8500E89F15 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		DA73EBCC1C8BAB9500E89F15 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +65,13 @@
 				DA73EBB31C8BA9FF00E89F15 /* AppDelegate.swift */,
 				DA73EBB51C8BA9FF00E89F15 /* FirstViewController.swift */,
 				DA73EBB71C8BA9FF00E89F15 /* SecondViewController.swift */,
+				DA73EBCA1C8BAB8500E89F15 /* ThirdViewController.swift */,
+				DA73EBCC1C8BAB9500E89F15 /* FourthViewController.swift */,
 				DA73EBB91C8BA9FF00E89F15 /* Main.storyboard */,
 				DA73EBBC1C8BA9FF00E89F15 /* Assets.xcassets */,
 				DA73EBBE1C8BA9FF00E89F15 /* LaunchScreen.storyboard */,
 				DA73EBC11C8BA9FF00E89F15 /* Info.plist */,
+				DA73EBC71C8BAA2E00E89F15 /* SquadUp.xcdatamodeld */,
 			);
 			path = SquadUp;
 			sourceTree = "<group>";
@@ -138,9 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA73EBCD1C8BAB9500E89F15 /* FourthViewController.swift in Sources */,
 				DA73EBB81C8BA9FF00E89F15 /* SecondViewController.swift in Sources */,
 				DA73EBB41C8BA9FF00E89F15 /* AppDelegate.swift in Sources */,
+				DA73EBCB1C8BAB8500E89F15 /* ThirdViewController.swift in Sources */,
 				DA73EBB61C8BA9FF00E89F15 /* FirstViewController.swift in Sources */,
+				DA73EBC91C8BAA2E00E89F15 /* SquadUp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +304,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DA73EBC71C8BAA2E00E89F15 /* SquadUp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DA73EBC81C8BAA2E00E89F15 /* SquadUp.xcdatamodel */,
+			);
+			currentVersion = DA73EBC81C8BAA2E00E89F15 /* SquadUp.xcdatamodel */;
+			path = SquadUp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DA73EBA81C8BA9FF00E89F15 /* Project object */;
 }
