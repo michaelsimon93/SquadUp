@@ -8,7 +8,7 @@
         <!--First-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="FirstViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -48,7 +48,7 @@
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -88,7 +88,7 @@
         <!--Log In View Controller-->
         <scene sceneID="XkR-GG-8Pd">
             <objects>
-                <viewController title="Log In View Controller" id="1ob-oq-aPJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" title="Log In View Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1ob-oq-aPJ" customClass="LogInViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5J1-4C-Htq"/>
                         <viewControllerLayoutGuide type="bottom" id="oai-ra-XwL"/>
@@ -99,6 +99,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="6XL-Lz-i0F"/>
+                    <connections>
+                        <segue destination="vX0-65-u00" kind="show" identifier="toRegisterViewController" id="vpl-pm-bHk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i86-9U-yLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,7 +110,7 @@
         <!--RegisterViewController-->
         <scene sceneID="VdO-MW-I91">
             <objects>
-                <viewController title="RegisterViewController" id="vX0-65-u00" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" title="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vX0-65-u00" customClass="RegisterViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ayd-v9-GC3"/>
                         <viewControllerLayoutGuide type="bottom" id="Aof-MC-fxf"/>
@@ -146,7 +149,7 @@
         <!--Third-->
         <scene sceneID="rgq-lC-0Vh">
             <objects>
-                <viewController id="SB2-Y5-W4Z" userLabel="Third" customClass="ThirdViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FourthViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SB2-Y5-W4Z" userLabel="Third" customClass="FourthViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f7O-YL-ERc"/>
                         <viewControllerLayoutGuide type="bottom" id="4Kt-7f-iVj"/>
@@ -186,7 +189,7 @@
         <!--Fourth-->
         <scene sceneID="BXi-aq-OSD">
             <objects>
-                <viewController id="Xqx-Oo-YiU" userLabel="Fourth" customClass="FourthViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThirdViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xqx-Oo-YiU" userLabel="Fourth" customClass="ThirdViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NBv-oz-K27"/>
                         <viewControllerLayoutGuide type="bottom" id="d6D-bU-RLy"/>

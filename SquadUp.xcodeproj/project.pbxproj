@@ -16,6 +16,8 @@
 		DA73EBC91C8BAA2E00E89F15 /* SquadUp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBC71C8BAA2E00E89F15 /* SquadUp.xcdatamodeld */; };
 		DA73EBCB1C8BAB8500E89F15 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBCA1C8BAB8500E89F15 /* ThirdViewController.swift */; };
 		DA73EBCD1C8BAB9500E89F15 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBCC1C8BAB9500E89F15 /* FourthViewController.swift */; };
+		DA73EBCF1C8BB01700E89F15 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBCE1C8BB01700E89F15 /* LogInViewController.swift */; };
+		DA73EBD11C8BB01F00E89F15 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBD01C8BB01F00E89F15 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		DA73EBC81C8BAA2E00E89F15 /* SquadUp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SquadUp.xcdatamodel; sourceTree = "<group>"; };
 		DA73EBCA1C8BAB8500E89F15 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		DA73EBCC1C8BAB9500E89F15 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		DA73EBCE1C8BB01700E89F15 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		DA73EBD01C8BB01F00E89F15 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				DA73EBB71C8BA9FF00E89F15 /* SecondViewController.swift */,
 				DA73EBCA1C8BAB8500E89F15 /* ThirdViewController.swift */,
 				DA73EBCC1C8BAB9500E89F15 /* FourthViewController.swift */,
+				DA73EBCE1C8BB01700E89F15 /* LogInViewController.swift */,
+				DA73EBD01C8BB01F00E89F15 /* RegisterViewController.swift */,
 				DA73EBB91C8BA9FF00E89F15 /* Main.storyboard */,
 				DA73EBBC1C8BA9FF00E89F15 /* Assets.xcassets */,
 				DA73EBBE1C8BA9FF00E89F15 /* LaunchScreen.storyboard */,
@@ -150,6 +156,8 @@
 				DA73EBCD1C8BAB9500E89F15 /* FourthViewController.swift in Sources */,
 				DA73EBB81C8BA9FF00E89F15 /* SecondViewController.swift in Sources */,
 				DA73EBB41C8BA9FF00E89F15 /* AppDelegate.swift in Sources */,
+				DA73EBD11C8BB01F00E89F15 /* RegisterViewController.swift in Sources */,
+				DA73EBCF1C8BB01700E89F15 /* LogInViewController.swift in Sources */,
 				DA73EBCB1C8BAB8500E89F15 /* ThirdViewController.swift in Sources */,
 				DA73EBB61C8BA9FF00E89F15 /* FirstViewController.swift in Sources */,
 				DA73EBC91C8BAA2E00E89F15 /* SquadUp.xcdatamodeld in Sources */,
