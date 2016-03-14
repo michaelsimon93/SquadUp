@@ -19,6 +19,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var invalidCredentialsLabel: UILabel!
     
     
     var defaultScrollViewHeight: CGFloat = 0.0
@@ -53,6 +54,9 @@ class LogInViewController: UIViewController {
     //MARK: - Initialization
     
     func configureFields() {
+        //initially hide the invalid user/password combo label
+        invalidCredentialsLabel.hidden = true
+        
         //configure the custom text field and button borders
         emailTextField.layer.borderWidth = 2.5
         emailTextField.layer.borderColor = orange.CGColor
@@ -76,14 +80,59 @@ class LogInViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        //going to the main screen
+        if segue.identifier == "toHomeViewController" {
+            //pass player object/information to main view controller so that it can display the correct info
+            
+        }
+        
     }
-    */
+
+    
+    //MARK: - Animations
+    
+    func shakeTextField() {
+        let animation = CABasicAnimation()
+        animation.duration = 0.05
+        animation.repeatCount = 2
+        animation.autoreverses = true
+        animation.fromValue = NSValue(CGPoint: CGPointMake(passwordTextField.center.x-10, passwordTextField.center.y))
+        animation.toValue = NSValue(CGPoint: CGPointMake(passwordTextField.center.x+10, passwordTextField.center.y))
+
+        passwordTextField.layer.addAnimation(animation, forKey: "position")
+    }
+    
+    
+    //MARK: - IBActions
+    
+    @IBAction func logInClicked(sender: AnyObject) {
+        //print("log in clicked")
+        
+        //shake test - for incorrect user information
+        //shakeTextField()
+        
+        //add an activity indicator view while it fetches verification
+        //let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        //indicator.startAnimating()
+        
+        
+        
+        //verify user account information
+        //if correct, proceed segue to home view controller
+        //if incorrect, shake text field, and display invalid credentials label
+        
+        
+        //send player object with segue
+        self.performSegueWithIdentifier("toHomeViewController", sender: nil)
+        
+    }
 
 }

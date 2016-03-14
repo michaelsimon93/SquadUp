@@ -19,6 +19,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPassTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    //label to display if passwords do not match
+    @IBOutlet weak var passwordMatchLabel: UILabel!
     
     //orange color for the views
     let orange = UIColor(red: 0.86, green: 0.49, blue: 0.19, alpha: 1.0)
@@ -54,6 +56,9 @@ class RegisterViewController: UIViewController {
     //MARK: - Initialization
     
     func configureFields() {
+        //initially hide the passwords do not match label
+        passwordMatchLabel.hidden = true
+        
         //configure the custom text field and button borders
         emailTextField.layer.borderWidth = 2.0
         emailTextField.layer.borderColor = orange.CGColor
@@ -95,6 +100,48 @@ class RegisterViewController: UIViewController {
     @IBAction func backClicked(sender: AnyObject) {
         //pop back to the sign in view
         self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    @IBAction func signUpClicked(sender: AnyObject) {
+        //testing animation, but if the fields are not equal shake fields
+        shakePasswordFields()
+        
+        /*
+        if passwordTextField.text != confirmPassTextField.text {
+            shakePasswordFields()
+            passwordMatchLabel.hidden = false
+        }
+            
+        //validate user account and send information to server
+        else {
+
+            
+            
+        }
+        */
+    }
+    
+    
+    
+    //MARK: - Animations
+    
+    //method called when the user doesn't type in matching passwords. Shakes the password fields
+    func shakePasswordFields() {
+        let animation = CABasicAnimation()
+        animation.duration = 0.05
+        animation.repeatCount = 2
+        animation.autoreverses = true
+        animation.fromValue = NSValue(CGPoint: CGPointMake(passwordTextField.center.x-10, passwordTextField.center.y))
+        animation.toValue = NSValue(CGPoint: CGPointMake(passwordTextField.center.x+10, passwordTextField.center.y))
+ 
+        let animation2 = animation.copy() as! CABasicAnimation
+        animation2.fromValue = NSValue(CGPoint: CGPointMake(passwordTextField.center.x-10, confirmPassTextField.center.y))
+        animation2.toValue = NSValue(CGPoint: CGPointMake(passwordTextField.center.x+10, confirmPassTextField.center.y))
+        
+        //add animation to fields. will be the same animation b/c only x-values are changed
+        passwordTextField.layer.addAnimation(animation, forKey: "position")
+        confirmPassTextField.layer.addAnimation(animation2, forKey: "position")
+ 
     }
 
 }
