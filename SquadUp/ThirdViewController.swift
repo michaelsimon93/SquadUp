@@ -10,6 +10,16 @@ import UIKit
 
 class ThirdViewController: UIViewController {
 
+    
+    
+    
+    
+    //tutorial for making a real time chat with firebase
+    //https://www.raywenderlich.com/122148/firebase-tutorial-real-time-chat
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

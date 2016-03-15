@@ -10,8 +10,24 @@ import UIKit
 
 class TabBarController: UITabBarController {
 
+    //MARK: - Properties
+    
+    
+    
+    //orange color for the views
+    let orange = UIColor(red: 0.86, green: 0.49, blue: 0.19, alpha: 1.0)
+    
+    
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UITabBar.appearance().tintColor = orange
+        UITabBar.appearance().barTintColor = UIColor.blackColor()
+
+        
+        //self.tabBar.layer.backgroundColor = UIColor.blackColor().CGColor
 
         // Do any additional setup after loading the view.
     }
