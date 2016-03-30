@@ -13,8 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    
+    
+    
+    //tutorial for push notifications
+    //https://www.raywenderlich.com/123862/push-notifications-tutorial
 
-
+    
+    
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true

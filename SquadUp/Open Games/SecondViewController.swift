@@ -33,7 +33,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //get the event that the user clicked on and send it with the segue
         //let toSend = events[indexPath.row]
-        //self.performSegueWithIdentifier("toEventDetailViewController", sender: toSend)
+        self.performSegueWithIdentifier("toGameDetailViewController", sender: nil)
     }
     
     
@@ -47,7 +47,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Game") as! GameTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("GameCell") as! GameTableViewCell
         
         return cell
     }
