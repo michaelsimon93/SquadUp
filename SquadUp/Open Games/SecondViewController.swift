@@ -30,6 +30,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         games.append(game2)
         
         tableView.rowHeight = 50.0
+        //tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
         
     }
 

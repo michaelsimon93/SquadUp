@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: - Properties
     
@@ -19,10 +19,13 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollViewHeightConstraint : NSLayoutConstraint!
     @IBOutlet weak var invalidCredentialsLabel: UILabel!
     
-    
-    var defaultScrollViewHeight: CGFloat = 0.0
+    //the default the scroll view height is. Intialized upon view did load
+    var defaultScrollViewHeightConstraint: CGFloat = 0.0
+    //active text field to scroll up to
+    var activeField : UITextField?
 
     //orange color for the views
     let orange = UIColor(red: 0.86, green: 0.49, blue: 0.19, alpha: 1.0)
@@ -38,10 +41,34 @@ class LogInViewController: UIViewController {
         configureFields()
         configureImages()
         
+        
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        //make a copy of the constraint value for when the keybboard closes, can reset the auto layout
+        defaultScrollViewHeightConstraint = self.scrollViewHeightConstraint.constant
+        
+        //add observers to call methods when the keyboard appears or dissappears - to adjust scroll view
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(LogInViewController.keyboardWillShow(_:)),
+                                                         name: UIKeyboardWillShowNotification,
+                                                         object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(LogInViewController.keyboardWillHide(_:)),
+                                                         name: UIKeyboardWillHideNotification,
+                                                         object: nil)
+        
     }
     
     
     override func viewWillAppear(animated: Bool) {
+        
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+       
+        //remove observers when view is destroyed
+        //NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        //NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         
     }
 
@@ -134,5 +161,67 @@ class LogInViewController: UIViewController {
         self.performSegueWithIdentifier("toHomeViewController", sender: nil)
         
     }
+    
+    
+    //MARK: - Observer Methods
+    
+    //method to make scroll view function when the keyboard appears
+    func keyboardWillShow(notification: NSNotification) {
+        //print("keyboard will show")
+        
+        //get the size of the keyboard and add it to the scroll view height so that the user can access all fields and buttons
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            //print("updating constraints")
+            //add only half the keyboard height, otherwise scroll view can scroll farther than necessary
+            scrollViewHeightConstraint.constant += keyboardSize.height/2
+        }
+ 
+        
+    }
+    
+    func keyboardWillHide(notification : NSNotification) {
+        //print("keyboard will hide")
+        
+        //keyboard hiding set scroll view back to regular height
+        self.scrollViewHeightConstraint.constant = self.defaultScrollViewHeightConstraint
+        
+    }
+    
+    
+    //MARK: - Text Field Delegate Methods
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+    }
+    
+    //method to hide the keyboard when the 'Done' button is clicked on the keyboard
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        //clicked go on the password section to log in
+        if textField.returnKeyType == UIReturnKeyType.Go {
+            
+            //close the keyboard
+            self.view.endEditing(true)
+            return false
+            
+            //add activity indicator
+            //call the server to check for log in credentials
+            
+            
+        }
+        
+        
+        //done clicked from email box, close the keyboard
+        self.view.endEditing(true)
+        return false
+
+    }
+    
+    
+   
 
 }

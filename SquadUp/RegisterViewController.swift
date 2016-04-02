@@ -25,6 +25,11 @@ class RegisterViewController: UIViewController {
     //orange color for the views
     let orange = UIColor(red: 0.86, green: 0.49, blue: 0.19, alpha: 1.0)
     
+    //scroll view setup to move when fields are being typed in
+    @IBOutlet weak var scrollViewHeightConstraint : NSLayoutConstraint!
+    //the default the scroll view height is. Intialized upon view did load
+    var defaultScrollViewHeightConstraint: CGFloat = 0.0
+    
     
     //MARK: - Lifecycle
     
@@ -39,10 +44,31 @@ class RegisterViewController: UIViewController {
         //configure the custom text field and button borders
         configureFields()
         
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        //add observers to call methods when the keyboard appears or dissappears - to adjust scroll view
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(RegisterViewController.keyboardWillShow(_:)),
+                                                         name: UIKeyboardWillShowNotification,
+                                                         object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(RegisterViewController.keyboardWillHide(_:)),
+                                                         name: UIKeyboardWillHideNotification,
+                                                         object: nil)
+
+        
         
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        
+        //remove observers when view is destroyed
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         
     }
 
@@ -105,6 +131,7 @@ class RegisterViewController: UIViewController {
     @IBAction func signUpClicked(sender: AnyObject) {
         //testing animation, but if the fields are not equal shake fields
         shakePasswordFields()
+        self.performSegueWithIdentifier("toConfirmationViewController", sender: nil)
         
         /*
         if passwordTextField.text != confirmPassTextField.text {
@@ -142,6 +169,28 @@ class RegisterViewController: UIViewController {
         passwordTextField.layer.addAnimation(animation, forKey: "position")
         confirmPassTextField.layer.addAnimation(animation2, forKey: "position")
  
+    }
+    
+    
+    //MARK: - Observer Methods
+    
+    //method to make scroll view function when the keyboard appears
+    func keyboardWillShow(notification: NSNotification) {
+        //print("keyboard will show")
+        
+        //get the size of the keyboard and add it to the scroll view height so that the user can access all fields and buttons
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            scrollViewHeightConstraint.constant += keyboardSize.height
+        }
+        
+    }
+    
+    func keyboardWillHide(notification : NSNotification) {
+        //print("keyboard will hide")
+        
+        //keyboard hiding set scroll view back to regular height
+        self.scrollViewHeightConstraint.constant = self.defaultScrollViewHeightConstraint
+        
     }
 
 }

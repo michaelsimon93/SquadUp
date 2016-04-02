@@ -11,6 +11,7 @@
 		DA23A5A71C98EC4700B7DE68 /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23A5A61C98EC4700B7DE68 /* GameDetailViewController.swift */; };
 		DA23A5A91C98F08E00B7DE68 /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23A5A81C98F08E00B7DE68 /* CreateGameViewController.swift */; };
 		DA23A5AB1C98F23500B7DE68 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23A5AA1C98F23500B7DE68 /* GameTableViewCell.swift */; };
+		DA258E471CADF08700AB30DB /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA258E461CADF08700AB30DB /* ConfirmationViewController.swift */; };
 		DA73EBB41C8BA9FF00E89F15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBB31C8BA9FF00E89F15 /* AppDelegate.swift */; };
 		DA73EBB61C8BA9FF00E89F15 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBB51C8BA9FF00E89F15 /* FirstViewController.swift */; };
 		DA73EBB81C8BA9FF00E89F15 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBB71C8BA9FF00E89F15 /* SecondViewController.swift */; };
@@ -31,6 +32,7 @@
 		DA23A5A61C98EC4700B7DE68 /* GameDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
 		DA23A5A81C98F08E00B7DE68 /* CreateGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
 		DA23A5AA1C98F23500B7DE68 /* GameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
+		DA258E461CADF08700AB30DB /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		DA73EBB01C8BA9FF00E89F15 /* SquadUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquadUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA73EBB31C8BA9FF00E89F15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA73EBB51C8BA9FF00E89F15 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				DAFB94351CAC2FB50006770C /* Game.swift */,
 				DAFB94371CAC325D0006770C /* Player.swift */,
+				DA258E461CADF08700AB30DB /* ConfirmationViewController.swift */,
 				DA73EBB51C8BA9FF00E89F15 /* FirstViewController.swift */,
 				DA23A5AC1C98F2B900B7DE68 /* Open Games */,
 				DA73EBCA1C8BAB8500E89F15 /* ThirdViewController.swift */,
@@ -188,6 +191,7 @@
 				DA08BF031C9722CD00206E88 /* TabBarController.swift in Sources */,
 				DA73EBD11C8BB01F00E89F15 /* RegisterViewController.swift in Sources */,
 				DA73EBCF1C8BB01700E89F15 /* LogInViewController.swift in Sources */,
+				DA258E471CADF08700AB30DB /* ConfirmationViewController.swift in Sources */,
 				DA73EBCB1C8BAB8500E89F15 /* ThirdViewController.swift in Sources */,
 				DA23A5A91C98F08E00B7DE68 /* CreateGameViewController.swift in Sources */,
 				DA73EBB61C8BA9FF00E89F15 /* FirstViewController.swift in Sources */,
