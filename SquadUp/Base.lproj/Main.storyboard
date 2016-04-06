@@ -187,6 +187,7 @@
                                 <state key="normal" title="CREATE GAME"/>
                                 <connections>
                                     <action selector="createGame_button:" destination="b4s-Tl-o57" eventType="touchUpInside" id="LsP-MS-Rsz"/>
+                                    <segue destination="8rJ-Kc-sve" kind="show" identifier="createGame" id="Ne4-z8-z90"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zue-Cu-PoB">
@@ -194,6 +195,7 @@
                                 <state key="normal" title="CANCEL"/>
                                 <connections>
                                     <action selector="cancel_button:" destination="b4s-Tl-o57" eventType="touchUpInside" id="NHU-Ck-AEp"/>
+                                    <segue destination="8rJ-Kc-sve" kind="show" identifier="cancelCreateGame" id="v7L-vk-RhJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -717,4 +719,7 @@ Please check your email to verify your account registration before logging i
         <image name="profile" width="22" height="22"/>
         <image name="settings" width="22" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="v7L-vk-RhJ"/>
+    </inferredMetricsTieBreakers>
 </document>

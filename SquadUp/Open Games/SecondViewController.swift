@@ -23,9 +23,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view, typically from a nib.
         
         //load some generic games into the table view
-        let game1 = Game(time: "5:30 PM", location: "SERF", gameType: "5v5", numPlayersJoined: 5, totalPlayersAllowed: 10)
-        let game2 = Game(time: "7:00 PM", location: "NAT", gameType: "5v5", numPlayersJoined: 2, totalPlayersAllowed: 10)
-        let game3 = Game(time: "9:00 PM", location: "James Madison", gameType: "3v3", numPlayersJoined: 3, totalPlayersAllowed: 6)
+        let game1 = Game(date: "04/06/2016", time: "5:30 PM", location: "SERF", gameType: "5v5", numPlayersJoined: 5, totalPlayersAllowed: 10)
+        let game2 = Game(date: "04/06/2016", time: "7:00 PM", location: "NAT", gameType: "5v5", numPlayersJoined: 2, totalPlayersAllowed: 10)
+        let game3 = Game(date: "04/06/2016", time: "9:00 PM", location: "James Madison", gameType: "3v3", numPlayersJoined: 3, totalPlayersAllowed: 6)
         
         games.append(game1)
         games.append(game2)

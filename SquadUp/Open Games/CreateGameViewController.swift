@@ -17,11 +17,20 @@ class CreateGameViewController: UIViewController {
     //var newGame:[Game] = [Game]()
     var newGame : Game!
     var totalAllowed:Int = 0
-    
+
+
     @IBAction func createGame_button(sender: UIButton) {
-        //need to convert the DateTimePicker
+        //need to add backend stuff
+        
+        //convert the DateTimePicker
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        formatter.timeStyle = .ShortStyle
+        var fullDate = formatter.stringFromDate(DateTimePicker.date)
         
         
+        
+        //find total amount of players allowed
         if (createGame_type == "3v3" || createGame_type == "3V3") {
             totalAllowed = 6
         } else if (createGame_type == "4v4" || createGame_type == "4V4") {
@@ -30,15 +39,18 @@ class CreateGameViewController: UIViewController {
             totalAllowed = 10
         }
         
-        //newGame.setValue(_____, forKey: "time")
+        //newGame.setValue(str_date, forKey: "date")
+        //newGame.setValue(str_time, forKey: "time")
         newGame.setValue(createGame_location, forKey: "location")
         newGame.setValue(createGame_type, forKey: "gameType")
         newGame.setValue(1, forKey: "numPlayersJoined")
         newGame.setValue(totalAllowed, forKey: "totalPlayersAllowed")
+        
+        performSegueWithIdentifier("createGame", sender: self)
     }
     
     @IBAction func cancel_button(sender: UIButton) {
-        
+        performSegueWithIdentifier("cancelCreateGame", sender: self)
     }
     
     override func viewDidLoad() {
@@ -53,14 +65,24 @@ class CreateGameViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "createGame") {
+            let vc = segue.destinationViewController as! SecondViewController
+            vc.games.append(newGame)
+        }
+        
+        /*
+        else if (segue.identifier == "cancelCreateGame") {
+            let vc = segue.destinationViewController as! SecondViewController
+        }
+        */
     }
-    */
+    
 
 }
