@@ -15,9 +15,9 @@ import UIKit
 class Game: NSObject {
     
     //data in String representation (ie: 04/06/2016)
-    var date: NSDate?
+    var date: String?
     //time in string representation (ie: 5:30 PM)
-    var time: NSDate?
+    var time: String?
     //location the game is at
     var location: String?
     //game type is a string holding 5v5, 4v4, 3v3
@@ -30,7 +30,7 @@ class Game: NSObject {
     var players:[Player] = [Player]()
     
     //custom game object initializer - to be used by object loading games from JSON
-    init(date: NSDate, time: NSDate, location: String, gameType: String, numPlayersJoined: Int, totalPlayersAllowed: Int) {
+    init(date: String, time: String, location: String, gameType: String, numPlayersJoined: Int, totalPlayersAllowed: Int) {
         //initialize given variables with passed arguments
         self.date = date
         self.time = time
