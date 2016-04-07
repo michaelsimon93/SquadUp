@@ -26,8 +26,10 @@ class CreateGameViewController: UIViewController {
         let formatter = NSDateFormatter()
         formatter.dateStyle = NSDateFormatterStyle.ShortStyle
         formatter.timeStyle = .ShortStyle
-        var fullDate = formatter.stringFromDate(DateTimePicker.date)
-        
+        let fullDate:String = formatter.stringFromDate(DateTimePicker.date)
+        var fullDateArr = fullDate.componentsSeparatedByString(" ")
+        let str_date:String = fullDateArr[0]
+        let str_time:String = fullDateArr[1]
         
         
         //find total amount of players allowed
@@ -39,8 +41,8 @@ class CreateGameViewController: UIViewController {
             totalAllowed = 10
         }
         
-        //newGame.setValue(str_date, forKey: "date")
-        //newGame.setValue(str_time, forKey: "time")
+        newGame.setValue(str_date, forKey: "date")
+        newGame.setValue(str_time, forKey: "time")
         newGame.setValue(createGame_location, forKey: "location")
         newGame.setValue(createGame_type, forKey: "gameType")
         newGame.setValue(1, forKey: "numPlayersJoined")
