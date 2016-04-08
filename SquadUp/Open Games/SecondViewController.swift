@@ -55,7 +55,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //get the event that the user clicked on and send it with the segue
         //let toSend = events[indexPath.row]
-        self.performSegueWithIdentifier("toGameDetailViewController", sender: nil)
+        //self.performSegueWithIdentifier("toGameDetailViewController", sender: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     

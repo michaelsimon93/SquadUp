@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="51" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jTd-zr-qXn">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="51" id="88w-tq-wFl" customClass="GameTableViewCell" customModule="SquadUp" customModuleProvider="target">
@@ -277,7 +277,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5l-OY-7dB" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="530"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rYX-pd-yVB" userLabel="Basketball Image">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basketball" translatesAutoresizingMaskIntoConstraints="NO" id="rYX-pd-yVB" userLabel="Basketball Image">
                                                 <rect key="frame" x="225" y="60" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="rYX-pd-yVB" secondAttribute="height" multiplier="1:1" id="m5f-a9-AhZ"/>
@@ -475,7 +475,7 @@ Please check your email to verify your account registration before logging i
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BG1-Ve-gGT" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YFq-26-ySe" userLabel="Basketball Image">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basketball" translatesAutoresizingMaskIntoConstraints="NO" id="YFq-26-ySe" userLabel="Basketball Image">
                                                 <rect key="frame" x="225" y="95" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="2BW-0i-AZe"/>
@@ -602,10 +602,10 @@ Please check your email to verify your account registration before logging i
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Xqx-Oo-YiU" kind="relationship" relationship="viewControllers" id="ZcV-fD-cdR"/>
                         <segue destination="SB2-Y5-W4Z" kind="relationship" relationship="viewControllers" id="jdB-yc-th5"/>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -646,7 +646,7 @@ Please check your email to verify your account registration before logging i
                             <constraint firstAttribute="centerX" secondItem="KGr-CT-U5B" secondAttribute="centerX" id="vIb-nh-kgo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="Kh8-yV-xek"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="friends" id="Kh8-yV-xek"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQc-3l-sdA" sceneMemberID="firstResponder"/>
             </objects>
@@ -714,10 +714,11 @@ Please check your email to verify your account registration before logging i
     </scenes>
     <resources>
         <image name="background" width="1536" height="1536"/>
+        <image name="basketball" width="324" height="324"/>
+        <image name="friends" width="22" height="22"/>
         <image name="messages" width="22" height="22"/>
         <image name="open games" width="22" height="22"/>
         <image name="profile" width="22" height="22"/>
-        <image name="settings" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="v7L-vk-RhJ"/>
