@@ -14,6 +14,10 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
     let pickerCellID = "pickerCell"
     var selectedIndexPath : NSIndexPath?
     
+    //set the default strings for the right hand labels of the cells
+    var gameLocation = "SERF"
+    var gameType = "5v5"
+    
     let pickerLocation = ["SERF", "NAT", "SHELL", "James Madison", "Gordon Outdoor"]
     let pickerGameType = ["5v5", "4v4", "3v3"]
     
@@ -91,25 +95,6 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
         cancelGameButton.layer.cornerRadius = 5.0
         cancelGameButton.backgroundColor = orange
     }
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if (segue.identifier == "createGame") {
-            let vc = segue.destinationViewController as! SecondViewController
-            vc.games.append(newGame)
-        }
-        
-        /*
-        else if (segue.identifier == "cancelCreateGame") {
-            let vc = segue.destinationViewController as! SecondViewController
-        }
-        */
-    }
     
     
     //MARK: - Table View Data Source
@@ -142,7 +127,7 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
             
             //configure second section labels here
             cell.leftLabel.text = "Location"
-            cell.rightLabel.text = "SERF"
+            cell.rightLabel.text = gameLocation
             cell.pickerItems = pickerLocation
             
             //configure picker view options here
@@ -156,7 +141,7 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
             
             //configure labels
             cell.leftLabel.text = "Game Type"
-            cell.rightLabel.text = "5v5"
+            cell.rightLabel.text = gameLocation
             cell.pickerItems = pickerGameType
             
             //configure picker options
@@ -222,6 +207,26 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 20
+    }
+    
+    
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if (segue.identifier == "createGame") {
+            let vc = segue.destinationViewController as! OpenGamesViewController
+            vc.games.append(newGame)
+        }
+        
+        /*
+         else if (segue.identifier == "cancelCreateGame") {
+         let vc = segue.destinationViewController as! SecondViewController
+         }
+         */
     }
     
     

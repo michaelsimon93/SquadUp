@@ -16,6 +16,9 @@ class PickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var leftLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
     
+    //the row selected by the UIPickerView
+    var selectedRow = 0
+    //array of the items to pick from
     var pickerItems = []
     
     class var expandedHeight : CGFloat { get { return 200}}
@@ -66,6 +69,7 @@ class PickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedRow = row
         rightLabel.text = pickerItems[row] as? String
     }
     
