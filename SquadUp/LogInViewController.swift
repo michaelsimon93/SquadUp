@@ -67,8 +67,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidDisappear(animated: Bool) {
        
         //remove observers when view is destroyed
-        //NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-        //NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         
     }
 
@@ -102,8 +102,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func configureImages() {
-        backgroundImage.backgroundColor = UIColor.grayColor()
-        basketballImage.backgroundColor = UIColor.blackColor()
+        //backgroundImage.backgroundColor = UIColor.grayColor()
+        //basketballImage.backgroundColor = UIColor.blackColor()
     }
     
 
