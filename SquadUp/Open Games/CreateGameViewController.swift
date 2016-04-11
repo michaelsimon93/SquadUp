@@ -21,9 +21,10 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
     let pickerLocation = ["SERF", "NAT", "SHELL", "James Madison", "Gordon Outdoor"]
     let pickerGameType = ["5v5", "4v4", "3v3"]
     
-    @IBOutlet weak var DateTimePicker: UIDatePicker!
-    @IBOutlet weak var createGame_location: UITextField!
-    @IBOutlet weak var createGame_type: UITextField!
+    //INSTEAD OF REF TO DATE PICKER HERE NEED TO GET DATE PICKER REF FROM TABLE VIEW CELL
+    //@IBOutlet weak var DateTimePicker: UIDatePicker!
+    //@IBOutlet weak var createGame_location: UITextField!
+    //@IBOutlet weak var createGame_type: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
     //link to buttons so they can be customized through code
@@ -108,6 +109,10 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //MARK: - Table View Delegate
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        //print("cell for row at index")
+        //print(indexPath.section)
+        
+        
         //first section of the table is the date picker section
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier(datePickCellID, forIndexPath: indexPath) as! DatePickerTableViewCell
@@ -136,12 +141,12 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
             return cell
         }
         //third section is another picker view, but with only game type options
-        else {
+        else if indexPath.section == 2 {
             let cell = tableView.dequeueReusableCellWithIdentifier(pickerCellID, forIndexPath: indexPath) as! PickerTableViewCell
             
             //configure labels
             cell.leftLabel.text = "Game Type"
-            cell.rightLabel.text = gameLocation
+            cell.rightLabel.text = gameType
             cell.pickerItems = pickerGameType
             
             //configure picker options
@@ -149,10 +154,32 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
             
             return cell
         }
+        
+        return tableView.dequeueReusableCellWithIdentifier(datePickCellID)!
 
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        //code here to manage the display of the collapsed cell
+        //get the cell in the first section - time cell
+        //let indexPath1 = NSIndexPath(forRow: 0, inSection: 0)
+        
+        
+//        //get the cell in the second section - location cell
+//        let indexPath2 = NSIndexPath(forRow: 0, inSection: 1)
+//        var cell = tableView.cellForRowAtIndexPath(indexPath2) as! PickerTableViewCell
+//        var row  = cell.selectedRow
+//        gameLocation = pickerLocation[row]
+//            
+//        //get the cell in the third section - game type cell
+//        let indexPath3 = NSIndexPath(forRow: 0, inSection: 2)
+//        cell = tableView.cellForRowAtIndexPath(indexPath3) as! PickerTableViewCell
+//        row = cell.selectedRow
+//        gameType = pickerGameType[row]
+        
+        
+        //code for the collapsing cells
         let previousIndexPath = selectedIndexPath
         if indexPath == selectedIndexPath {
             selectedIndexPath = nil
@@ -195,6 +222,7 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
         }
    
     }
+    
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath == selectedIndexPath {
