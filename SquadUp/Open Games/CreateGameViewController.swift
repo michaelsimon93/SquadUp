@@ -12,6 +12,7 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
 
     let datePickCellID = "datePickerCell"
     let pickerCellID = "pickerCell"
+    let gamePickerCellID = "gamePickerCell"
     var selectedIndexPath : NSIndexPath?
     
     //set the default strings for the right hand labels of the cells
@@ -109,9 +110,10 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //MARK: - Table View Delegate
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        //debugging prints
         //print("cell for row at index")
-        //print(indexPath.section)
-        
+        //print("section\(indexPath.section)")
+        //print("row\(indexPath.row)")
         
         //first section of the table is the date picker section
         if indexPath.section == 0 {
@@ -128,7 +130,11 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         //other sections are the picker section
         else if indexPath.section ==  1 {
+            //let cell = PickerTableViewCell(style: .Default, reuseIdentifier: pickerCellID)
             let cell = tableView.dequeueReusableCellWithIdentifier(pickerCellID, forIndexPath: indexPath) as! PickerTableViewCell
+            
+            cell.selectedRow = 0
+            cell.pickerItems = []
             
             //configure second section labels here
             cell.leftLabel.text = "Location"
@@ -142,7 +148,11 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         //third section is another picker view, but with only game type options
         else if indexPath.section == 2 {
-            let cell = tableView.dequeueReusableCellWithIdentifier(pickerCellID, forIndexPath: indexPath) as! PickerTableViewCell
+            //let cell = PickerTableViewCell(style: .Default, reuseIdentifier: pickerCellID)
+            let cell = tableView.dequeueReusableCellWithIdentifier(gamePickerCellID, forIndexPath: indexPath) as! GamePickerTableViewCell
+            
+            cell.selectedRow = 0
+            cell.pickerItems = []
             
             //configure labels
             cell.leftLabel.text = "Game Type"
@@ -158,6 +168,8 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
         return tableView.dequeueReusableCellWithIdentifier(datePickCellID)!
 
     }
+    
+
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -178,8 +190,6 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
 //        row = cell.selectedRow
 //        gameType = pickerGameType[row]
         
-        
-        //code for the collapsing cells
         let previousIndexPath = selectedIndexPath
         if indexPath == selectedIndexPath {
             selectedIndexPath = nil
@@ -187,14 +197,13 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
             selectedIndexPath = indexPath
         }
         
-        var indexPaths: Array<NSIndexPath> = []
+        var indexPaths : Array<NSIndexPath> = []
         if let previous = previousIndexPath {
-            indexPaths = [previous]
+            indexPaths += [previous]
         }
         if let current = selectedIndexPath {
-            indexPaths = indexPaths + [current]
+            indexPaths += [current]
         }
-        
         if indexPaths.count > 0 {
             tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
         }
@@ -206,8 +215,11 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
         if indexPath.section == 0 {
             (cell as! DatePickerTableViewCell).watchFrameChanges()
         }
-        else {
+        else if indexPath.section == 1 {
             (cell as! PickerTableViewCell).watchFrameChanges()
+        }
+        else {
+            (cell as! GamePickerTableViewCell).watchFrameChanges()
         }
 
     }
@@ -217,14 +229,18 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
         if indexPath.section == 0 {
             (cell as! DatePickerTableViewCell).ignoreFrameChanges()
         }
-        else {
+        else if indexPath.section == 1 {
             (cell as! PickerTableViewCell).ignoreFrameChanges()
+        }
+        else {
+            (cell as! GamePickerTableViewCell).ignoreFrameChanges()
         }
    
     }
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        //just use the date picker heights, all of them are the same for all cells
         if indexPath == selectedIndexPath {
             return DatePickerTableViewCell.expandedHeight
         }

@@ -194,29 +194,29 @@
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dmF-T5-fUD">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="440"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="datePickerCell" rowHeight="178" id="9sI-Ya-ETO" customClass="DatePickerTableViewCell" customModule="SquadUp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="49.5" width="600" height="178"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="datePickerCell" rowHeight="112" id="9sI-Ya-ETO" customClass="DatePickerTableViewCell" customModule="SquadUp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="49.5" width="600" height="112"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9sI-Ya-ETO" id="6YZ-wn-rrg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="177.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="111.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMG-K9-5WX">
                                                             <rect key="frame" x="15" y="15" width="36" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Date Selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItB-nP-bz3">
                                                             <rect key="frame" x="414" y="15" width="171" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <datePicker contentMode="scaleToFill" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="08f-i4-jsh">
-                                                            <rect key="frame" x="0.0" y="50.5" width="600" height="127"/>
+                                                            <rect key="frame" x="0.0" y="50.5" width="600" height="61"/>
                                                             <date key="date" timeIntervalSinceReferenceDate="481844023.56942099">
                                                                 <!--2016-04-08 21:33:43 +0000-->
                                                             </date>
@@ -237,15 +237,15 @@
                                                     <outlet property="datePicker" destination="08f-i4-jsh" id="Gml-fp-ubm"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="167" id="H5Z-27-9nF" customClass="PickerTableViewCell" customModule="SquadUp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="227.5" width="600" height="167"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="97" id="H5Z-27-9nF" customClass="PickerTableViewCell" customModule="SquadUp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="161.5" width="600" height="97"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H5Z-27-9nF" id="38N-Fl-tHa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="166.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="96.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="bYY-NF-3Ij">
-                                                            <rect key="frame" x="0.0" y="51" width="600" height="115.5"/>
+                                                            <rect key="frame" x="0.0" y="51" width="600" height="45.5"/>
                                                             <connections>
                                                                 <outlet property="dataSource" destination="H5Z-27-9nF" id="ZSn-vC-Gdi"/>
                                                                 <outlet property="delegate" destination="H5Z-27-9nF" id="uQq-i3-lG5"/>
@@ -254,13 +254,13 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location / GameType" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yk0-tM-78i">
                                                             <rect key="frame" x="15" y="15" width="161" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picked Location / game type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjz-sA-ekP">
                                                             <rect key="frame" x="368" y="15" width="217" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -279,6 +279,50 @@
                                                     <outlet property="leftLabel" destination="yk0-tM-78i" id="4Em-36-VA6"/>
                                                     <outlet property="pickerView" destination="bYY-NF-3Ij" id="689-cz-5su"/>
                                                     <outlet property="rightLabel" destination="Rjz-sA-ekP" id="AaN-cM-3Ss"/>
+                                                </connections>
+                                            </tableViewCell>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gamePickerCell" rowHeight="97" id="WAl-Lb-Tov" userLabel="gamePickerCell" customClass="GamePickerTableViewCell" customModule="SquadUp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="258.5" width="600" height="97"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WAl-Lb-Tov" id="g2D-HX-DKb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="96.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="B0u-2C-D38">
+                                                            <rect key="frame" x="0.0" y="51" width="600" height="45.5"/>
+                                                            <connections>
+                                                                <outlet property="dataSource" destination="WAl-Lb-Tov" id="Rlz-d1-EvB"/>
+                                                                <outlet property="delegate" destination="WAl-Lb-Tov" id="koR-st-gub"/>
+                                                            </connections>
+                                                        </pickerView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location / GameType" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGg-eB-lbe">
+                                                            <rect key="frame" x="15" y="15" width="161" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picked Location / game type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wp-ae-nau">
+                                                            <rect key="frame" x="368" y="15" width="217" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="B0u-2C-D38" firstAttribute="leading" secondItem="g2D-HX-DKb" secondAttribute="leading" id="6gd-GB-apV"/>
+                                                        <constraint firstAttribute="trailing" secondItem="B0u-2C-D38" secondAttribute="trailing" id="Fg8-gL-ea7"/>
+                                                        <constraint firstItem="UGg-eB-lbe" firstAttribute="leading" secondItem="g2D-HX-DKb" secondAttribute="leading" constant="15" id="X55-L6-Ya1"/>
+                                                        <constraint firstItem="UGg-eB-lbe" firstAttribute="top" secondItem="g2D-HX-DKb" secondAttribute="top" constant="15" id="dAG-bd-mNB"/>
+                                                        <constraint firstItem="B0u-2C-D38" firstAttribute="top" secondItem="UGg-eB-lbe" secondAttribute="bottom" constant="15" id="eFU-MP-xS4"/>
+                                                        <constraint firstItem="6wp-ae-nau" firstAttribute="top" secondItem="g2D-HX-DKb" secondAttribute="top" constant="15" id="mCM-ed-Af1"/>
+                                                        <constraint firstAttribute="bottom" secondItem="B0u-2C-D38" secondAttribute="bottom" id="pm3-xh-zgd"/>
+                                                        <constraint firstAttribute="trailing" secondItem="6wp-ae-nau" secondAttribute="trailing" constant="15" id="yhN-ta-S2d"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="leftLabel" destination="UGg-eB-lbe" id="gtZ-jj-OzU"/>
+                                                    <outlet property="pickerView" destination="B0u-2C-D38" id="36M-Kt-0nN"/>
+                                                    <outlet property="rightLabel" destination="6wp-ae-nau" id="30a-dP-oNY"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

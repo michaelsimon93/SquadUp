@@ -1,15 +1,15 @@
 //
-//  PickerTableViewCell.swift
+//  GamePickerTableViewCell.swift
 //  SquadUp
 //
-//  Created by Michael Oudenhoven on 4/8/16.
+//  Created by Michael Oudenhoven on 4/11/16.
 //  Copyright © 2016 CS 407. All rights reserved.
 //
 
 import UIKit
 
-class PickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
-
+class GamePickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
+    
     var isObserving = false
     
     @IBOutlet weak var pickerView: UIPickerView!
@@ -42,7 +42,7 @@ class PickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDa
             removeObserver(self, forKeyPath: "frame")
             isObserving = false
         }
-
+        
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
@@ -73,15 +73,5 @@ class PickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDa
     }
     
     
-    
-    
-    //method called when the table view cell is about to be reused
-    override func prepareForReuse() {
-        
-    }
-
-    
-    
-    
-    
 }
+

@@ -25,6 +25,7 @@
 		DA73EBD11C8BB01F00E89F15 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBD01C8BB01F00E89F15 /* RegisterViewController.swift */; };
 		DA7478181CB85B9F0028C9E1 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7478171CB85B9F0028C9E1 /* DatePickerTableViewCell.swift */; };
 		DA74781A1CB896830028C9E1 /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7478191CB896830028C9E1 /* PickerTableViewCell.swift */; };
+		DAAD08181CBC311300E55C87 /* GamePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAD08171CBC311300E55C87 /* GamePickerTableViewCell.swift */; };
 		DAFB94361CAC2FB50006770C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFB94351CAC2FB50006770C /* Game.swift */; };
 		DAFB94381CAC325D0006770C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFB94371CAC325D0006770C /* Player.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		DA73EBD01C8BB01F00E89F15 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DA7478171CB85B9F0028C9E1 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		DA7478191CB896830028C9E1 /* PickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
+		DAAD08171CBC311300E55C87 /* GamePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePickerTableViewCell.swift; sourceTree = "<group>"; };
 		DAFB94351CAC2FB50006770C /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		DAFB94371CAC325D0006770C /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +76,7 @@
 				DA23A5AA1C98F23500B7DE68 /* GameTableViewCell.swift */,
 				DA7478171CB85B9F0028C9E1 /* DatePickerTableViewCell.swift */,
 				DA7478191CB896830028C9E1 /* PickerTableViewCell.swift */,
+				DAAD08171CBC311300E55C87 /* GamePickerTableViewCell.swift */,
 			);
 			path = "Open Games";
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				DAFB94361CAC2FB50006770C /* Game.swift in Sources */,
 				DAFB94381CAC325D0006770C /* Player.swift in Sources */,
 				DA73EBB41C8BA9FF00E89F15 /* AppDelegate.swift in Sources */,
+				DAAD08181CBC311300E55C87 /* GamePickerTableViewCell.swift in Sources */,
 				DA08BF031C9722CD00206E88 /* TabBarController.swift in Sources */,
 				DA7478181CB85B9F0028C9E1 /* DatePickerTableViewCell.swift in Sources */,
 				DA73EBD11C8BB01F00E89F15 /* RegisterViewController.swift in Sources */,
