@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameDetailViewController: UIViewController {
+class TenPersonGameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -54,7 +54,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         //print(indexPath.row)
         
         //segue to the joining game view controller, pass the game to be given to the destination VC
-        self.performSegueWithIdentifier("toGameDetailViewController", sender: games[indexPath.row])
+        self.performSegueWithIdentifier("toTenPersonViewController", sender: games[indexPath.row])
     }
     
     
