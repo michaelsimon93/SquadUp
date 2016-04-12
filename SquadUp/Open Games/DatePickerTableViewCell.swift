@@ -49,10 +49,9 @@ class DatePickerTableViewCell: UITableViewCell {
     }
     
     
-    //MARK: - Expansion Methods
+    //MARK: - Cell Expansion Methods
     
     func checkHeight() {
-        
         datePicker.hidden = (frame.size.height < DatePickerTableViewCell.expandedHeight)
     }
     

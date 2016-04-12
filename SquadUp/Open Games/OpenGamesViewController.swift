@@ -53,10 +53,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         //send the event with the segue
         //print(indexPath.row)
         
-        //get the event that the user clicked on and send it with the segue
-        //let toSend = events[indexPath.row]
-        //self.performSegueWithIdentifier("toGameDetailViewController", sender: nil)
-        self.navigationController?.popViewControllerAnimated(true)
+        //segue to the joining game view controller, pass the game to be given to the destination VC
+        self.performSegueWithIdentifier("toGameDetailViewController", sender: games[indexPath.row])
     }
     
     
@@ -113,7 +111,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
                 totalAllowed = 10
             }
             
-            let newGame = Game(date: gameDate!, location: gameLocation, gameType: gameType, numPlayersJoined: 0, totalPlayersAllowed: totalAllowed)
+            let newGame = Game(date: gameDate!, location: gameLocation!, gameType: gameType!, numPlayersJoined: 0, totalPlayersAllowed: totalAllowed)
             
 
             games.append(newGame)
@@ -130,11 +128,17 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
 
     //need method so the create game VC unwinds to the open games view when cancel is clicked
     @IBAction func cancelCreateGameUnwind(segue : UIStoryboardSegue) {
-        print("cancel unwind")
+        //print("cancel unwind")
         
         if segue.identifier == "cancelUnwind" {
             //do nothing for now - user cancelled the game creation
         }
+    }
+    
+    //method to unwind from game detail to the open games
+    @IBAction func backGameDetailUnwind(segue : UIStoryboardSegue) {
+        
+        
     }
     
     

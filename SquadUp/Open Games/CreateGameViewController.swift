@@ -10,38 +10,42 @@ import UIKit
 
 class CreateGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    //MARK: - Properties
+    
     let datePickCellID = "datePickerCell"
     let pickerCellID = "pickerCell"
     let gamePickerCellID = "gamePickerCell"
     var selectedIndexPath : NSIndexPath?
     
     //set the default strings for the right hand labels of the cells
-    var gameLocation = "SERF"
-    var gameType = "5v5"
+    var gameLocation : String?
+    var gameType : String?
     var gameDate : NSDate?
+    //variables to save the last selected game type or location when cells are reused
+    var selectedLocation : Int?
+    var selectedGameType : Int?
     
     let pickerLocation = ["SERF", "NAT", "SHELL", "James Madison", "Gordon Outdoor"]
     let pickerGameType = ["5v5", "4v4", "3v3"]
     
-    //INSTEAD OF REF TO DATE PICKER HERE NEED TO GET DATE PICKER REF FROM TABLE VIEW CELL
-    //@IBOutlet weak var DateTimePicker: UIDatePicker!
-    //@IBOutlet weak var createGame_location: UITextField!
-    //@IBOutlet weak var createGame_type: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
     //link to buttons so they can be customized through code
     @IBOutlet weak var createGameButton: UIButton!
     @IBOutlet weak var cancelGameButton: UIButton!
     
-    
     //var newGame:[Game] = [Game]()
     var newGame : Game!
     var totalAllowed:Int = 0
 
-    
     //orange color for the views
     let orange = UIColor(red: 0.86, green: 0.49, blue: 0.19, alpha: 1.0)
 
+    
+    
+    
+    
+    
     //MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
@@ -50,6 +54,11 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
         
         //configure the buttons to have custom borders
         configureFields()
+        
+        gameType = "5v5"
+        gameLocation = "SERF"
+        selectedGameType = 0
+        selectedLocation = 0
 
         //set table view background to clear so background image shows through
         tableView.backgroundColor = UIColor.clearColor()
@@ -133,15 +142,10 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
         //first section of the table is the date picker section
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier(datePickCellID, forIndexPath: indexPath) as! DatePickerTableViewCell
-            
-            
-            
-            //configure first section labels here
-            //cell.dateLabel.text = "Date"
-            //cell.datePicker.date = NSDate()
-            
+ 
             //set the label to the current date and time
             cell.dateLabel.text = formatDate(gameDate!)
+            cell.datePicker.date = gameDate!
             
             return cell
         }
@@ -150,8 +154,8 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
             //let cell = PickerTableViewCell(style: .Default, reuseIdentifier: pickerCellID)
             let cell = tableView.dequeueReusableCellWithIdentifier(pickerCellID, forIndexPath: indexPath) as! PickerTableViewCell
             
-            cell.selectedRow = 0
-            cell.pickerItems = []
+            //give the cell the current selection
+            cell.selectedRow = selectedLocation!
             
             //configure second section labels here
             cell.leftLabel.text = "Location"
@@ -168,8 +172,8 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
             //let cell = PickerTableViewCell(style: .Default, reuseIdentifier: pickerCellID)
             let cell = tableView.dequeueReusableCellWithIdentifier(gamePickerCellID, forIndexPath: indexPath) as! GamePickerTableViewCell
             
-            cell.selectedRow = 0
-            cell.pickerItems = []
+            //give the cell the current selection
+            cell.selectedRow = selectedGameType!
             
             //configure labels
             cell.leftLabel.text = "Game Type"
@@ -208,14 +212,14 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
         //get the cell in the second section - location cell
         let indexPath2 = NSIndexPath(forRow: 0, inSection: 1)
         let cell2 = tableView.cellForRowAtIndexPath(indexPath2) as! PickerTableViewCell
-        var row  = cell2.selectedRow
-        gameLocation = pickerLocation[row]
-            
+        gameLocation = pickerLocation[cell2.selectedRow]
+        selectedLocation! = cell2.selectedRow
+        
         //get the cell in the third section - game type cell
         let indexPath3 = NSIndexPath(forRow: 0, inSection: 2)
         let cell3 = tableView.cellForRowAtIndexPath(indexPath3) as! GamePickerTableViewCell
-        row = cell3.selectedRow
-        gameType = pickerGameType[row]
+        gameType = pickerGameType[cell3.selectedRow]
+        selectedGameType! = cell3.selectedRow
         
         
         //collapsable cell code
