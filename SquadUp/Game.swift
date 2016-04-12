@@ -14,10 +14,13 @@ import UIKit
 //Model object representing each game that is available to the users. Will be loaded from the server with a JSON file
 class Game: NSObject {
     
+    var date: NSDate?
+    
     //data in String representation (ie: 04/06/2016)
-    var date: String?
+    //var date: String?
     //time in string representation (ie: 5:30 PM)
-    var time: String?
+    //var time: String?
+    
     //location the game is at
     var location: String?
     //game type is a string holding 5v5, 4v4, 3v3
@@ -30,10 +33,11 @@ class Game: NSObject {
     var players:[Player] = [Player]()
     
     //custom game object initializer - to be used by object loading games from JSON
-    init(date: String, time: String, location: String, gameType: String, numPlayersJoined: Int, totalPlayersAllowed: Int) {
+    init(date: NSDate, location: String, gameType: String, numPlayersJoined: Int, totalPlayersAllowed: Int) {
         //initialize given variables with passed arguments
+        //self.date = date
+        //self.time = time
         self.date = date
-        self.time = time
         self.location = location
         self.gameType = gameType
         self.numPlayersJoined = numPlayersJoined

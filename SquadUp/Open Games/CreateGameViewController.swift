@@ -18,6 +18,7 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
     //set the default strings for the right hand labels of the cells
     var gameLocation = "SERF"
     var gameType = "5v5"
+    var gameDate : NSDate?
     
     let pickerLocation = ["SERF", "NAT", "SHELL", "James Madison", "Gordon Outdoor"]
     let pickerGameType = ["5v5", "4v4", "3v3"]
@@ -53,12 +54,22 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
         //set table view background to clear so background image shows through
         tableView.backgroundColor = UIColor.clearColor()
         
+        //configure the current game date to be to the nearest 15 min ahead of current time.
+        gameDate = NSDate()
+        let cal = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
+        let components = cal.components([.Day , .Month, .Year, .Hour ], fromDate: gameDate!)
+        //get the current minute
+        let currMinute = NSCalendar.currentCalendar().component(.Minute, fromDate: gameDate!)
+        let roundedMinute = currMinute - (currMinute%15) + 15
+        components.minute = roundedMinute
+        
+        //set the new rounded date as the time selected
+        gameDate = cal.dateFromComponents(components)
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        
         
         //remove the observers before removing the view
         for cell in tableView.visibleCells {
@@ -68,9 +79,13 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
                 (cell as! DatePickerTableViewCell).ignoreFrameChanges()
             }
             //regular picker cell
-            else {
+            else if cell is PickerTableViewCell {
                 //remove as observer
                 (cell as! PickerTableViewCell).ignoreFrameChanges()
+            }
+            else if cell is GamePickerTableViewCell {
+                //remove observer
+                (cell as! GamePickerTableViewCell).ignoreFrameChanges()
             }
             
         }
@@ -125,6 +140,8 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
             //cell.dateLabel.text = "Date"
             //cell.datePicker.date = NSDate()
             
+            //set the label to the current date and time
+            cell.dateLabel.text = formatDate(gameDate!)
             
             return cell
         }
@@ -172,24 +189,36 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        //print(indexPath.section)
+        //print(indexPath.row)
         //code here to manage the display of the collapsed cell
+        
         //get the cell in the first section - time cell
-        //let indexPath1 = NSIndexPath(forRow: 0, inSection: 0)
+        let indexPath1 = NSIndexPath(forRow: 0, inSection: 0)
+        let cell1 = tableView.cellForRowAtIndexPath(indexPath1) as! DatePickerTableViewCell
+        let date = cell1.datePicker.date
+        //set the games NSDate
+        gameDate = date
+        //format the date to be displayed in the cell
+        let formattedDate = formatDate(date)
+        //set the labels text
+        cell1.dateLabel.text = formattedDate
         
         
-//        //get the cell in the second section - location cell
-//        let indexPath2 = NSIndexPath(forRow: 0, inSection: 1)
-//        var cell = tableView.cellForRowAtIndexPath(indexPath2) as! PickerTableViewCell
-//        var row  = cell.selectedRow
-//        gameLocation = pickerLocation[row]
-//            
-//        //get the cell in the third section - game type cell
-//        let indexPath3 = NSIndexPath(forRow: 0, inSection: 2)
-//        cell = tableView.cellForRowAtIndexPath(indexPath3) as! PickerTableViewCell
-//        row = cell.selectedRow
-//        gameType = pickerGameType[row]
+        //get the cell in the second section - location cell
+        let indexPath2 = NSIndexPath(forRow: 0, inSection: 1)
+        let cell2 = tableView.cellForRowAtIndexPath(indexPath2) as! PickerTableViewCell
+        var row  = cell2.selectedRow
+        gameLocation = pickerLocation[row]
+            
+        //get the cell in the third section - game type cell
+        let indexPath3 = NSIndexPath(forRow: 0, inSection: 2)
+        let cell3 = tableView.cellForRowAtIndexPath(indexPath3) as! GamePickerTableViewCell
+        row = cell3.selectedRow
+        gameType = pickerGameType[row]
         
+        
+        //collapsable cell code
         let previousIndexPath = selectedIndexPath
         if indexPath == selectedIndexPath {
             selectedIndexPath = nil
@@ -272,7 +301,28 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
          }
          */
     }
+
     
+    //MARK: - Utilities
+    
+    //method that formats the date to the correct way it should be displayed in the date cell when closed
+    func formatDate(date: NSDate) -> String {
+        
+        //convert the DateTimePicker
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .ShortStyle
+        formatter.timeStyle = .ShortStyle
+        //get the full date in terms of a string and return it
+        let fullDate = formatter.stringFromDate(date)
+        
+        //gets separate components of the string if necessary
+        //var fullDateArr = fullDate.componentsSeparatedByString(" ")
+        //let str_date:String = fullDateArr[0]
+        //let str_time:String = fullDateArr[1]
+        
+
+        return fullDate
+    }
     
     //Mark: - IBAction Methods
     /*

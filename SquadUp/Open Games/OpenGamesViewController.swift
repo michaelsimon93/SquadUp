@@ -23,9 +23,9 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         // Do any additional setup after loading the view, typically from a nib.
         
         //load some generic games into the table view
-        let game1 = Game(date: "04/06/2016", time: "5:30 PM", location: "SERF", gameType: "5v5", numPlayersJoined: 5, totalPlayersAllowed: 10)
-        let game2 = Game(date: "04/06/2016", time: "7:00 PM", location: "NAT", gameType: "5v5", numPlayersJoined: 2, totalPlayersAllowed: 10)
-        let game3 = Game(date: "04/06/2016", time: "9:00 PM", location: "James Madison", gameType: "3v3", numPlayersJoined: 3, totalPlayersAllowed: 6)
+        let game1 = Game(date: NSDate(), location: "SERF", gameType: "5v5", numPlayersJoined: 5, totalPlayersAllowed: 10)
+        let game2 = Game(date: NSDate(), location: "NAT", gameType: "5v5", numPlayersJoined: 2, totalPlayersAllowed: 10)
+        let game3 = Game(date: NSDate(), location: "James Madison", gameType: "3v3", numPlayersJoined: 3, totalPlayersAllowed: 6)
         
         games.append(game1)
         games.append(game2)
@@ -82,7 +82,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         let numSpotsFilled = String(games[indexPath.row].numPlayersJoined!) + "/" + String(games[indexPath.row].totalPlayersAllowed!)
         cell.filledSpotsLabel.text = numSpotsFilled
         
-        cell.timeLabel.text = games[indexPath.row].time!
+        cell.timeLabel.text = timeFromDate(games[indexPath.row].date!)
         
         
         
@@ -90,13 +90,73 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     
-    //Mark: - Unwind Segues
-    @IBAction func createGameUnwind(seuge : UIStoryboardSegue){
-    
-    }
+    //MARK: - Unwind Segues
+    @IBAction func createGameUnwind(segue : UIStoryboardSegue){
+        print("create game unwind")
+        
+        if segue.identifier == "createGameUnwind" {
+            //get the source VC where the data is stored for the new game
+            let sourceVC = segue.sourceViewController as! CreateGameViewController
+            
+            let gameType = sourceVC.gameType
+            let gameDate = sourceVC.gameDate
+            let gameLocation = sourceVC.gameLocation
+        
+            var totalAllowed = 0
+            
+            //find total amount of players allowed
+            if (gameType == "3v3") {
+                totalAllowed = 6
+            } else if (gameType == "4v4") {
+                totalAllowed = 8
+            } else if (gameType == "5v5") {
+                totalAllowed = 10
+            }
+            
+            let newGame = Game(date: gameDate!, location: gameLocation, gameType: gameType, numPlayersJoined: 0, totalPlayersAllowed: totalAllowed)
+            
 
-    @IBAction func cancelCreateGameUnwind(segue : UIStoryboardSegue) {
+            games.append(newGame)
+            
+            tableView.reloadData()
+            
+            //need to add backend stuff
+
+            
+        }
+        
         
     }
+
+    //need method so the create game VC unwinds to the open games view when cancel is clicked
+    @IBAction func cancelCreateGameUnwind(segue : UIStoryboardSegue) {
+        print("cancel unwind")
+        
+        if segue.identifier == "cancelUnwind" {
+            //do nothing for now - user cancelled the game creation
+        }
+    }
+    
+    
+    //MARK: - Date Formatting
+    
+    func timeFromDate(date: NSDate) -> String {
+        
+        //convert the DateTimePicker
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        formatter.timeStyle = .ShortStyle
+        let fullDate:String = formatter.stringFromDate(date)
+        var fullDateArr = fullDate.componentsSeparatedByString(" ")
+        let time = fullDateArr[1] + " " + fullDateArr[2]
+        
+        return time
+    }
+    
+    
+    
+    
 }
+
+
 

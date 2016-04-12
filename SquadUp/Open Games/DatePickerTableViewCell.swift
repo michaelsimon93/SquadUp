@@ -21,6 +21,36 @@ class DatePickerTableViewCell: UITableViewCell {
     class var defaultHeight : CGFloat { get { return 44}}
     
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        
+        //add target method to call when the value of the date picker is changed
+        //this will update the label to the correct value
+        datePicker.addTarget(self, action: #selector(DatePickerTableViewCell.dateUpdate), forControlEvents: .ValueChanged)
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+    func dateUpdate() {
+        //convert the DateTimePicker
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .ShortStyle
+        formatter.timeStyle = .ShortStyle
+        //get the full date in terms of a string and return it
+        let fullDate = formatter.stringFromDate(datePicker.date)
+        
+        //set the label to the new date / time
+        dateLabel.text = fullDate
+    }
+    
+    
+    //MARK: - Expansion Methods
+    
     func checkHeight() {
         
         datePicker.hidden = (frame.size.height < DatePickerTableViewCell.expandedHeight)
@@ -48,5 +78,8 @@ class DatePickerTableViewCell: UITableViewCell {
             checkHeight()
         }
     }
+    
+    
+    
 
 }

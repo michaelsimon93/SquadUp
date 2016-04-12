@@ -74,13 +74,7 @@ class PickerTableViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDa
     
     
     
-    
-    //method called when the table view cell is about to be reused
-    override func prepareForReuse() {
-        
-    }
 
-    
     
     
     
