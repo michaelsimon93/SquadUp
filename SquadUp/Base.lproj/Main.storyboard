@@ -67,7 +67,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="88w-tq-wFl" id="AeF-lj-fIn">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="50.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="51"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5:30 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCr-8Y-ttB">
@@ -142,6 +142,8 @@
                     <connections>
                         <outlet property="tableView" destination="jTd-zr-qXn" id="zFd-dq-mco"/>
                         <segue destination="57M-6E-otK" kind="show" identifier="toTenPersonViewController" id="ei8-un-zxy"/>
+                        <segue destination="odZ-wP-K8p" kind="show" identifier="toSixPersonViewController" id="5r5-yJ-kF0"/>
+                        <segue destination="ngX-aI-Y7a" kind="show" identifier="toEightPersonViewController" id="wSa-9x-fNO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -197,10 +199,10 @@
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="datePickerCell" rowHeight="112" id="9sI-Ya-ETO" customClass="DatePickerTableViewCell" customModule="SquadUp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="49.5" width="600" height="112"/>
+                                                <rect key="frame" x="0.0" y="50" width="600" height="112"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9sI-Ya-ETO" id="6YZ-wn-rrg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="111.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="112"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMG-K9-5WX">
@@ -239,10 +241,10 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="184" id="H5Z-27-9nF" customClass="PickerTableViewCell" customModule="SquadUp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="161.5" width="600" height="184"/>
+                                                <rect key="frame" x="0.0" y="162" width="600" height="184"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H5Z-27-9nF" id="38N-Fl-tHa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="183.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="184"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="bYY-NF-3Ij">
@@ -283,10 +285,10 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gamePickerCell" rowHeight="97" id="WAl-Lb-Tov" userLabel="gamePickerCell" customClass="GamePickerTableViewCell" customModule="SquadUp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="345.5" width="600" height="97"/>
+                                                <rect key="frame" x="0.0" y="346" width="600" height="97"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WAl-Lb-Tov" id="g2D-HX-DKb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="96.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="97"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="B0u-2C-D38">
@@ -414,16 +416,17 @@
                             <constraint firstItem="nVf-Bz-id5" firstAttribute="centerY" secondItem="O6s-9c-EKy" secondAttribute="centerY" constant="-75" id="q5I-XL-zHT"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcY-QG-PLf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Nmv-mk-j2Y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3123" y="-629"/>
+            <point key="canvasLocation" x="3951" y="-1165"/>
         </scene>
-        <!--View Controller-->
+        <!--Six Person Game View Controller-->
         <scene sceneID="p2g-EQ-fEo">
             <objects>
-                <viewController id="odZ-wP-K8p" sceneMemberID="viewController">
+                <viewController id="odZ-wP-K8p" customClass="SixPersonGameViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fdu-ao-OYu"/>
                         <viewControllerLayoutGuide type="bottom" id="pK5-0U-ssN"/>
@@ -433,15 +436,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmi-64-0rn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3239" y="44"/>
+            <point key="canvasLocation" x="3951" y="368"/>
         </scene>
-        <!--View Controller-->
+        <!--Eight Person Game View Controller-->
         <scene sceneID="mct-n0-OcJ">
             <objects>
-                <viewController id="ngX-aI-Y7a" sceneMemberID="viewController">
+                <viewController id="ngX-aI-Y7a" customClass="EightPersonGameViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PL7-qK-PTK"/>
                         <viewControllerLayoutGuide type="bottom" id="CDp-r8-nsR"/>
@@ -451,10 +455,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zel-Vn-LcV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3797" y="-629"/>
+            <point key="canvasLocation" x="3951" y="-425"/>
         </scene>
         <!--RegisterViewController-->
         <scene sceneID="VdO-MW-I91">
@@ -834,7 +839,7 @@ Please check your email to verify your account registration before logging i
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54R-JX-dj2" id="ajc-D4-sKE">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
