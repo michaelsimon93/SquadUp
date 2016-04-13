@@ -8,8 +8,14 @@
 
 import UIKit
 
-class FriendsViewController: UIViewController {
+class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    let friendCellID = "friendCell"
+    //friends are an array of players to be loaded
+    var friends = [Player]()
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +27,27 @@ class FriendsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    
+    //MARK: - Table View Delegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        //selected row, go to friends profile
+        
+    }
+    
+    //MARK: - Table View Data Source
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //return users number of friends
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(friendCellID, forIndexPath: indexPath)
+        
+        return cell
+    }
 
     /*
     // MARK: - Navigation

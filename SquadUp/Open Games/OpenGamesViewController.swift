@@ -24,7 +24,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         //load some generic games into the table view
         let game1 = Game(date: NSDate(), location: "SERF", gameType: "5v5", numPlayersJoined: 5, totalPlayersAllowed: 10)
-        let game2 = Game(date: NSDate(), location: "NAT", gameType: "5v5", numPlayersJoined: 2, totalPlayersAllowed: 10)
+        let game2 = Game(date: NSDate(), location: "NAT", gameType: "4v4", numPlayersJoined: 2, totalPlayersAllowed: 8)
         let game3 = Game(date: NSDate(), location: "James Madison", gameType: "3v3", numPlayersJoined: 3, totalPlayersAllowed: 6)
         
         games.append(game1)
@@ -53,8 +53,24 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         //send the event with the segue
         //print(indexPath.row)
         
-        //segue to the joining game view controller, pass the game to be given to the destination VC
-        self.performSegueWithIdentifier("toTenPersonViewController", sender: games[indexPath.row])
+        //game is a 5v5
+        if games[indexPath.row].totalPlayersAllowed == 10 {
+            //segue to the joining game view controller, pass the game to be given to the destination VC
+            self.performSegueWithIdentifier("toTenPersonViewController", sender: games[indexPath.row])
+        }
+        //game is a 4v4
+        else if games[indexPath.row].totalPlayersAllowed == 8 {
+            //segue to the joining game view controller, pass the game to be given to the destination VC
+            self.performSegueWithIdentifier("toEightPersonViewController", sender: games[indexPath.row])
+        }
+        //game is a 3v3
+        else if games[indexPath.row].totalPlayersAllowed == 6 {
+            //segue to the joining game view controller, pass the game to be given to the destination VC
+            self.performSegueWithIdentifier("toSixPersonViewController", sender: games[indexPath.row])
+        }
+
+        //delselect the row so that when the game detail is popped off there isn't a cell stil highlighted
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     
