@@ -9,11 +9,18 @@
 import UIKit
 
 class TenPersonGameViewController: UIViewController {
-
+    
+    //outlet to customize the font to fit style of the app
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        backButton.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Futura", size: 15)!], forState: UIControlState.Normal)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

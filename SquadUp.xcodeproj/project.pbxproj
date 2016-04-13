@@ -136,8 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				DA23A5A61C98EC4700B7DE68 /* TenPersonGameViewController.swift */,
-				DAFC0E961CBD9C8C00D521F2 /* SixPersonGameViewController.swift */,
 				DAFC0E981CBD9C9700D521F2 /* EightPersonGameViewController.swift */,
+				DAFC0E961CBD9C8C00D521F2 /* SixPersonGameViewController.swift */,
 			);
 			name = "Game Detail View Controller";
 			sourceTree = "<group>";
