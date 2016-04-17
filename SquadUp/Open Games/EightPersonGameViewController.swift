@@ -1,22 +1,17 @@
 //
-//  ThirdViewController.swift
+//  EightPersonGameViewController.swift
 //  SquadUp
 //
-//  Created by Michael Oudenhoven on 3/5/16.
+//  Created by Michael Oudenhoven on 4/12/16.
 //  Copyright © 2016 CS 407. All rights reserved.
 //
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class EightPersonGameViewController: UIViewController {
 
-    
-    
-    
-    
-    //tutorial for making a real time chat with firebase
-    //https://www.raywenderlich.com/122148/firebase-tutorial-real-time-chat
-    
+    //outlet to customize the font to fit style of the app
+    @IBOutlet weak var backButton: UIBarButtonItem!
     
     
     
@@ -24,11 +19,17 @@ class ThirdViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        backButton.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Futura", size: 15)!], forState: UIControlState.Normal)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
     }
     
 

@@ -1,15 +1,25 @@
 //
-//  GameDetailViewController.swift
+//  ThirdViewController.swift
 //  SquadUp
 //
-//  Created by Michael Oudenhoven on 3/15/16.
+//  Created by Michael Oudenhoven on 3/5/16.
 //  Copyright © 2016 CS 407. All rights reserved.
 //
 
 import UIKit
 
-class GameDetailViewController: UIViewController {
+class MessagesViewController : UIViewController {
 
+    
+    
+    
+    
+    //tutorial for making a real time chat with firebase
+    //https://www.raywenderlich.com/122148/firebase-tutorial-real-time-chat
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

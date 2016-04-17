@@ -105,8 +105,8 @@ class RegisterViewController: UIViewController {
     }
     
     func configureImages() {
-        backgroundImage.backgroundColor = UIColor.grayColor()
-        basketballImage.backgroundColor = UIColor.blackColor()
+        //backgroundImage.backgroundColor = UIColor.grayColor()
+        //basketballImage.backgroundColor = UIColor.blackColor()
     }
     
 

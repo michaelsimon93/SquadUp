@@ -1,19 +1,26 @@
 //
-//  FourthViewController.swift
+//  GameDetailViewController.swift
 //  SquadUp
 //
-//  Created by Michael Oudenhoven on 3/5/16.
+//  Created by Michael Oudenhoven on 3/15/16.
 //  Copyright © 2016 CS 407. All rights reserved.
 //
 
 import UIKit
 
-class FourthViewController: UIViewController {
-
+class TenPersonGameViewController: UIViewController {
+    
+    //outlet to customize the font to fit style of the app
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        backButton.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Futura", size: 15)!], forState: UIControlState.Normal)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
