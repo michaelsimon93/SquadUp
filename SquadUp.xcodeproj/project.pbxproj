@@ -38,7 +38,7 @@
 		<dict>
 			<key>children</key>
 			<array>
-				<string>3D21774247D46B9DC6BCBDBF</string>
+				<string>B27A67485FE48053FDDA52A7</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -76,26 +76,6 @@ fi
 </string>
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
-		</dict>
-		<key>2FBBD7A8165AE6E76BB56C6A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3D21774247D46B9DC6BCBDBF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3D21774247D46B9DC6BCBDBF</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-SquadUp.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>615A3BF7F3D1FD771FB5824F</key>
 		<dict>
@@ -140,6 +120,26 @@ fi
 			<string>Pods/Target Support Files/Pods-SquadUp/Pods-SquadUp.debug.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B27A67485FE48053FDDA52A7</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_SquadUp.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>B54D15AAF37CE26CA35888B5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B27A67485FE48053FDDA52A7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>CBB6C43C9002B1F8C8D4D92A</key>
 		<dict>
@@ -397,7 +397,7 @@ fi
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>2FBBD7A8165AE6E76BB56C6A</string>
+				<string>B54D15AAF37CE26CA35888B5</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
