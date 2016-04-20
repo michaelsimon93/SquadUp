@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AaO-xj-C2K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AaO-xj-C2K">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -44,8 +44,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Option Chosen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1i1-aW-X3f">
-                                                    <rect key="frame" x="443" y="11" width="116" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Option Chosen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1i1-aW-X3f">
+                                                    <rect key="frame" x="442" y="10" width="117" height="23"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -109,20 +109,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="5:30 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCr-8Y-ttB">
-                                                    <rect key="frame" x="23" y="16" width="60" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5:30 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCr-8Y-ttB">
+                                                    <rect key="frame" x="23" y="15" width="60" height="20"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="5/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmv-9T-spC">
-                                                    <rect key="frame" x="532" y="16" width="35" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmv-9T-spC">
+                                                    <rect key="frame" x="532" y="15" width="35" height="20"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SERF 5v5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Syy-oc-FAD">
-                                                    <rect key="frame" x="261" y="16" width="65" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SERF 5v5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Syy-oc-FAD">
+                                                    <rect key="frame" x="261" y="15" width="65" height="20"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -291,8 +291,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="183"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bYY-NF-3Ij">
-                                                            <rect key="frame" x="0.0" y="51" width="600" height="133"/>
+                                                        <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="bYY-NF-3Ij">
+                                                            <rect key="frame" x="0.0" y="51" width="600" height="132"/>
                                                             <connections>
                                                                 <outlet property="dataSource" destination="H5Z-27-9nF" id="ZSn-vC-Gdi"/>
                                                                 <outlet property="delegate" destination="H5Z-27-9nF" id="uQq-i3-lG5"/>
@@ -838,40 +838,31 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5l-OY-7dB" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="530"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muV-fh-97K">
+                                                <rect key="frame" x="165" y="226" width="270" height="99"/>
+                                                <string key="text">Enter your 'wisc.edu' email 
+to register. An email containing
+ a temporary password will
+ be sent to you.</string>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basketball" translatesAutoresizingMaskIntoConstraints="NO" id="rYX-pd-yVB" userLabel="Basketball Image">
-                                                <rect key="frame" x="225" y="60" width="150" height="150"/>
+                                                <rect key="frame" x="225" y="41" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="rYX-pd-yVB" secondAttribute="height" multiplier="1:1" id="m5f-a9-AhZ"/>
                                                     <constraint firstAttribute="width" constant="150" id="v7D-tp-pfP"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" placeholder="password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hx6-tO-SbF">
-                                                <rect key="frame" x="175" y="304" width="250" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="250" id="CBe-Qi-ch2"/>
-                                                    <constraint firstAttribute="height" constant="40" id="N3W-WE-RVq"/>
-                                                </constraints>
-                                                <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="confirm password" borderStyle="roundedRect" placeholder="confirm password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="x3u-rU-MiZ">
-                                                <rect key="frame" x="175" y="359" width="250" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="250" id="9EK-IR-dY1"/>
-                                                    <constraint firstAttribute="height" constant="40" id="CQO-3m-Ocd"/>
-                                                </constraints>
-                                                <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rn2-Hq-wjd">
-                                                <rect key="frame" x="175" y="414" width="250" height="40"/>
+                                                <rect key="frame" x="175" y="405" width="250" height="40"/>
                                                 <color key="backgroundColor" red="0.81568627449999997" green="0.41176470590000003" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="2tw-Gu-KoQ"/>
                                                     <constraint firstAttribute="height" constant="40" id="dFD-MT-gXR"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                                 <state key="normal" title="SIGN UP"/>
                                                 <connections>
                                                     <action selector="signUpClicked:" destination="vX0-65-u00" eventType="touchUpInside" id="Io1-oH-dbm"/>
@@ -884,36 +875,34 @@
                                                     <action selector="backClicked:" destination="vX0-65-u00" eventType="touchUpInside" id="QpM-ZC-EcW"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="passwords do not match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAN-AF-QwN">
-                                                <rect key="frame" x="221" y="220" width="159" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email" borderStyle="roundedRect" placeholder="email" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dRs-Q7-FGh">
-                                                <rect key="frame" x="175" y="245" width="250" height="40"/>
+                                                <rect key="frame" x="175" y="345" width="250" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="T6J-dq-f2q"/>
                                                     <constraint firstAttribute="height" constant="40" id="mvR-oE-Bcy"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please use a 'wisc.edu' email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRn-tY-Lko">
+                                                <rect key="frame" x="207" y="204" width="187" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="dRs-Q7-FGh" firstAttribute="top" secondItem="oAN-AF-QwN" secondAttribute="bottom" constant="8" id="4Xj-IJ-fhl"/>
-                                            <constraint firstItem="Rn2-Hq-wjd" firstAttribute="top" secondItem="x3u-rU-MiZ" secondAttribute="bottom" constant="15" id="5bP-VY-o9A"/>
-                                            <constraint firstItem="Hx6-tO-SbF" firstAttribute="top" secondItem="dRs-Q7-FGh" secondAttribute="bottom" constant="19" id="Cfp-jU-3wE"/>
-                                            <constraint firstItem="dRs-Q7-FGh" firstAttribute="top" secondItem="rYX-pd-yVB" secondAttribute="bottom" constant="35" id="GP6-zh-hjC"/>
+                                            <constraint firstItem="muV-fh-97K" firstAttribute="top" secondItem="rYX-pd-yVB" secondAttribute="bottom" constant="35" id="2jr-A8-aKv"/>
+                                            <constraint firstItem="oRn-tY-Lko" firstAttribute="centerX" secondItem="a5l-OY-7dB" secondAttribute="centerX" id="3RR-L1-Cmr"/>
                                             <constraint firstItem="Rn2-Hq-wjd" firstAttribute="centerX" secondItem="a5l-OY-7dB" secondAttribute="centerX" id="Ho7-H0-ap1"/>
-                                            <constraint firstItem="oAN-AF-QwN" firstAttribute="centerX" secondItem="a5l-OY-7dB" secondAttribute="centerX" id="JBL-kt-6uH"/>
-                                            <constraint firstItem="x3u-rU-MiZ" firstAttribute="centerX" secondItem="a5l-OY-7dB" secondAttribute="centerX" id="Rwj-Yf-6qg"/>
-                                            <constraint firstItem="dRs-Q7-FGh" firstAttribute="centerY" secondItem="a5l-OY-7dB" secondAttribute="centerY" id="WRG-rP-thk"/>
-                                            <constraint firstItem="x3u-rU-MiZ" firstAttribute="top" secondItem="Hx6-tO-SbF" secondAttribute="bottom" constant="15" id="ZhH-sD-6yT"/>
+                                            <constraint firstItem="muV-fh-97K" firstAttribute="top" secondItem="oRn-tY-Lko" secondAttribute="bottom" constant="5" id="J5l-WQ-PY7"/>
+                                            <constraint firstItem="muV-fh-97K" firstAttribute="centerX" secondItem="a5l-OY-7dB" secondAttribute="centerX" id="Okj-C7-vpn"/>
                                             <constraint firstItem="Zuu-S3-i1s" firstAttribute="top" secondItem="a5l-OY-7dB" secondAttribute="top" constant="20" id="aEh-7b-GUH"/>
+                                            <constraint firstItem="Rn2-Hq-wjd" firstAttribute="top" secondItem="dRs-Q7-FGh" secondAttribute="bottom" constant="20" id="cWe-WV-hxM"/>
+                                            <constraint firstItem="muV-fh-97K" firstAttribute="centerY" secondItem="a5l-OY-7dB" secondAttribute="centerY" constant="10" id="d8L-Qj-rEh"/>
                                             <constraint firstItem="rYX-pd-yVB" firstAttribute="centerX" secondItem="a5l-OY-7dB" secondAttribute="centerX" id="nGe-Xc-bkj"/>
-                                            <constraint firstItem="Hx6-tO-SbF" firstAttribute="centerX" secondItem="a5l-OY-7dB" secondAttribute="centerX" id="sAl-Ue-E6q"/>
+                                            <constraint firstItem="dRs-Q7-FGh" firstAttribute="top" secondItem="muV-fh-97K" secondAttribute="bottom" constant="20" id="sEW-N3-cZO"/>
                                             <constraint firstItem="dRs-Q7-FGh" firstAttribute="centerX" secondItem="a5l-OY-7dB" secondAttribute="centerX" id="tai-Ua-hWW"/>
                                             <constraint firstItem="Zuu-S3-i1s" firstAttribute="leading" secondItem="a5l-OY-7dB" secondAttribute="leading" constant="20" id="zpD-dV-u56"/>
                                         </constraints>
@@ -945,10 +934,8 @@
                     <connections>
                         <outlet property="backgroundImage" destination="ISC-6J-pgM" id="gyy-bl-uUd"/>
                         <outlet property="basketballImage" destination="rYX-pd-yVB" id="hwp-vL-sQx"/>
-                        <outlet property="confirmPassTextField" destination="x3u-rU-MiZ" id="eSq-DV-EnK"/>
                         <outlet property="emailTextField" destination="dRs-Q7-FGh" id="wF8-ht-nZE"/>
-                        <outlet property="passwordMatchLabel" destination="oAN-AF-QwN" id="MpS-I0-h4E"/>
-                        <outlet property="passwordTextField" destination="Hx6-tO-SbF" id="p5M-Km-G2g"/>
+                        <outlet property="invalidEmailLabel" destination="oRn-tY-Lko" id="BHE-BT-0by"/>
                         <outlet property="scrollView" destination="bKH-9p-Vc8" id="gR2-KV-ST3"/>
                         <outlet property="scrollViewHeightConstraint" destination="Z6Y-xZ-C5T" id="uDF-5K-W4a"/>
                         <outlet property="signUpButton" destination="Rn2-Hq-wjd" id="XhA-SL-NlR"/>
@@ -975,20 +962,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0m-z1-8DE">
-                                <rect key="frame" x="0.0" y="205" width="600" height="91"/>
+                                <rect key="frame" x="0.0" y="213" width="600" height="75"/>
                                 <string key="text">Thank you for joining SquadUp!
-Please check your email to verify your account registration before logging in.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+Please check your email for a temporary password to verify your identity.</string>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDl-O5-E7C">
-                                <rect key="frame" x="175" y="316" width="250" height="36"/>
+                                <rect key="frame" x="175" y="308" width="250" height="38"/>
                                 <color key="backgroundColor" red="0.81568627449999997" green="0.41176470590000003" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="HXr-Vp-aMd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 <state key="normal" title="Okay!"/>
                                 <connections>
                                     <action selector="okayClicked:" destination="gFc-IA-lSj" eventType="touchUpInside" id="Luh-Aw-p6b"/>
@@ -1044,14 +1031,14 @@ Please check your email to verify your account registration before logging i
                                                     <constraint firstAttribute="width" secondItem="YFq-26-ySe" secondAttribute="height" multiplier="1:1" id="OIa-V4-vd1"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email" borderStyle="roundedRect" placeholder="email" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Tpg-nR-DVX">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email" borderStyle="roundedRect" placeholder="email" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Tpg-nR-DVX">
                                                 <rect key="frame" x="175" y="280" width="250" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="bTY-Ox-aDW"/>
                                                     <constraint firstAttribute="width" constant="250" id="mcX-8q-ug2"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="EKH-zJ-Ncd" id="lLJ-oV-ky0"/>
@@ -1064,6 +1051,7 @@ Please check your email to verify your account registration before logging i
                                                     <constraint firstAttribute="width" constant="250" id="M9Q-FS-LOi"/>
                                                     <constraint firstAttribute="height" constant="40" id="aei-h5-lsD"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                                 <state key="normal" title="LOG IN"/>
                                                 <connections>
                                                     <action selector="logInClicked:" destination="EKH-zJ-Ncd" eventType="touchUpInside" id="Ff4-dg-L8z"/>
@@ -1077,14 +1065,14 @@ Please check your email to verify your account registration before logging i
                                                     <segue destination="vX0-65-u00" kind="show" identifier="toRegisterViewController" id="Veb-Um-Cgp"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" placeholder="password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CAo-2c-LHW">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="passwordField" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password" borderStyle="roundedRect" placeholder="password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CAo-2c-LHW">
                                                 <rect key="frame" x="175" y="335" width="250" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Azy-B9-zC6"/>
                                                     <constraint firstAttribute="width" constant="250" id="h7t-ij-N6r"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="EKH-zJ-Ncd" id="zo5-Re-zA9"/>
@@ -1096,6 +1084,11 @@ Please check your email to verify your account registration before logging i
                                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVG-P6-g9X">
+                                                <rect key="frame" x="242" y="474" width="116" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Forgot Password?"/>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="Tpg-nR-DVX" firstAttribute="centerY" secondItem="BG1-Ve-gGT" secondAttribute="centerY" id="6Td-W4-AZh"/>
@@ -1104,11 +1097,13 @@ Please check your email to verify your account registration before logging i
                                             <constraint firstItem="YFq-26-ySe" firstAttribute="centerX" secondItem="BG1-Ve-gGT" secondAttribute="centerX" id="JaI-Dm-BMC"/>
                                             <constraint firstItem="J0r-4C-bq7" firstAttribute="centerX" secondItem="BG1-Ve-gGT" secondAttribute="centerX" id="KuI-GE-pT9"/>
                                             <constraint firstItem="SpF-Bn-qKR" firstAttribute="top" secondItem="CAo-2c-LHW" secondAttribute="bottom" constant="15" id="L2y-H6-Pme"/>
+                                            <constraint firstItem="YVG-P6-g9X" firstAttribute="centerX" secondItem="BG1-Ve-gGT" secondAttribute="centerX" id="NWG-zu-IHj"/>
                                             <constraint firstItem="Tpg-nR-DVX" firstAttribute="top" secondItem="YFq-26-ySe" secondAttribute="bottom" constant="35" id="cBQ-hn-B1W"/>
                                             <constraint firstItem="Tpg-nR-DVX" firstAttribute="top" secondItem="jr0-y2-NYL" secondAttribute="bottom" constant="8" id="ckF-WM-gKl"/>
                                             <constraint firstItem="CAo-2c-LHW" firstAttribute="centerX" secondItem="BG1-Ve-gGT" secondAttribute="centerX" id="cpM-nm-uwS"/>
                                             <constraint firstItem="SpF-Bn-qKR" firstAttribute="centerX" secondItem="BG1-Ve-gGT" secondAttribute="centerX" id="fDa-r4-05q"/>
                                             <constraint firstItem="jr0-y2-NYL" firstAttribute="centerX" secondItem="BG1-Ve-gGT" secondAttribute="centerX" id="fho-8y-3yC"/>
+                                            <constraint firstItem="YVG-P6-g9X" firstAttribute="top" secondItem="J0r-4C-bq7" secondAttribute="bottom" constant="5" id="kLb-O4-T7x"/>
                                             <constraint firstItem="J0r-4C-bq7" firstAttribute="top" secondItem="SpF-Bn-qKR" secondAttribute="bottom" constant="10" id="l8o-pR-b4D"/>
                                         </constraints>
                                     </view>
@@ -1198,22 +1193,22 @@ Please check your email to verify your account registration before logging i
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6RJ-ul-ARg" userLabel="Friend Image">
-                                                    <rect key="frame" x="10" y="4" width="50" height="51"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6RJ-ul-ARg" userLabel="Friend Image">
+                                                    <rect key="frame" x="10" y="5" width="50" height="50"/>
                                                     <color key="backgroundColor" red="0.8156862855" green="0.41176471110000001" blue="0.14509804549999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="6RJ-ul-ARg" secondAttribute="height" multiplier="1:1" id="0Cl-s5-5T9"/>
                                                         <constraint firstAttribute="width" constant="50" id="uZO-Ga-4V6"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Friends Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cum-e9-RE7">
-                                                    <rect key="frame" x="75" y="19" width="108" height="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cum-e9-RE7">
+                                                    <rect key="frame" x="75" y="18" width="108" height="23"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="star_unhighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="Sut-2f-x1B" userLabel="Add Friend Image/Button">
-                                                    <rect key="frame" x="537" y="20" width="20" height="21"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_unhighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="Sut-2f-x1B" userLabel="Add Friend Image/Button">
+                                                    <rect key="frame" x="537" y="20" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="zUx-Dg-lsj"/>
                                                     </constraints>

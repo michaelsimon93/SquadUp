@@ -1,1159 +1,492 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>03C571FC99F3E10AD5249482</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-SquadUp/Pods-SquadUp-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>0D877142470F8577A21EBD22</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B27A67485FE48053FDDA52A7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>14D5BFD5C4C9C4B8CDC9EA52</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>615A3BF7F3D1FD771FB5824F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-SquadUp.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-SquadUp/Pods-SquadUp.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>790FBFE3ECC311C682D271BE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>7D9D6298C1C2866514AB4C4F</string>
-				<string>615A3BF7F3D1FD771FB5824F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7D9D6298C1C2866514AB4C4F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-SquadUp.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-SquadUp/Pods-SquadUp.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B27A67485FE48053FDDA52A7</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_SquadUp.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>B54D15AAF37CE26CA35888B5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B27A67485FE48053FDDA52A7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CBB6C43C9002B1F8C8D4D92A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-SquadUp/Pods-SquadUp-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>DA08BF021C9722CD00206E88</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>TabBarController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA08BF031C9722CD00206E88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA08BF021C9722CD00206E88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA23A5A61C98EC4700B7DE68</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>TenPersonGameViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA23A5A71C98EC4700B7DE68</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA23A5A61C98EC4700B7DE68</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA23A5A81C98F08E00B7DE68</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>CreateGameViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA23A5A91C98F08E00B7DE68</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA23A5A81C98F08E00B7DE68</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA23A5AA1C98F23500B7DE68</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>GameTableViewCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA23A5AB1C98F23500B7DE68</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA23A5AA1C98F23500B7DE68</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA23A5AC1C98F2B900B7DE68</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DAFC0E9B1CBD9CB200D521F2</string>
-				<string>DAFC0E9A1CBD9CA700D521F2</string>
-				<string>DA73EBB71C8BA9FF00E89F15</string>
-				<string>DA23A5A81C98F08E00B7DE68</string>
-				<string>DA23A5AA1C98F23500B7DE68</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Open Games</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA258E461CADF08700AB30DB</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ConfirmationViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA258E471CADF08700AB30DB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA258E461CADF08700AB30DB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA73EBA71C8BA9FF00E89F15</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DA73EBB21C8BA9FF00E89F15</string>
-				<string>DA73EBB11C8BA9FF00E89F15</string>
-				<string>790FBFE3ECC311C682D271BE</string>
-				<string>0D877142470F8577A21EBD22</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBA81C8BA9FF00E89F15</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0720</string>
-				<key>LastUpgradeCheck</key>
-				<string>0720</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>CS 407</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>DA73EBAF1C8BA9FF00E89F15</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.2.1</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>DA73EBAB1C8BA9FF00E89F15</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>DA73EBA71C8BA9FF00E89F15</string>
-			<key>productRefGroup</key>
-			<string>DA73EBB11C8BA9FF00E89F15</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>DA73EBAF1C8BA9FF00E89F15</string>
-			</array>
-		</dict>
-		<key>DA73EBAB1C8BA9FF00E89F15</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>DA73EBC21C8BA9FF00E89F15</string>
-				<string>DA73EBC31C8BA9FF00E89F15</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>DA73EBAC1C8BA9FF00E89F15</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>DA74781A1CB896830028C9E1</string>
-				<string>DA73EBCD1C8BAB9500E89F15</string>
-				<string>DA23A5A71C98EC4700B7DE68</string>
-				<string>DA73EBB81C8BA9FF00E89F15</string>
-				<string>DAFB94361CAC2FB50006770C</string>
-				<string>DAFB94381CAC325D0006770C</string>
-				<string>DA73EBB41C8BA9FF00E89F15</string>
-				<string>DAAD08181CBC311300E55C87</string>
-				<string>DA08BF031C9722CD00206E88</string>
-				<string>DAFC0E971CBD9C8C00D521F2</string>
-				<string>DA7478181CB85B9F0028C9E1</string>
-				<string>DAFC0E991CBD9C9700D521F2</string>
-				<string>DA73EBD11C8BB01F00E89F15</string>
-				<string>DA73EBCF1C8BB01700E89F15</string>
-				<string>DA258E471CADF08700AB30DB</string>
-				<string>DA73EBCB1C8BAB8500E89F15</string>
-				<string>DA23A5A91C98F08E00B7DE68</string>
-				<string>DA73EBB61C8BA9FF00E89F15</string>
-				<string>DA73EBC91C8BAA2E00E89F15</string>
-				<string>DA23A5AB1C98F23500B7DE68</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>DA73EBAD1C8BA9FF00E89F15</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B54D15AAF37CE26CA35888B5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>DA73EBAE1C8BA9FF00E89F15</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>DA73EBC01C8BA9FF00E89F15</string>
-				<string>DA73EBBD1C8BA9FF00E89F15</string>
-				<string>DA73EBBB1C8BA9FF00E89F15</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>DA73EBAF1C8BA9FF00E89F15</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>DA73EBC41C8BA9FF00E89F15</string>
-			<key>buildPhases</key>
-			<array>
-				<string>14D5BFD5C4C9C4B8CDC9EA52</string>
-				<string>DA73EBAC1C8BA9FF00E89F15</string>
-				<string>DA73EBAD1C8BA9FF00E89F15</string>
-				<string>DA73EBAE1C8BA9FF00E89F15</string>
-				<string>CBB6C43C9002B1F8C8D4D92A</string>
-				<string>03C571FC99F3E10AD5249482</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>SquadUp</string>
-			<key>productName</key>
-			<string>SquadUp</string>
-			<key>productReference</key>
-			<string>DA73EBB01C8BA9FF00E89F15</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>DA73EBB01C8BA9FF00E89F15</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>SquadUp.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>DA73EBB11C8BA9FF00E89F15</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DA73EBB01C8BA9FF00E89F15</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBB21C8BA9FF00E89F15</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DAFB94351CAC2FB50006770C</string>
-				<string>DAFB94371CAC325D0006770C</string>
-				<string>DA258E461CADF08700AB30DB</string>
-				<string>DA73EBB51C8BA9FF00E89F15</string>
-				<string>DA23A5AC1C98F2B900B7DE68</string>
-				<string>DA73EBCA1C8BAB8500E89F15</string>
-				<string>DA73EBCC1C8BAB9500E89F15</string>
-				<string>DA08BF021C9722CD00206E88</string>
-				<string>DA73EBCE1C8BB01700E89F15</string>
-				<string>DA73EBD01C8BB01F00E89F15</string>
-				<string>DA73EBB31C8BA9FF00E89F15</string>
-				<string>DA73EBB91C8BA9FF00E89F15</string>
-				<string>DA73EBBC1C8BA9FF00E89F15</string>
-				<string>DA73EBBE1C8BA9FF00E89F15</string>
-				<string>DA73EBC11C8BA9FF00E89F15</string>
-				<string>DA73EBC71C8BAA2E00E89F15</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>SquadUp</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBB31C8BA9FF00E89F15</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AppDelegate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBB41C8BA9FF00E89F15</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA73EBB31C8BA9FF00E89F15</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA73EBB51C8BA9FF00E89F15</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ProfileViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBB61C8BA9FF00E89F15</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA73EBB51C8BA9FF00E89F15</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA73EBB71C8BA9FF00E89F15</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>OpenGamesViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBB81C8BA9FF00E89F15</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA73EBB71C8BA9FF00E89F15</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA73EBB91C8BA9FF00E89F15</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DA73EBBA1C8BA9FF00E89F15</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBBA1C8BA9FF00E89F15</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBBB1C8BA9FF00E89F15</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA73EBB91C8BA9FF00E89F15</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA73EBBC1C8BA9FF00E89F15</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Assets.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBBD1C8BA9FF00E89F15</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA73EBBC1C8BA9FF00E89F15</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA73EBBE1C8BA9FF00E89F15</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DA73EBBF1C8BA9FF00E89F15</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBBF1C8BA9FF00E89F15</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBC01C8BA9FF00E89F15</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA73EBBE1C8BA9FF00E89F15</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA73EBC11C8BA9FF00E89F15</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBC21C8BA9FF00E89F15</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.2</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>DA73EBC31C8BA9FF00E89F15</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.2</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>DA73EBC41C8BA9FF00E89F15</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>DA73EBC51C8BA9FF00E89F15</string>
-				<string>DA73EBC61C8BA9FF00E89F15</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>DA73EBC51C8BA9FF00E89F15</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>7D9D6298C1C2866514AB4C4F</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>INFOPLIST_FILE</key>
-				<string>SquadUp/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.Oudenhoven.SquadUp</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>DA73EBC61C8BA9FF00E89F15</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>615A3BF7F3D1FD771FB5824F</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>INFOPLIST_FILE</key>
-				<string>SquadUp/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.Oudenhoven.SquadUp</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>DA73EBC71C8BAA2E00E89F15</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DA73EBC81C8BAA2E00E89F15</string>
-			</array>
-			<key>currentVersion</key>
-			<string>DA73EBC81C8BAA2E00E89F15</string>
-			<key>isa</key>
-			<string>XCVersionGroup</string>
-			<key>path</key>
-			<string>SquadUp.xcdatamodeld</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>versionGroupType</key>
-			<string>wrapper.xcdatamodel</string>
-		</dict>
-		<key>DA73EBC81C8BAA2E00E89F15</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.xcdatamodel</string>
-			<key>path</key>
-			<string>SquadUp.xcdatamodel</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBC91C8BAA2E00E89F15</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA73EBC71C8BAA2E00E89F15</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA73EBCA1C8BAB8500E89F15</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MessagesViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBCB1C8BAB8500E89F15</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA73EBCA1C8BAB8500E89F15</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA73EBCC1C8BAB9500E89F15</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>FriendsViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBCD1C8BAB9500E89F15</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA73EBCC1C8BAB9500E89F15</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA73EBCE1C8BB01700E89F15</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>LogInViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBCF1C8BB01700E89F15</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA73EBCE1C8BB01700E89F15</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA73EBD01C8BB01F00E89F15</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>RegisterViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA73EBD11C8BB01F00E89F15</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA73EBD01C8BB01F00E89F15</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA7478171CB85B9F0028C9E1</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>DatePickerTableViewCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA7478181CB85B9F0028C9E1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA7478171CB85B9F0028C9E1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DA7478191CB896830028C9E1</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>PickerTableViewCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DA74781A1CB896830028C9E1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DA7478191CB896830028C9E1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DAAD08171CBC311300E55C87</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>GamePickerTableViewCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DAAD08181CBC311300E55C87</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DAAD08171CBC311300E55C87</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DAFB94351CAC2FB50006770C</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Game.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DAFB94361CAC2FB50006770C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DAFB94351CAC2FB50006770C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DAFB94371CAC325D0006770C</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Player.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DAFB94381CAC325D0006770C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DAFB94371CAC325D0006770C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DAFC0E961CBD9C8C00D521F2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SixPersonGameViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DAFC0E971CBD9C8C00D521F2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DAFC0E961CBD9C8C00D521F2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DAFC0E981CBD9C9700D521F2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>EightPersonGameViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DAFC0E991CBD9C9700D521F2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DAFC0E981CBD9C9700D521F2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>DAFC0E9A1CBD9CA700D521F2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DA7478171CB85B9F0028C9E1</string>
-				<string>DA7478191CB896830028C9E1</string>
-				<string>DAAD08171CBC311300E55C87</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Custom Cells</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DAFC0E9B1CBD9CB200D521F2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DA23A5A61C98EC4700B7DE68</string>
-				<string>DAFC0E981CBD9C9700D521F2</string>
-				<string>DAFC0E961CBD9C8C00D521F2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Game Detail View Controller</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>DA73EBA81C8BA9FF00E89F15</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B54D15AAF37CE26CA35888B5 /* Pods_SquadUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27A67485FE48053FDDA52A7 /* Pods_SquadUp.framework */; };
+		DA0158771CC6D59F0002FA31 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0158761CC6D59F0002FA31 /* Int+Extensions.swift */; };
+		DA08BF031C9722CD00206E88 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA08BF021C9722CD00206E88 /* TabBarController.swift */; };
+		DA23A5A71C98EC4700B7DE68 /* TenPersonGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23A5A61C98EC4700B7DE68 /* TenPersonGameViewController.swift */; };
+		DA23A5A91C98F08E00B7DE68 /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23A5A81C98F08E00B7DE68 /* CreateGameViewController.swift */; };
+		DA23A5AB1C98F23500B7DE68 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23A5AA1C98F23500B7DE68 /* GameTableViewCell.swift */; };
+		DA258E471CADF08700AB30DB /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA258E461CADF08700AB30DB /* ConfirmationViewController.swift */; };
+		DA73EBB41C8BA9FF00E89F15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBB31C8BA9FF00E89F15 /* AppDelegate.swift */; };
+		DA73EBB61C8BA9FF00E89F15 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBB51C8BA9FF00E89F15 /* ProfileViewController.swift */; };
+		DA73EBB81C8BA9FF00E89F15 /* OpenGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBB71C8BA9FF00E89F15 /* OpenGamesViewController.swift */; };
+		DA73EBBB1C8BA9FF00E89F15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA73EBB91C8BA9FF00E89F15 /* Main.storyboard */; };
+		DA73EBBD1C8BA9FF00E89F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA73EBBC1C8BA9FF00E89F15 /* Assets.xcassets */; };
+		DA73EBC01C8BA9FF00E89F15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA73EBBE1C8BA9FF00E89F15 /* LaunchScreen.storyboard */; };
+		DA73EBC91C8BAA2E00E89F15 /* SquadUp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBC71C8BAA2E00E89F15 /* SquadUp.xcdatamodeld */; };
+		DA73EBCB1C8BAB8500E89F15 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBCA1C8BAB8500E89F15 /* MessagesViewController.swift */; };
+		DA73EBCD1C8BAB9500E89F15 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBCC1C8BAB9500E89F15 /* FriendsViewController.swift */; };
+		DA73EBCF1C8BB01700E89F15 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBCE1C8BB01700E89F15 /* LogInViewController.swift */; };
+		DA73EBD11C8BB01F00E89F15 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73EBD01C8BB01F00E89F15 /* RegisterViewController.swift */; };
+		DA7478181CB85B9F0028C9E1 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7478171CB85B9F0028C9E1 /* DatePickerTableViewCell.swift */; };
+		DA74781A1CB896830028C9E1 /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7478191CB896830028C9E1 /* PickerTableViewCell.swift */; };
+		DAAD08181CBC311300E55C87 /* GamePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAD08171CBC311300E55C87 /* GamePickerTableViewCell.swift */; };
+		DAFB94361CAC2FB50006770C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFB94351CAC2FB50006770C /* Game.swift */; };
+		DAFB94381CAC325D0006770C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFB94371CAC325D0006770C /* Player.swift */; };
+		DAFC0E971CBD9C8C00D521F2 /* SixPersonGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC0E961CBD9C8C00D521F2 /* SixPersonGameViewController.swift */; };
+		DAFC0E991CBD9C9700D521F2 /* EightPersonGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFC0E981CBD9C9700D521F2 /* EightPersonGameViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		615A3BF7F3D1FD771FB5824F /* Pods-SquadUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SquadUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SquadUp/Pods-SquadUp.release.xcconfig"; sourceTree = "<group>"; };
+		7D9D6298C1C2866514AB4C4F /* Pods-SquadUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SquadUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SquadUp/Pods-SquadUp.debug.xcconfig"; sourceTree = "<group>"; };
+		B27A67485FE48053FDDA52A7 /* Pods_SquadUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SquadUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA0158761CC6D59F0002FA31 /* Int+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		DA08BF021C9722CD00206E88 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		DA23A5A61C98EC4700B7DE68 /* TenPersonGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenPersonGameViewController.swift; sourceTree = "<group>"; };
+		DA23A5A81C98F08E00B7DE68 /* CreateGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
+		DA23A5AA1C98F23500B7DE68 /* GameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
+		DA258E461CADF08700AB30DB /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
+		DA73EBB01C8BA9FF00E89F15 /* SquadUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquadUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA73EBB31C8BA9FF00E89F15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA73EBB51C8BA9FF00E89F15 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DA73EBB71C8BA9FF00E89F15 /* OpenGamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGamesViewController.swift; sourceTree = "<group>"; };
+		DA73EBBA1C8BA9FF00E89F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA73EBBC1C8BA9FF00E89F15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA73EBBF1C8BA9FF00E89F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA73EBC11C8BA9FF00E89F15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA73EBC81C8BAA2E00E89F15 /* SquadUp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SquadUp.xcdatamodel; sourceTree = "<group>"; };
+		DA73EBCA1C8BAB8500E89F15 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		DA73EBCC1C8BAB9500E89F15 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		DA73EBCE1C8BB01700E89F15 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		DA73EBD01C8BB01F00E89F15 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DA7478171CB85B9F0028C9E1 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
+		DA7478191CB896830028C9E1 /* PickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
+		DAAD08171CBC311300E55C87 /* GamePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePickerTableViewCell.swift; sourceTree = "<group>"; };
+		DAFB94351CAC2FB50006770C /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		DAFB94371CAC325D0006770C /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DAFC0E961CBD9C8C00D521F2 /* SixPersonGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SixPersonGameViewController.swift; sourceTree = "<group>"; };
+		DAFC0E981CBD9C9700D521F2 /* EightPersonGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EightPersonGameViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA73EBAD1C8BA9FF00E89F15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B54D15AAF37CE26CA35888B5 /* Pods_SquadUp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D877142470F8577A21EBD22 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B27A67485FE48053FDDA52A7 /* Pods_SquadUp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		790FBFE3ECC311C682D271BE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7D9D6298C1C2866514AB4C4F /* Pods-SquadUp.debug.xcconfig */,
+				615A3BF7F3D1FD771FB5824F /* Pods-SquadUp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DA23A5AC1C98F2B900B7DE68 /* Open Games */ = {
+			isa = PBXGroup;
+			children = (
+				DAFC0E9B1CBD9CB200D521F2 /* Game Detail View Controller */,
+				DAFC0E9A1CBD9CA700D521F2 /* Custom Cells */,
+				DA73EBB71C8BA9FF00E89F15 /* OpenGamesViewController.swift */,
+				DA23A5A81C98F08E00B7DE68 /* CreateGameViewController.swift */,
+				DA23A5AA1C98F23500B7DE68 /* GameTableViewCell.swift */,
+			);
+			path = "Open Games";
+			sourceTree = "<group>";
+		};
+		DA73EBA71C8BA9FF00E89F15 = {
+			isa = PBXGroup;
+			children = (
+				DA73EBB21C8BA9FF00E89F15 /* SquadUp */,
+				DA73EBB11C8BA9FF00E89F15 /* Products */,
+				790FBFE3ECC311C682D271BE /* Pods */,
+				0D877142470F8577A21EBD22 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DA73EBB11C8BA9FF00E89F15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA73EBB01C8BA9FF00E89F15 /* SquadUp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA73EBB21C8BA9FF00E89F15 /* SquadUp */ = {
+			isa = PBXGroup;
+			children = (
+				DA97E20C1CC56CC5000700BB /* Backend */,
+				DAFB94351CAC2FB50006770C /* Game.swift */,
+				DAFB94371CAC325D0006770C /* Player.swift */,
+				DA258E461CADF08700AB30DB /* ConfirmationViewController.swift */,
+				DA73EBB51C8BA9FF00E89F15 /* ProfileViewController.swift */,
+				DA23A5AC1C98F2B900B7DE68 /* Open Games */,
+				DA73EBCA1C8BAB8500E89F15 /* MessagesViewController.swift */,
+				DA73EBCC1C8BAB9500E89F15 /* FriendsViewController.swift */,
+				DA08BF021C9722CD00206E88 /* TabBarController.swift */,
+				DA73EBCE1C8BB01700E89F15 /* LogInViewController.swift */,
+				DA73EBD01C8BB01F00E89F15 /* RegisterViewController.swift */,
+				DA73EBB31C8BA9FF00E89F15 /* AppDelegate.swift */,
+				DA73EBB91C8BA9FF00E89F15 /* Main.storyboard */,
+				DA0158761CC6D59F0002FA31 /* Int+Extensions.swift */,
+				DA73EBBC1C8BA9FF00E89F15 /* Assets.xcassets */,
+				DA73EBBE1C8BA9FF00E89F15 /* LaunchScreen.storyboard */,
+				DA73EBC11C8BA9FF00E89F15 /* Info.plist */,
+				DA73EBC71C8BAA2E00E89F15 /* SquadUp.xcdatamodeld */,
+			);
+			path = SquadUp;
+			sourceTree = "<group>";
+		};
+		DA97E20C1CC56CC5000700BB /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		DAFC0E9A1CBD9CA700D521F2 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DA7478171CB85B9F0028C9E1 /* DatePickerTableViewCell.swift */,
+				DA7478191CB896830028C9E1 /* PickerTableViewCell.swift */,
+				DAAD08171CBC311300E55C87 /* GamePickerTableViewCell.swift */,
+			);
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		DAFC0E9B1CBD9CB200D521F2 /* Game Detail View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA23A5A61C98EC4700B7DE68 /* TenPersonGameViewController.swift */,
+				DAFC0E981CBD9C9700D521F2 /* EightPersonGameViewController.swift */,
+				DAFC0E961CBD9C8C00D521F2 /* SixPersonGameViewController.swift */,
+			);
+			name = "Game Detail View Controller";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA73EBAF1C8BA9FF00E89F15 /* SquadUp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA73EBC41C8BA9FF00E89F15 /* Build configuration list for PBXNativeTarget "SquadUp" */;
+			buildPhases = (
+				14D5BFD5C4C9C4B8CDC9EA52 /* Check Pods Manifest.lock */,
+				DA73EBAC1C8BA9FF00E89F15 /* Sources */,
+				DA73EBAD1C8BA9FF00E89F15 /* Frameworks */,
+				DA73EBAE1C8BA9FF00E89F15 /* Resources */,
+				CBB6C43C9002B1F8C8D4D92A /* Embed Pods Frameworks */,
+				03C571FC99F3E10AD5249482 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SquadUp;
+			productName = SquadUp;
+			productReference = DA73EBB01C8BA9FF00E89F15 /* SquadUp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA73EBA81C8BA9FF00E89F15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "CS 407";
+				TargetAttributes = {
+					DA73EBAF1C8BA9FF00E89F15 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = DA73EBAB1C8BA9FF00E89F15 /* Build configuration list for PBXProject "SquadUp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA73EBA71C8BA9FF00E89F15;
+			productRefGroup = DA73EBB11C8BA9FF00E89F15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA73EBAF1C8BA9FF00E89F15 /* SquadUp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA73EBAE1C8BA9FF00E89F15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA73EBC01C8BA9FF00E89F15 /* LaunchScreen.storyboard in Resources */,
+				DA73EBBD1C8BA9FF00E89F15 /* Assets.xcassets in Resources */,
+				DA73EBBB1C8BA9FF00E89F15 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03C571FC99F3E10AD5249482 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SquadUp/Pods-SquadUp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		14D5BFD5C4C9C4B8CDC9EA52 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CBB6C43C9002B1F8C8D4D92A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SquadUp/Pods-SquadUp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA73EBAC1C8BA9FF00E89F15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA74781A1CB896830028C9E1 /* PickerTableViewCell.swift in Sources */,
+				DA73EBCD1C8BAB9500E89F15 /* FriendsViewController.swift in Sources */,
+				DA23A5A71C98EC4700B7DE68 /* TenPersonGameViewController.swift in Sources */,
+				DA73EBB81C8BA9FF00E89F15 /* OpenGamesViewController.swift in Sources */,
+				DAFB94361CAC2FB50006770C /* Game.swift in Sources */,
+				DAFB94381CAC325D0006770C /* Player.swift in Sources */,
+				DA73EBB41C8BA9FF00E89F15 /* AppDelegate.swift in Sources */,
+				DAAD08181CBC311300E55C87 /* GamePickerTableViewCell.swift in Sources */,
+				DA08BF031C9722CD00206E88 /* TabBarController.swift in Sources */,
+				DAFC0E971CBD9C8C00D521F2 /* SixPersonGameViewController.swift in Sources */,
+				DA7478181CB85B9F0028C9E1 /* DatePickerTableViewCell.swift in Sources */,
+				DAFC0E991CBD9C9700D521F2 /* EightPersonGameViewController.swift in Sources */,
+				DA73EBD11C8BB01F00E89F15 /* RegisterViewController.swift in Sources */,
+				DA73EBCF1C8BB01700E89F15 /* LogInViewController.swift in Sources */,
+				DA258E471CADF08700AB30DB /* ConfirmationViewController.swift in Sources */,
+				DA73EBCB1C8BAB8500E89F15 /* MessagesViewController.swift in Sources */,
+				DA23A5A91C98F08E00B7DE68 /* CreateGameViewController.swift in Sources */,
+				DA73EBB61C8BA9FF00E89F15 /* ProfileViewController.swift in Sources */,
+				DA0158771CC6D59F0002FA31 /* Int+Extensions.swift in Sources */,
+				DA73EBC91C8BAA2E00E89F15 /* SquadUp.xcdatamodeld in Sources */,
+				DA23A5AB1C98F23500B7DE68 /* GameTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DA73EBB91C8BA9FF00E89F15 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA73EBBA1C8BA9FF00E89F15 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA73EBBE1C8BA9FF00E89F15 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA73EBBF1C8BA9FF00E89F15 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA73EBC21C8BA9FF00E89F15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA73EBC31C8BA9FF00E89F15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA73EBC51C8BA9FF00E89F15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D9D6298C1C2866514AB4C4F /* Pods-SquadUp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SquadUp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Oudenhoven.SquadUp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DA73EBC61C8BA9FF00E89F15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 615A3BF7F3D1FD771FB5824F /* Pods-SquadUp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SquadUp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Oudenhoven.SquadUp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA73EBAB1C8BA9FF00E89F15 /* Build configuration list for PBXProject "SquadUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA73EBC21C8BA9FF00E89F15 /* Debug */,
+				DA73EBC31C8BA9FF00E89F15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA73EBC41C8BA9FF00E89F15 /* Build configuration list for PBXNativeTarget "SquadUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA73EBC51C8BA9FF00E89F15 /* Debug */,
+				DA73EBC61C8BA9FF00E89F15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DA73EBC71C8BAA2E00E89F15 /* SquadUp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DA73EBC81C8BAA2E00E89F15 /* SquadUp.xcdatamodel */,
+			);
+			currentVersion = DA73EBC81C8BAA2E00E89F15 /* SquadUp.xcdatamodel */;
+			path = SquadUp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DA73EBA81C8BA9FF00E89F15 /* Project object */;
+}

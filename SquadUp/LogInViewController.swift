@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
 
@@ -29,6 +30,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
     //orange color for the views
     let orange = UIColor(red: 0.86, green: 0.49, blue: 0.19, alpha: 1.0)
+    
+    //backend properties
+    //reference to firebase app
+    let ref  = Firebase(url: "https://SquadUp407.firebaseio.com")
     
     //MARK: - Lifecycle
     
@@ -93,6 +98,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.layer.borderColor = orange.CGColor
         passwordTextField.layer.cornerRadius = 5.0
         
+        
         logInButton.layer.borderWidth = 2.5
         logInButton.layer.borderColor = UIColor.whiteColor().CGColor
         logInButton.layer.cornerRadius = 5.0
@@ -141,6 +147,31 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     //MARK: - IBActions
     
     @IBAction func logInClicked(sender: AnyObject) {
+        
+        ref.authUser(emailTextField.text, password: passwordTextField.text,
+                     withCompletionBlock: { (error, authData) in
+                        
+                        if error != nil {
+                            //there was an error authorizing
+                        }
+                        else {
+                            //check if the password was a temp password
+                            let isTempPass = authData.providerData["isTemporaryPassword"] as? Bool
+                            print("isTempPass \(isTempPass)")
+                            if isTempPass! == true {
+                                //segue to a reset password screen
+                            }
+                                
+                            //not a temp password
+                            else {
+                                //segue to the home screen
+                            }
+                        }
+                        
+                        
+        })
+        
+        
         //print("log in clicked")
         
         //shake test - for incorrect user information
@@ -192,6 +223,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(textField: UITextField) {
         
+        //check if the field being edited is the password
+        if textField.restorationIdentifier == "passwordField" {
+            textField.secureTextEntry = true
+        }
     }
     
     func textFieldDidEndEditing(textField: UITextField) {

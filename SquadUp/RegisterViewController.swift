@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
 
@@ -16,11 +17,9 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var basketballImage: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmPassTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     //label to display if passwords do not match
-    @IBOutlet weak var passwordMatchLabel: UILabel!
+    @IBOutlet weak var invalidEmailLabel: UILabel!
     
     //orange color for the views
     let orange = UIColor(red: 0.86, green: 0.49, blue: 0.19, alpha: 1.0)
@@ -29,6 +28,11 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var scrollViewHeightConstraint : NSLayoutConstraint!
     //the default the scroll view height is. Intialized upon view did load
     var defaultScrollViewHeightConstraint: CGFloat = 0.0
+    
+    //backend properties
+    //reference to firebase app
+    let ref  = Firebase(url: "https://SquadUp407.firebaseio.com")
+ 
     
     
     //MARK: - Lifecycle
@@ -82,21 +86,21 @@ class RegisterViewController: UIViewController {
     //MARK: - Initialization
     
     func configureFields() {
-        //initially hide the passwords do not match label
-        passwordMatchLabel.hidden = true
+        //initially hide the incorrect email label
+        invalidEmailLabel.hidden = true
         
         //configure the custom text field and button borders
         emailTextField.layer.borderWidth = 2.0
         emailTextField.layer.borderColor = orange.CGColor
         emailTextField.layer.cornerRadius = 5.0
         
-        passwordTextField.layer.borderWidth = 2.0
-        passwordTextField.layer.borderColor = orange.CGColor
-        passwordTextField.layer.cornerRadius = 5.0
-        
-        confirmPassTextField.layer.borderWidth = 2.0
-        confirmPassTextField.layer.borderColor = orange.CGColor
-        confirmPassTextField.layer.cornerRadius = 5.0
+//        passwordTextField.layer.borderWidth = 2.0
+//        passwordTextField.layer.borderColor = orange.CGColor
+//        passwordTextField.layer.cornerRadius = 5.0
+//        
+//        confirmPassTextField.layer.borderWidth = 2.0
+//        confirmPassTextField.layer.borderColor = orange.CGColor
+//        confirmPassTextField.layer.cornerRadius = 5.0
         
         signUpButton.layer.borderWidth = 2.0
         signUpButton.layer.borderColor = UIColor.whiteColor().CGColor
@@ -128,24 +132,58 @@ class RegisterViewController: UIViewController {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
+    
     @IBAction func signUpClicked(sender: AnyObject) {
-        //testing animation, but if the fields are not equal shake fields
-        shakePasswordFields()
-        self.performSegueWithIdentifier("toConfirmationViewController", sender: nil)
         
-        /*
-        if passwordTextField.text != confirmPassTextField.text {
-            shakePasswordFields()
-            passwordMatchLabel.hidden = false
-        }
+//        if passwordTextField.text != confirmPassTextField.text {
+//            shakePasswordFields()
+//            passwordMatchLabel.hidden = false
+//            //testing animation, but if the fields are not equal shake fields
+//            shakePasswordFields()
+//        }
+        
+        //check to make sure user is a wisc account
+        if emailTextField.text?.rangeOfString("wisc.edu") != nil {
+            //generate a random password and then send user a reset password email - this is a way around
+            //firebase not having a verification email process
+            let tempPassword = generateRandomPassword()
             
-        //validate user account and send information to server
-        else {
+            // create user using firebase
+            self.ref.createUser(emailTextField.text, password: tempPassword) { (error: NSError!) in
+                //check if there was an error creating the account
+                if error == nil {
+                    //no error creating account, segue to confirmation view controller
+                    self.performSegueWithIdentifier("toConfirmationViewController", sender: nil)
+                    
+                    //reset user account password so they have to verify their account 
+                    self.ref.resetPasswordForUser(self.emailTextField.text, withCompletionBlock: { error in
+                        if error != nil {
+                            // There was an error processing the request
+                        } else {
+                            // Password reset sent successfully
+                        }
+                    })
+                }
+            }
+            
+            
 
-            
-            
+
         }
-        */
+            
+        //user typed an email address without a wisc.edu ending - display message
+        else {
+            //check to make sure they are registering with a wisc account
+            //show label
+            invalidEmailLabel.hidden = false
+            
+            //shake the email field
+            shakeEmailField()
+            //clear the text field
+            emailTextField.text = ""
+
+        
+        }
     }
     
     
@@ -153,21 +191,17 @@ class RegisterViewController: UIViewController {
     //MARK: - Animations
     
     //method called when the user doesn't type in matching passwords. Shakes the password fields
-    func shakePasswordFields() {
+    func shakeEmailField() {
         let animation = CABasicAnimation()
         animation.duration = 0.05
         animation.repeatCount = 2
         animation.autoreverses = true
-        animation.fromValue = NSValue(CGPoint: CGPointMake(passwordTextField.center.x-10, passwordTextField.center.y))
-        animation.toValue = NSValue(CGPoint: CGPointMake(passwordTextField.center.x+10, passwordTextField.center.y))
- 
-        let animation2 = animation.copy() as! CABasicAnimation
-        animation2.fromValue = NSValue(CGPoint: CGPointMake(passwordTextField.center.x-10, confirmPassTextField.center.y))
-        animation2.toValue = NSValue(CGPoint: CGPointMake(passwordTextField.center.x+10, confirmPassTextField.center.y))
+        animation.fromValue = NSValue(CGPoint: CGPointMake(emailTextField.center.x-10, emailTextField.center.y))
+        animation.toValue = NSValue(CGPoint: CGPointMake(emailTextField.center.x+10, emailTextField.center.y))
+
         
         //add animation to fields. will be the same animation b/c only x-values are changed
-        passwordTextField.layer.addAnimation(animation, forKey: "position")
-        confirmPassTextField.layer.addAnimation(animation2, forKey: "position")
+        emailTextField.layer.addAnimation(animation, forKey: "position")
  
     }
     
@@ -191,6 +225,19 @@ class RegisterViewController: UIViewController {
         //keyboard hiding set scroll view back to regular height
         self.scrollViewHeightConstraint.constant = self.defaultScrollViewHeightConstraint
         
+    }
+    
+    //MARK: - Miscellaneous
+    
+    func generateRandomPassword() -> String {
+        let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?_-"
+        var possibleChars = [Character](characters.characters)
+        var password = ""
+        for _ in 1 ..< 16 {
+            password += String(possibleChars[Int.random(min: 0, max: possibleChars.count-1)])
+        }
+        
+        return password
     }
 
 }
