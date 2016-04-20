@@ -95,6 +95,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DA0158781CC70B4C0002FA31 /* Log In and Register Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DA73EBD01C8BB01F00E89F15 /* RegisterViewController.swift */,
+				DA73EBCE1C8BB01700E89F15 /* LogInViewController.swift */,
+				DA258E461CADF08700AB30DB /* ConfirmationViewController.swift */,
+			);
+			path = "Log In and Register Controllers";
+			sourceTree = "<group>";
+		};
+		DA0158791CC70B850002FA31 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DA0158761CC6D59F0002FA31 /* Int+Extensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DA01587A1CC70C810002FA31 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DAFB94351CAC2FB50006770C /* Game.swift */,
+				DAFB94371CAC325D0006770C /* Player.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DA23A5AC1C98F2B900B7DE68 /* Open Games */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,20 +155,17 @@
 		DA73EBB21C8BA9FF00E89F15 /* SquadUp */ = {
 			isa = PBXGroup;
 			children = (
-				DA97E20C1CC56CC5000700BB /* Backend */,
-				DAFB94351CAC2FB50006770C /* Game.swift */,
-				DAFB94371CAC325D0006770C /* Player.swift */,
-				DA258E461CADF08700AB30DB /* ConfirmationViewController.swift */,
+				DA01587A1CC70C810002FA31 /* Models */,
+				DA0158781CC70B4C0002FA31 /* Log In and Register Controllers */,
 				DA73EBB51C8BA9FF00E89F15 /* ProfileViewController.swift */,
 				DA23A5AC1C98F2B900B7DE68 /* Open Games */,
 				DA73EBCA1C8BAB8500E89F15 /* MessagesViewController.swift */,
 				DA73EBCC1C8BAB9500E89F15 /* FriendsViewController.swift */,
 				DA08BF021C9722CD00206E88 /* TabBarController.swift */,
-				DA73EBCE1C8BB01700E89F15 /* LogInViewController.swift */,
-				DA73EBD01C8BB01F00E89F15 /* RegisterViewController.swift */,
 				DA73EBB31C8BA9FF00E89F15 /* AppDelegate.swift */,
 				DA73EBB91C8BA9FF00E89F15 /* Main.storyboard */,
-				DA0158761CC6D59F0002FA31 /* Int+Extensions.swift */,
+				DA0158791CC70B850002FA31 /* Utilities */,
+				DA97E20C1CC56CC5000700BB /* Backend */,
 				DA73EBBC1C8BA9FF00E89F15 /* Assets.xcassets */,
 				DA73EBBE1C8BA9FF00E89F15 /* LaunchScreen.storyboard */,
 				DA73EBC11C8BA9FF00E89F15 /* Info.plist */,
