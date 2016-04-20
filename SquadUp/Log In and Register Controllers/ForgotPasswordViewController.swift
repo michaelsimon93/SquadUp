@@ -26,7 +26,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     
     //Firebase
     //reference to firebase app
-    let ref  = Firebase(url: "https://SquadUp407.firebaseio.com")
+    let ref  = Firebase(url: "https://squadupcs407.firebaseio.com")
     
     
     

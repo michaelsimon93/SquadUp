@@ -30,7 +30,7 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     
     //Firebase
     //reference to firebase app
-    let ref  = Firebase(url: "https://SquadUp407.firebaseio.com")
+    let ref  = Firebase(url: "https://squadupcs407.firebaseio.com")
     //code from firebase when an invalid old password is entered
     let INVALID_PASSWORD = -6
     //minimum amount of characters a password must be
