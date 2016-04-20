@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
 
@@ -22,8 +23,19 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     //the default the scroll view height is. Intialized upon view did load
     var defaultScrollViewHeightConstraint: CGFloat = 0.0
     
+    var email : String?
+    
     //orange color for the views
     let orange = UIColor(red: 0.86, green: 0.49, blue: 0.19, alpha: 1.0)
+    
+    //Firebase
+    //reference to firebase app
+    let ref  = Firebase(url: "https://SquadUp407.firebaseio.com")
+    //code from firebase when an invalid old password is entered
+    let INVALID_PASSWORD = -6
+    //minimum amount of characters a password must be
+    let MIN_PASSWORD_CHARACTER_COUNT = 7
+    
     
     
     //MARK: - Lifecycle Methods
@@ -66,7 +78,7 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Setupd
     func configureFields() {
         //initially hide the not matching passwords label
-        passwordMatchLabel.hidden = false
+        passwordMatchLabel.hidden = true
         
         //configure the custom text field and button borders
         newPasswordField.layer.borderWidth = 2.0
@@ -92,26 +104,58 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func changePasswordClicked(sender: AnyObject) {
         
-        //verify that passwords match
-        if newPasswordField.text == confirmPasswordField.text {
+        //user entered new password with too few characters
+        if newPasswordField.text?.characters.count < MIN_PASSWORD_CHARACTER_COUNT {
+            //show label
+            self.passwordMatchLabel.text = "password must be longer than 7 characters"
+            self.passwordMatchLabel.hidden = false
+            //shake text fields and clear them
+            self.shakeFields()
+        }
+        //user entered unmatching passwords for new password
+        else if newPasswordField.text != confirmPasswordField.text {
+            //show label
+            self.passwordMatchLabel.text = "new passwords do not match"
+            self.passwordMatchLabel.hidden = false
+            //shake text fields and clear them
+            self.shakeFields()
+        }
+        
+        //user entered valid password
+        else {
             //try to change the password in firebase, if get error check if they entered the temp password wrong
             
-            //if temp password is wrong, change label
-            //passwordMatchLabel.text = "old password incorrect"
-            //passwordMatchLabel.hidden = false
-            
-            //if goes through all good, perform segue to home view 
-            //self.performSegueWithIdentifier("toHomeViewController", sender: nil)
-            
+            self.ref.changePasswordForUser(email, fromOld: oldPasswordField.text, toNew: newPasswordField.text, withCompletionBlock: { (error) in
+                
+                if error != nil {
+                    //print(error.code)
+                    //print(error.description)
+                    switch (error.code) {
+                        case self.INVALID_PASSWORD:
+                            //if temp password is wrong, change label
+                            self.passwordMatchLabel.text = "old password incorrect"
+                            self.passwordMatchLabel.hidden = false
+                            self.shakeOldPassword()
+                            break
+                        
+                    default:
+                            self.passwordMatchLabel.text = "An error occurred, please try again"
+                            self.passwordMatchLabel.hidden = false
+                            break
+                        
+                    }
+
+                }
+                //password sucessfully changed - go to home view controller
+                else {
+                    //if goes through all good, perform segue to home view
+                    self.performSegueWithIdentifier("toHomeViewController", sender: nil)
+                }
+                
+            })
+           
         }
-        //nonmatching passwords given
-        else {
-            //show label
-            passwordMatchLabel.text = "new passwords does not match"
-            passwordMatchLabel.hidden = false
-            //shake text fields and clear them
-            shakeFields()
-        }
+
         
         
     }
@@ -212,7 +256,18 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
+    //clear and shake old password when incorrect
+    func shakeOldPassword() {
+        let animation = CABasicAnimation()
+        animation.duration = 0.05
+        animation.repeatCount = 2
+        animation.autoreverses = true
+        animation.fromValue = NSValue(CGPoint: CGPointMake(oldPasswordField.center.x-10, oldPasswordField.center.y))
+        animation.toValue = NSValue(CGPoint: CGPointMake(oldPasswordField.center.x+10, oldPasswordField.center.y))
+        
+        oldPasswordField.layer.addAnimation(animation, forKey: "position")
+        oldPasswordField.text = ""
+    }
     
     /*
     // MARK: - Navigation

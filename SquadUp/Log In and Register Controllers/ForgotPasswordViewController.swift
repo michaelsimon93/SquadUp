@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
 
@@ -22,6 +23,11 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     
     //orange color for the views
     let orange = UIColor(red: 0.86, green: 0.49, blue: 0.19, alpha: 1.0)
+    
+    //Firebase
+    //reference to firebase app
+    let ref  = Firebase(url: "https://SquadUp407.firebaseio.com")
+    
     
     
     //MARK: - Lifecycle Methods
@@ -85,8 +91,33 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     
 
     @IBAction func resetPasswordClicked(sender: AnyObject) {
-        
-        //send reset email here for firebase
+        //check if the email is a 'wisc.edu' email
+        if emailTextField.text?.rangeOfString("wisc.edu") != nil {
+            
+            //reset user account password so they have to verify their account
+            self.ref.resetPasswordForUser(self.emailTextField.text, withCompletionBlock: { error in
+                if error != nil {
+                    // There was an error processing the request
+                    //notify user there was an error
+                    self.invalidEmailLabel.text = "An error occurred. Please try again."
+                    self.invalidEmailLabel.hidden = false
+                    
+                    
+                } else {
+                    // Password reset sent successfully
+                    //pop back to home
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                }
+                
+                
+            })
+            
+        }
+        //wisc email not entered
+        else {
+            invalidEmailLabel.text = "Please use a 'wisc.edu' email"
+            invalidEmailLabel.hidden = false
+        }
         
     }
     
@@ -117,7 +148,10 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Text Field Delegate Methods
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        
+        //clear the email field only the first time it is edited
+        if textField.text == "email" {
+            textField.text = ""
+        }
     }
     
     func textFieldDidEndEditing(textField: UITextField) {

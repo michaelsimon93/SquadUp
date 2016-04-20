@@ -93,14 +93,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         emailTextField.layer.borderWidth = 2.0
         emailTextField.layer.borderColor = orange.CGColor
         emailTextField.layer.cornerRadius = 5.0
-        
-//        passwordTextField.layer.borderWidth = 2.0
-//        passwordTextField.layer.borderColor = orange.CGColor
-//        passwordTextField.layer.cornerRadius = 5.0
-//        
-//        confirmPassTextField.layer.borderWidth = 2.0
-//        confirmPassTextField.layer.borderColor = orange.CGColor
-//        confirmPassTextField.layer.cornerRadius = 5.0
+
         
         signUpButton.layer.borderWidth = 2.0
         signUpButton.layer.borderColor = UIColor.whiteColor().CGColor
@@ -135,13 +128,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signUpClicked(sender: AnyObject) {
         
-//        if passwordTextField.text != confirmPassTextField.text {
-//            shakePasswordFields()
-//            passwordMatchLabel.hidden = false
-//            //testing animation, but if the fields are not equal shake fields
-//            shakePasswordFields()
-//        }
-        
         //check to make sure user is a wisc account
         if emailTextField.text?.rangeOfString("wisc.edu") != nil {
             //generate a random password and then send user a reset password email - this is a way around
@@ -164,6 +150,20 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         }
                     })
                 }
+                
+                //else there was an error creating the account 
+                else {
+                    //error code -9 - account is already in existence
+                    if error.code == -9 {
+                        self.invalidEmailLabel.text = "account already exists"
+                        self.invalidEmailLabel.hidden = false
+                    }
+                    //all other errors tell user an error occured
+                    else {
+                        self.invalidEmailLabel.text = "an error occurred. Please try again."
+                        self.invalidEmailLabel.hidden = false
+                    }
+                }
             }
             
             
@@ -175,6 +175,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         else {
             //check to make sure they are registering with a wisc account
             //show label
+            invalidEmailLabel.text = "please use a 'wisc.edu' email"
             invalidEmailLabel.hidden = false
             
             //shake the email field
@@ -243,7 +244,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Text Field Delegate Methods
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        
+        //clear the email field only the first time it is edited
+        if textField.text == "email" {
+            textField.text = ""
+        }
     }
     
     func textFieldDidEndEditing(textField: UITextField) {

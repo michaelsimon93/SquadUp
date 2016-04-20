@@ -127,6 +127,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             
         }
         
+        if segue.identifier == "toChangePasswordViewController" {
+            let destVC = segue.destinationViewController as! ChangePasswordViewController
+            //pass the email with the password to be reset
+            destVC.email = sender as? String
+        }
+        
     }
 
     
@@ -141,55 +147,60 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         animation.toValue = NSValue(CGPoint: CGPointMake(passwordTextField.center.x+10, passwordTextField.center.y))
 
         passwordTextField.layer.addAnimation(animation, forKey: "position")
+        passwordTextField.text = ""
     }
     
     
     //MARK: - IBActions
     
     @IBAction func logInClicked(sender: AnyObject) {
-        
-        ref.authUser(emailTextField.text, password: passwordTextField.text,
-                     withCompletionBlock: { (error, authData) in
-                        
-                        if error != nil {
-                            //there was an error authorizing
-                        }
-                        else {
-                            //check if the password was a temp password
-                            let isTempPass = authData.providerData["isTemporaryPassword"] as? Bool
-                            print("isTempPass \(isTempPass)")
-                            if isTempPass! == true {
-                                //segue to a reset password screen
-                            }
-                                
-                            //not a temp password
-                            else {
-                                //segue to the home screen
-                            }
-                        }
-                        
-                        
-        })
-        
-        
         //print("log in clicked")
         
-        //shake test - for incorrect user information
-        //shakeTextField()
+
+        if emailTextField.text != nil && passwordTextField.text != nil {
+            
+            ref.authUser(emailTextField.text, password: passwordTextField.text,
+                         withCompletionBlock: { (error, authData) in
+                            
+                            
+                            if error != nil {
+                                //there was an error authorizing
+                                //print(error.description)
+                                //print(error.code)
+                                self.invalidCredentialsLabel.text = "invalid email or password"
+                                self.invalidCredentialsLabel.hidden = false
+                                self.shakeTextField()
+                            }
+                            else {
+                                //check if the password was a temp password
+                                let isTempPass = authData.providerData["isTemporaryPassword"] as? Bool
+                                //print("isTempPass \(isTempPass)")
+                                if isTempPass! == true {
+                                    //segue to a reset password screen - pass email with it
+                                    self.performSegueWithIdentifier("toChangePasswordViewController", sender: self.emailTextField.text)
+                                }
+                                    
+                                    //not a temp password
+                                else {
+                                    //segue to the home screen
+                                    //send player object with segue
+                                    self.performSegueWithIdentifier("toHomeViewController", sender: nil)
+                                }
+                            }
+            })
+
+        }
         
-        //add an activity indicator view while it fetches verification
-        //let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
-        //indicator.startAnimating()
+        else {
+            invalidCredentialsLabel.text = "please enter an email and password"
+            invalidCredentialsLabel.hidden = false
+        }
         
         
+
         
-        //verify user account information
-        //if correct, proceed segue to home view controller
-        //if incorrect, shake text field, and display invalid credentials label
-        
-        
-        //send player object with segue
-        self.performSegueWithIdentifier("toHomeViewController", sender: nil)
+
+
         
     }
     
@@ -222,6 +233,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Text Field Delegate Methods
     
     func textFieldDidBeginEditing(textField: UITextField) {
+        //clear the email field only the first time it is edited
+        if textField.text == "email" {
+            textField.text = ""
+        }
         
         //check if the field being edited is the password
         if textField.restorationIdentifier == "passwordField" {
