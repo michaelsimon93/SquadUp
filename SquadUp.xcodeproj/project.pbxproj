@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B54D15AAF37CE26CA35888B5 /* Pods_SquadUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B27A67485FE48053FDDA52A7 /* Pods_SquadUp.framework */; };
 		DA0158771CC6D59F0002FA31 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0158761CC6D59F0002FA31 /* Int+Extensions.swift */; };
+		DA01587E1CC70D450002FA31 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA01587D1CC70D450002FA31 /* ChangePasswordViewController.swift */; };
+		DA0158801CC70F3C0002FA31 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA01587F1CC70F3C0002FA31 /* ForgotPasswordViewController.swift */; };
 		DA08BF031C9722CD00206E88 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA08BF021C9722CD00206E88 /* TabBarController.swift */; };
 		DA23A5A71C98EC4700B7DE68 /* TenPersonGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23A5A61C98EC4700B7DE68 /* TenPersonGameViewController.swift */; };
 		DA23A5A91C98F08E00B7DE68 /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23A5A81C98F08E00B7DE68 /* CreateGameViewController.swift */; };
@@ -39,6 +41,8 @@
 		7D9D6298C1C2866514AB4C4F /* Pods-SquadUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SquadUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SquadUp/Pods-SquadUp.debug.xcconfig"; sourceTree = "<group>"; };
 		B27A67485FE48053FDDA52A7 /* Pods_SquadUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SquadUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA0158761CC6D59F0002FA31 /* Int+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		DA01587D1CC70D450002FA31 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		DA01587F1CC70F3C0002FA31 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		DA08BF021C9722CD00206E88 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DA23A5A61C98EC4700B7DE68 /* TenPersonGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TenPersonGameViewController.swift; sourceTree = "<group>"; };
 		DA23A5A81C98F08E00B7DE68 /* CreateGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				DA73EBD01C8BB01F00E89F15 /* RegisterViewController.swift */,
 				DA73EBCE1C8BB01700E89F15 /* LogInViewController.swift */,
 				DA258E461CADF08700AB30DB /* ConfirmationViewController.swift */,
+				DA01587D1CC70D450002FA31 /* ChangePasswordViewController.swift */,
+				DA01587F1CC70F3C0002FA31 /* ForgotPasswordViewController.swift */,
 			);
 			path = "Log In and Register Controllers";
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA74781A1CB896830028C9E1 /* PickerTableViewCell.swift in Sources */,
+				DA0158801CC70F3C0002FA31 /* ForgotPasswordViewController.swift in Sources */,
 				DA73EBCD1C8BAB9500E89F15 /* FriendsViewController.swift in Sources */,
 				DA23A5A71C98EC4700B7DE68 /* TenPersonGameViewController.swift in Sources */,
 				DA73EBB81C8BA9FF00E89F15 /* OpenGamesViewController.swift in Sources */,
@@ -334,6 +341,7 @@
 				DA08BF031C9722CD00206E88 /* TabBarController.swift in Sources */,
 				DAFC0E971CBD9C8C00D521F2 /* SixPersonGameViewController.swift in Sources */,
 				DA7478181CB85B9F0028C9E1 /* DatePickerTableViewCell.swift in Sources */,
+				DA01587E1CC70D450002FA31 /* ChangePasswordViewController.swift in Sources */,
 				DAFC0E991CBD9C9700D521F2 /* EightPersonGameViewController.swift in Sources */,
 				DA73EBD11C8BB01F00E89F15 /* RegisterViewController.swift in Sources */,
 				DA73EBCF1C8BB01700E89F15 /* LogInViewController.swift in Sources */,

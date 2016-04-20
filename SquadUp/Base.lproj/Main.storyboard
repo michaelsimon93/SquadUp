@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="2366" y="1184"/>
         </scene>
-        <!--View Controller-->
+        <!--Change Password View Controller-->
         <scene sceneID="mlg-HH-OIL">
             <objects>
-                <viewController id="ymg-nO-wWn" sceneMemberID="viewController">
+                <viewController id="ymg-nO-wWn" customClass="ChangePasswordViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6df-cZ-u7m"/>
                         <viewControllerLayoutGuide type="bottom" id="0xm-pG-tj0"/>
@@ -97,12 +97,135 @@
                     <view key="view" contentMode="scaleToFill" id="TwV-6f-fBc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="B3p-tx-ab4" userLabel="Background Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sp-wx-FG8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ot0-3a-X1d" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basketball" translatesAutoresizingMaskIntoConstraints="NO" id="PSW-UT-Bzx" userLabel="Basketball Image">
+                                                <rect key="frame" x="225" y="95" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="PSW-UT-Bzx" secondAttribute="height" multiplier="1:1" id="6cn-vQ-fOT"/>
+                                                    <constraint firstAttribute="width" constant="150" id="Xkh-Z9-bY2"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="oldPassword" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="old password" borderStyle="roundedRect" placeholder="old password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VGW-C6-W79">
+                                                <rect key="frame" x="175" y="280" width="250" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="toO-ma-SFR"/>
+                                                    <constraint firstAttribute="width" constant="250" id="yWZ-sB-LNV"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="ymg-nO-wWn" id="wof-en-IDD"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USh-tK-31p">
+                                                <rect key="frame" x="175" y="445" width="250" height="40"/>
+                                                <color key="backgroundColor" red="0.81568627449999997" green="0.41176470590000003" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="N7c-yI-3tR"/>
+                                                    <constraint firstAttribute="width" constant="250" id="dEj-SN-Kfb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                                <state key="normal" title="CHANGE PASSWORD"/>
+                                                <connections>
+                                                    <action selector="changePasswordClicked:" destination="ymg-nO-wWn" eventType="touchUpInside" id="jMM-vm-5tt"/>
+                                                    <action selector="logInClicked:" destination="EKH-zJ-Ncd" eventType="touchUpInside" id="cvu-dd-fUh"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="newPassword" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="new password" borderStyle="roundedRect" placeholder="new password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Big-oc-WlK">
+                                                <rect key="frame" x="175" y="335" width="250" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="XlX-pl-iiR"/>
+                                                    <constraint firstAttribute="height" constant="40" id="caP-W8-lsd"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="ymg-nO-wWn" id="a41-m0-7Or"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="confirmPassword" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="confirm new password" borderStyle="roundedRect" placeholder="confirm password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eRP-ub-f1R">
+                                                <rect key="frame" x="175" y="390" width="250" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="GtX-eP-fp4"/>
+                                                    <constraint firstAttribute="height" constant="40" id="zJ7-HC-jEV"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="ymg-nO-wWn" id="drK-Z9-vVd"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="new passwords do not match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hG0-sg-vyO">
+                                                <rect key="frame" x="206" y="258" width="189" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="VGW-C6-W79" firstAttribute="centerX" secondItem="Ot0-3a-X1d" secondAttribute="centerX" id="BsZ-1m-a2D"/>
+                                            <constraint firstItem="Big-oc-WlK" firstAttribute="centerX" secondItem="Ot0-3a-X1d" secondAttribute="centerX" id="Eth-p2-vJo"/>
+                                            <constraint firstItem="PSW-UT-Bzx" firstAttribute="centerX" secondItem="Ot0-3a-X1d" secondAttribute="centerX" id="Fe2-vp-UEO"/>
+                                            <constraint firstItem="VGW-C6-W79" firstAttribute="top" secondItem="PSW-UT-Bzx" secondAttribute="bottom" constant="35" id="UuH-rj-pr3"/>
+                                            <constraint firstItem="eRP-ub-f1R" firstAttribute="centerX" secondItem="Ot0-3a-X1d" secondAttribute="centerX" id="Ux4-Wq-RtT"/>
+                                            <constraint firstItem="USh-tK-31p" firstAttribute="centerX" secondItem="Ot0-3a-X1d" secondAttribute="centerX" id="ctU-Es-ffa"/>
+                                            <constraint firstItem="eRP-ub-f1R" firstAttribute="top" secondItem="Big-oc-WlK" secondAttribute="bottom" constant="15" id="fdR-4d-Eeb"/>
+                                            <constraint firstItem="VGW-C6-W79" firstAttribute="centerY" secondItem="Ot0-3a-X1d" secondAttribute="centerY" id="gbI-e5-t1Z"/>
+                                            <constraint firstItem="USh-tK-31p" firstAttribute="top" secondItem="eRP-ub-f1R" secondAttribute="bottom" constant="15" id="jb7-zJ-7Gy"/>
+                                            <constraint firstItem="VGW-C6-W79" firstAttribute="top" secondItem="hG0-sg-vyO" secondAttribute="bottom" constant="5" id="lwE-7v-ijg"/>
+                                            <constraint firstItem="hG0-sg-vyO" firstAttribute="centerX" secondItem="Ot0-3a-X1d" secondAttribute="centerX" id="q1a-Vy-toM"/>
+                                            <constraint firstItem="Big-oc-WlK" firstAttribute="top" secondItem="VGW-C6-W79" secondAttribute="bottom" constant="15" id="q99-Mc-Qln"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Ot0-3a-X1d" firstAttribute="top" secondItem="8sp-wx-FG8" secondAttribute="top" id="4al-2J-V06"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ot0-3a-X1d" secondAttribute="bottom" id="HTf-vq-SNM"/>
+                                    <constraint firstItem="Ot0-3a-X1d" firstAttribute="centerY" secondItem="8sp-wx-FG8" secondAttribute="centerY" id="YMU-43-Ch8"/>
+                                    <constraint firstItem="Ot0-3a-X1d" firstAttribute="leading" secondItem="8sp-wx-FG8" secondAttribute="leading" id="aQM-eV-NQ0"/>
+                                    <constraint firstItem="Ot0-3a-X1d" firstAttribute="centerX" secondItem="8sp-wx-FG8" secondAttribute="centerX" id="i73-6E-dBp"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ot0-3a-X1d" secondAttribute="trailing" id="jMY-n0-UVO"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8sp-wx-FG8" firstAttribute="top" secondItem="TwV-6f-fBc" secondAttribute="top" id="0hI-s5-GoC"/>
+                            <constraint firstAttribute="trailing" secondItem="8sp-wx-FG8" secondAttribute="trailing" id="1ek-fP-qG0"/>
+                            <constraint firstAttribute="trailing" secondItem="B3p-tx-ab4" secondAttribute="trailing" id="26F-XU-Wun"/>
+                            <constraint firstItem="B3p-tx-ab4" firstAttribute="leading" secondItem="TwV-6f-fBc" secondAttribute="leading" id="3cb-5u-tYw"/>
+                            <constraint firstItem="8sp-wx-FG8" firstAttribute="leading" secondItem="TwV-6f-fBc" secondAttribute="leading" id="BB0-EM-fXV"/>
+                            <constraint firstItem="0xm-pG-tj0" firstAttribute="top" secondItem="8sp-wx-FG8" secondAttribute="bottom" id="R8J-b4-nXW"/>
+                            <constraint firstItem="0xm-pG-tj0" firstAttribute="top" secondItem="B3p-tx-ab4" secondAttribute="bottom" id="fyZ-Jr-1Ks"/>
+                            <constraint firstItem="B3p-tx-ab4" firstAttribute="top" secondItem="TwV-6f-fBc" secondAttribute="top" id="nV5-68-mop"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="changePasswordButton" destination="USh-tK-31p" id="fHp-AU-rq3"/>
+                        <outlet property="confirmPasswordField" destination="eRP-ub-f1R" id="5kb-7T-khC"/>
+                        <outlet property="newPasswordField" destination="Big-oc-WlK" id="bY4-kH-P7l"/>
+                        <outlet property="oldPasswordField" destination="VGW-C6-W79" id="Ts8-Sj-G4g"/>
+                        <outlet property="passwordMatchLabel" destination="hG0-sg-vyO" id="bzM-RB-6ce"/>
+                        <outlet property="scrollView" destination="8sp-wx-FG8" id="iva-N7-etr"/>
+                        <outlet property="scrollViewHeightConstraint" destination="HTf-vq-SNM" id="N06-J4-Orp"/>
+                        <segue destination="49e-Tb-3d3" kind="presentation" identifier="toHomeViewController" id="fYW-Kh-FO3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uj8-Ll-owv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1505" y="-818"/>
+            <point key="canvasLocation" x="1301" y="-735"/>
         </scene>
         <!--Open Games-->
         <scene sceneID="wg7-f3-ORb">
@@ -902,6 +1025,9 @@ to register. An email containing
                                                 <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="vX0-65-u00" id="a9C-xP-8Po"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please use a 'wisc.edu' email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRn-tY-Lko">
                                                 <rect key="frame" x="207" y="204" width="187" height="17"/>
@@ -1106,6 +1232,9 @@ Please check your email for a temporary password to verify your identity.</str
                                                 <rect key="frame" x="242" y="474" width="116" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <state key="normal" title="Forgot Password?"/>
+                                                <connections>
+                                                    <segue destination="3yx-MP-Lwu" kind="show" identifier="toForgotPasswordViewController" id="TSF-Rq-pTF"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -1161,6 +1290,7 @@ Please check your email for a temporary password to verify your identity.</str
                         <outlet property="scrollViewHeightConstraint" destination="z6T-gT-MmY" id="cFQ-yw-dux"/>
                         <outlet property="signUpButton" destination="J0r-4C-bq7" id="Bz1-mI-mzW"/>
                         <segue destination="49e-Tb-3d3" kind="presentation" identifier="toHomeViewController" id="ber-j8-R1Y"/>
+                        <segue destination="ymg-nO-wWn" kind="show" identifier="toChangePasswordViewController" id="gBY-P6-agJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8d-kl-VFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1347,6 +1477,136 @@ Please check your email for a temporary password to verify your identity.</str
             </objects>
             <point key="canvasLocation" x="-5" y="0.0"/>
         </scene>
+        <!--ForgotPasswordViewController-->
+        <scene sceneID="45T-Ic-u7i">
+            <objects>
+                <viewController storyboardIdentifier="ForgotPasswordViewController" title="ForgotPasswordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3yx-MP-Lwu" customClass="ForgotPasswordViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NES-G8-ilZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="z6M-yj-ysU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xVv-Ab-pjW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="lOb-Og-dqx" userLabel="Background Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DcJ-oY-3nh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsa-6e-OuE" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="530"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70x-t2-g9K">
+                                                <rect key="frame" x="182" y="213" width="237" height="124"/>
+                                                <string key="text">Enter your 'wisc.edu' email 
+to reset your password. 
+An email containing
+ a temporary password will
+ be sent to you.</string>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basketball" translatesAutoresizingMaskIntoConstraints="NO" id="5Cx-Ma-q2o" userLabel="Basketball Image">
+                                                <rect key="frame" x="225" y="28" width="150" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="5Cx-Ma-q2o" secondAttribute="height" multiplier="1:1" id="bQr-ca-uqs"/>
+                                                    <constraint firstAttribute="width" constant="150" id="uhS-dO-Jgt"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTt-8f-wud">
+                                                <rect key="frame" x="175" y="417" width="250" height="40"/>
+                                                <color key="backgroundColor" red="0.81568627449999997" green="0.41176470590000003" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="RfE-NE-l7i"/>
+                                                    <constraint firstAttribute="width" constant="250" id="Wfr-dJ-ybP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                                <state key="normal" title="RESET PASSWORD"/>
+                                                <connections>
+                                                    <action selector="resetPasswordClicked:" destination="3yx-MP-Lwu" eventType="touchUpInside" id="nPS-Wi-SZY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aH1-nc-MMq">
+                                                <rect key="frame" x="20" y="20" width="40" height="34"/>
+                                                <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <action selector="backClicked:" destination="3yx-MP-Lwu" eventType="touchUpInside" id="LSZ-CR-xm4"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email" borderStyle="roundedRect" placeholder="email" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Sa7-pr-VXQ">
+                                                <rect key="frame" x="175" y="357" width="250" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="VPE-AS-K9W"/>
+                                                    <constraint firstAttribute="height" constant="40" id="nHc-JF-sss"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="3yx-MP-Lwu" id="Rnt-gO-K9T"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please use a 'wisc.edu' email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdV-1D-soD">
+                                                <rect key="frame" x="207" y="191" width="187" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="70x-t2-g9K" firstAttribute="centerX" secondItem="Vsa-6e-OuE" secondAttribute="centerX" id="1Jl-xa-edE"/>
+                                            <constraint firstItem="pTt-8f-wud" firstAttribute="top" secondItem="Sa7-pr-VXQ" secondAttribute="bottom" constant="20" id="2T0-jc-FNk"/>
+                                            <constraint firstItem="aH1-nc-MMq" firstAttribute="top" secondItem="Vsa-6e-OuE" secondAttribute="top" constant="20" id="3NM-nh-bQf"/>
+                                            <constraint firstItem="70x-t2-g9K" firstAttribute="centerY" secondItem="Vsa-6e-OuE" secondAttribute="centerY" constant="10" id="3zo-Nw-QXc"/>
+                                            <constraint firstItem="Sa7-pr-VXQ" firstAttribute="top" secondItem="70x-t2-g9K" secondAttribute="bottom" constant="20" id="Aef-yS-lb4"/>
+                                            <constraint firstItem="aH1-nc-MMq" firstAttribute="leading" secondItem="Vsa-6e-OuE" secondAttribute="leading" constant="20" id="Bqk-0L-bgU"/>
+                                            <constraint firstItem="70x-t2-g9K" firstAttribute="top" secondItem="5Cx-Ma-q2o" secondAttribute="bottom" constant="35" id="Mnn-ps-Ld5"/>
+                                            <constraint firstItem="DdV-1D-soD" firstAttribute="centerX" secondItem="Vsa-6e-OuE" secondAttribute="centerX" id="PXN-Tt-kC4"/>
+                                            <constraint firstItem="pTt-8f-wud" firstAttribute="centerX" secondItem="Vsa-6e-OuE" secondAttribute="centerX" id="S65-Tu-jbC"/>
+                                            <constraint firstItem="5Cx-Ma-q2o" firstAttribute="centerX" secondItem="Vsa-6e-OuE" secondAttribute="centerX" id="WKF-90-EMB"/>
+                                            <constraint firstItem="70x-t2-g9K" firstAttribute="top" secondItem="DdV-1D-soD" secondAttribute="bottom" constant="5" id="aP6-lY-Kco"/>
+                                            <constraint firstItem="Sa7-pr-VXQ" firstAttribute="centerX" secondItem="Vsa-6e-OuE" secondAttribute="centerX" id="dWJ-7E-Uxu"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Vsa-6e-OuE" firstAttribute="top" secondItem="DcJ-oY-3nh" secondAttribute="top" id="Can-Nm-0ib"/>
+                                    <constraint firstItem="Vsa-6e-OuE" firstAttribute="centerY" secondItem="DcJ-oY-3nh" secondAttribute="centerY" constant="-35" id="DI3-5j-4xj"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vsa-6e-OuE" secondAttribute="trailing" id="L3H-LZ-lYh"/>
+                                    <constraint firstItem="Vsa-6e-OuE" firstAttribute="centerX" secondItem="DcJ-oY-3nh" secondAttribute="centerX" id="YlU-Z9-oxV"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vsa-6e-OuE" secondAttribute="bottom" id="ce2-lQ-yuw"/>
+                                    <constraint firstItem="Vsa-6e-OuE" firstAttribute="leading" secondItem="DcJ-oY-3nh" secondAttribute="leading" id="ggQ-Jk-k8c"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DcJ-oY-3nh" firstAttribute="top" secondItem="xVv-Ab-pjW" secondAttribute="top" id="37d-fO-cpc"/>
+                            <constraint firstItem="lOb-Og-dqx" firstAttribute="top" secondItem="xVv-Ab-pjW" secondAttribute="top" id="7EJ-gM-flj"/>
+                            <constraint firstItem="lOb-Og-dqx" firstAttribute="leading" secondItem="xVv-Ab-pjW" secondAttribute="leading" id="CIK-wD-qpt"/>
+                            <constraint firstItem="DcJ-oY-3nh" firstAttribute="leading" secondItem="xVv-Ab-pjW" secondAttribute="leading" id="N1t-lf-l3i"/>
+                            <constraint firstAttribute="trailing" secondItem="DcJ-oY-3nh" secondAttribute="trailing" id="Qf0-ob-i2w"/>
+                            <constraint firstItem="z6M-yj-ysU" firstAttribute="top" secondItem="lOb-Og-dqx" secondAttribute="bottom" id="a1z-1p-kph"/>
+                            <constraint firstItem="z6M-yj-ysU" firstAttribute="top" secondItem="DcJ-oY-3nh" secondAttribute="bottom" id="dmg-zc-Z5U"/>
+                            <constraint firstAttribute="trailing" secondItem="lOb-Og-dqx" secondAttribute="trailing" id="pv0-Ab-6Rk"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="Sa7-pr-VXQ" id="WaQ-1V-CW8"/>
+                        <outlet property="invalidEmailLabel" destination="DdV-1D-soD" id="fRb-2m-uTd"/>
+                        <outlet property="resetPasswordButton" destination="pTt-8f-wud" id="P82-cM-wHP"/>
+                        <outlet property="scrollView" destination="DcJ-oY-3nh" id="oEB-qG-2xM"/>
+                        <outlet property="scrollViewHeightConstraint" destination="ce2-lQ-yuw" id="iUc-27-w9A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y7K-1u-6bH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1367" y="712"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="1536" height="1536"/>
@@ -1358,4 +1618,7 @@ Please check your email for a temporary password to verify your identity.</str
         <image name="profile" width="22" height="22"/>
         <image name="star_unhighlighted" width="120" height="120"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ber-j8-R1Y"/>
+    </inferredMetricsTieBreakers>
 </document>

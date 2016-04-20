@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: - Properties
     
@@ -238,6 +238,39 @@ class RegisterViewController: UIViewController {
         }
         
         return password
+    }
+    
+    //MARK: - Text Field Delegate Methods
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+    }
+    
+    //method to hide the keyboard when the 'Done' button is clicked on the keyboard
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        //clicked go on the password section to log in
+        if textField.returnKeyType == UIReturnKeyType.Go {
+            
+            //close the keyboard
+            self.view.endEditing(true)
+            return false
+            
+            //add activity indicator
+            //call the server to check for log in credentials
+            
+            
+        }
+        
+        
+        //done clicked from email box, close the keyboard
+        self.view.endEditing(true)
+        return false
+        
     }
 
 }
