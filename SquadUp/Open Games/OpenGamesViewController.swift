@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,6 +18,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     //array holding all of the currently available games
     var games:[Game] = [Game]()
     
+    let gameRef = Firebase(url: "https://squadupcs407.firebaseio.com/games")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,6 +130,12 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             
             let newGame = Game(date: gameDate!, location: gameLocation!, gameType: gameType!, numPlayersJoined: 0, totalPlayersAllowed: totalAllowed)
+            
+            gameRef.setValue(newGame.toDictionary()) { (error, firebase) in
+                if error != nil {
+                    print(error.description)
+                }
+            }
             
 
             games.append(newGame)

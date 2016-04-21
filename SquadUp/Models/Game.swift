@@ -45,4 +45,30 @@ class Game: NSObject {
         
     }
     
+
+    //method to convert to any object so it can be uploaded to firebase as a JSON
+    func toDictionary() -> AnyObject {
+        
+        let toReturn : [String: AnyObject] = ["location" : location!,
+                                              "gameType": gameType!,
+                                              "numPlayersJoined" : numPlayersJoined!,
+                                              "totalPlayersAllowed" : totalPlayersAllowed!,
+                                              "date" : dateToDictionary()]
+        
+        
+        return toReturn
+        
+    }
+    
+    
+    //converts NSDate into a dictionary so it can be saved into a JSON on firebase
+    func dateToDictionary() -> AnyObject {
+        let toReturn : [String : AnyObject] = ["month": 2,
+                                               "day" : 4,
+                                               "year" : 2016,
+                                               "time" : "5:00",
+                                               "AMPM" : "PM"]
+        
+        return toReturn
+    }
 }
