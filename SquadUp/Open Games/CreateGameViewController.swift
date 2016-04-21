@@ -45,7 +45,6 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     
-    
     //MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
@@ -79,6 +78,33 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        //update the selections for the location, time, and place in case one of the cells isn't closed
+        //get the cell in the first section - time cell
+        let indexPath1 = NSIndexPath(forRow: 0, inSection: 0)
+        let cell1 = tableView.cellForRowAtIndexPath(indexPath1) as! DatePickerTableViewCell
+        let date = cell1.datePicker.date
+        //set the games NSDate
+        gameDate = date
+        //format the date to be displayed in the cell
+        let formattedDate = formatDate(date)
+        //set the labels text
+        cell1.dateLabel.text = formattedDate
+        
+        
+        //get the cell in the second section - location cell
+        let indexPath2 = NSIndexPath(forRow: 0, inSection: 1)
+        let cell2 = tableView.cellForRowAtIndexPath(indexPath2) as! PickerTableViewCell
+        gameLocation = pickerLocation[cell2.selectedRow]
+        selectedLocation! = cell2.selectedRow
+        
+        //get the cell in the third section - game type cell
+        let indexPath3 = NSIndexPath(forRow: 0, inSection: 2)
+        let cell3 = tableView.cellForRowAtIndexPath(indexPath3) as! GamePickerTableViewCell
+        gameType = pickerGameType[cell3.selectedRow]
+        selectedGameType! = cell3.selectedRow
+        
+        
         
         //remove the observers before removing the view
         for cell in tableView.visibleCells {
@@ -328,44 +354,6 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
         return fullDate
     }
     
-    //Mark: - IBAction Methods
-    /*
-     @IBAction func createGame_button(sender: UIButton) {
-     //need to add backend stuff
-     
-     //convert the DateTimePicker
-     let formatter = NSDateFormatter()
-     formatter.dateStyle = NSDateFormatterStyle.ShortStyle
-     formatter.timeStyle = .ShortStyle
-     let fullDate:String = formatter.stringFromDate(DateTimePicker.date)
-     var fullDateArr = fullDate.componentsSeparatedByString(" ")
-     let str_date:String = fullDateArr[0]
-     let str_time:String = fullDateArr[1]
-     
-     
-     //find total amount of players allowed
-     if (createGame_type == "3v3" || createGame_type == "3V3") {
-     totalAllowed = 6
-     } else if (createGame_type == "4v4" || createGame_type == "4V4") {
-     totalAllowed = 8
-     } else if (createGame_type == "5v5" || createGame_type == "5V5") {
-     totalAllowed = 10
-     }
-     
-     newGame.setValue(str_date, forKey: "date")
-     newGame.setValue(str_time, forKey: "time")
-     newGame.setValue(createGame_location, forKey: "location")
-     newGame.setValue(createGame_type, forKey: "gameType")
-     newGame.setValue(1, forKey: "numPlayersJoined")
-     newGame.setValue(totalAllowed, forKey: "totalPlayersAllowed")
-     
-     performSegueWithIdentifier("createGame", sender: self)
-     }
-     
-     @IBAction func cancel_button(sender: UIButton) {
-     performSegueWithIdentifier("cancelCreateGame", sender: self)
-     }
-     */
     
 
 }

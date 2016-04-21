@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -17,7 +18,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     let profileOptionCellID = "profileOption"
     
-    
+    let ref = Firebase(url: "https://squadupcs407.firebaseio.com")
     
     
     //MARK: - Lifecycle Methods
@@ -51,6 +52,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         return cell
     }
+    
+    //MARK: - IBActions
+    
+    @IBAction func logOutClicked(sender: AnyObject) {
+        //log user out
+        ref.unauth()
+        //go back to log in screen
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
 
 
 }

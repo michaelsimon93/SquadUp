@@ -18,7 +18,10 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     //array holding all of the currently available games
     var games:[Game] = [Game]()
     
+    let ref = Firebase(url: "https://squadupcs407.firebaseio.com")
     let gameRef = Firebase(url: "https://squadupcs407.firebaseio.com/games")
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,15 +111,16 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //MARK: - Unwind Segues
     @IBAction func createGameUnwind(segue : UIStoryboardSegue){
-        print("create game unwind")
+        //print("create game unwind")
         
         if segue.identifier == "createGameUnwind" {
             //get the source VC where the data is stored for the new game
             let sourceVC = segue.sourceViewController as! CreateGameViewController
             
+            
             let gameType = sourceVC.gameType
             let gameDate = sourceVC.gameDate
-            let gameLocation = sourceVC.gameLocation
+            let gameLocation = sourceVC.gameLocation            
         
             var totalAllowed = 0
             
@@ -131,16 +135,38 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let newGame = Game(date: gameDate!, location: gameLocation!, gameType: gameType!, numPlayersJoined: 0, totalPlayersAllowed: totalAllowed)
             
-            gameRef.setValue(newGame.toDictionary()) { (error, firebase) in
-                if error != nil {
-                    print(error.description)
+            var gameNumber = 2220
+            
+            ref.childByAppendingPath("gameNumber").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                gameNumber = (snapshot.value as? Int)!
+                
+                let gameURL = "https://squadupcs407.firebaseio.com/games/game" + String(gameNumber)
+                
+                let newGameRef = Firebase(url: gameURL)
+                
+                newGameRef.setValue(newGame.toDictionary()) { (error, firebase) in
+                    if error != nil {
+                        print(error.description)
+                    }
+                    else{
+                        //increment game number
+                        gameNumber+=1
+                        //save the new game number to firebase
+                        self.ref.childByAppendingPath("gameNumber").setValue(gameNumber)
+                    }
                 }
-            }
+                
+                
+                self.games.append(newGame)
+                
+                self.tableView.reloadData()
+                
+                
+                
+                
+            })
             
 
-            games.append(newGame)
-            
-            tableView.reloadData()
             
             //need to add backend stuff
 

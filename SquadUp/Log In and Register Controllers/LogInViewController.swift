@@ -75,6 +75,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         
+        ref.observeAuthEventWithBlock { (authData) in
+            if authData != nil {
+                //self.performSegueWithIdentifier("toHomeViewController", sender: nil)
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -270,6 +276,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         return false
 
     }
+    
+
     
     
    
