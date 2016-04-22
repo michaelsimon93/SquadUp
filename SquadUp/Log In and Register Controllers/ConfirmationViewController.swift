@@ -30,6 +30,11 @@ class ConfirmationViewController: UIViewController {
         okayButton.backgroundColor = orange
         
     }
+    
+    //make status bar font white so it appears on the dark background
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

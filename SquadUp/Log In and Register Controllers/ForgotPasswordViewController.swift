@@ -66,6 +66,11 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //make status bar font white so it appears on the dark background
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     //MARK: - Setup
     func configureFields() {
         //initially hide the invalid email label
