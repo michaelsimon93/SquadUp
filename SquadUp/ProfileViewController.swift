@@ -26,6 +26,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //make the profile image a circle
+        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        
     }
 
     override func didReceiveMemoryWarning() {

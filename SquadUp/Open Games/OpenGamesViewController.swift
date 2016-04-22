@@ -28,13 +28,13 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         // Do any additional setup after loading the view, typically from a nib.
         
         //load some generic games into the table view
-        let game1 = Game(date: NSDate(), location: "SERF", gameType: "5v5", numPlayersJoined: 5, totalPlayersAllowed: 10)
-        let game2 = Game(date: NSDate(), location: "NAT", gameType: "4v4", numPlayersJoined: 2, totalPlayersAllowed: 8)
-        let game3 = Game(date: NSDate(), location: "James Madison", gameType: "3v3", numPlayersJoined: 3, totalPlayersAllowed: 6)
-        
-        games.append(game1)
-        games.append(game2)
-        games.append(game3)
+//        let game1 = Game(date: NSDate(), location: "SERF", gameType: "5v5", numPlayersJoined: 5, totalPlayersAllowed: 10)
+//        let game2 = Game(date: NSDate(), location: "NAT", gameType: "4v4", numPlayersJoined: 2, totalPlayersAllowed: 8)
+//        let game3 = Game(date: NSDate(), location: "James Madison", gameType: "3v3", numPlayersJoined: 3, totalPlayersAllowed: 6)
+//        
+//        games.append(game1)
+//        games.append(game2)
+//        games.append(game3)
         
         tableView.rowHeight = 50.0
         //tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
@@ -46,6 +46,35 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        gameRef.observeEventType(.Value, withBlock: { snapshot in
+            
+            //array to hold all of the currently available games
+            var newGames = [Game]()
+            
+            //loop through all of the available games and add them to the list
+            for game in snapshot.children {
+                
+                //create the game with the outer dictionary (everythign but the date)
+                let newGame = Game(snapshot: game as! FDataSnapshot)
+                
+                newGames.append(newGame)
+            }
+            
+            //set the new games from firebase to the current set
+            self.games = newGames
+            
+            //do a pulldown to refresh
+            self.tableView.reloadData()
+            
+            
+        })
+    }
     
     
     
@@ -133,14 +162,19 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
                 totalAllowed = 10
             }
             
-            let newGame = Game(date: gameDate!, location: gameLocation!, gameType: gameType!, numPlayersJoined: 0, totalPlayersAllowed: totalAllowed)
+
             
-            var gameNumber = 2220
+            var gameNumber = 0
             
             ref.childByAppendingPath("gameNumber").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
                 gameNumber = (snapshot.value as? Int)!
                 
                 let gameURL = "https://squadupcs407.firebaseio.com/games/game" + String(gameNumber)
+                
+                let key = "game" + String(gameNumber)
+                
+                let newGame = Game(date: gameDate!, location: gameLocation!, gameType: gameType!, numPlayersJoined: 0, totalPlayersAllowed: totalAllowed, key: key)
+                
                 
                 let newGameRef = Firebase(url: gameURL)
                 
