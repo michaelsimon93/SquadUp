@@ -732,6 +732,16 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backButton" destination="Tyr-XW-vPx" id="AX6-cy-aeZ"/>
+                        <outlet property="chair10Button" destination="YOC-G0-7QV" id="tk3-JJ-h6b"/>
+                        <outlet property="chair1Button" destination="mrN-As-evH" id="2Fk-cH-qHf"/>
+                        <outlet property="chair2Button" destination="Wrq-ol-1rr" id="YF0-sI-FSv"/>
+                        <outlet property="chair3Button" destination="bGa-qj-5su" id="IxD-EQ-k1H"/>
+                        <outlet property="chair4Button" destination="iHl-qi-9zR" id="VG6-VB-bYi"/>
+                        <outlet property="chair5Button" destination="DKS-Qy-met" id="N9P-b0-o9V"/>
+                        <outlet property="chair6Button" destination="otg-zx-K5U" id="v7I-gW-Fi8"/>
+                        <outlet property="chair7Button" destination="zOV-Sa-k0Z" id="a4P-NY-3Gb"/>
+                        <outlet property="chair8Button" destination="T2H-SJ-09C" id="u5u-gB-09k"/>
+                        <outlet property="chair9Button" destination="myg-gu-dwk" id="X18-Np-R2W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcY-QG-PLf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -860,6 +870,12 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backButton" destination="lqZ-nB-oSu" id="FNl-P5-O5H"/>
+                        <outlet property="chair1Button" destination="IWX-dr-nFD" id="SSF-Vb-W9G"/>
+                        <outlet property="chair2Button" destination="LNk-Zq-WLe" id="Y2Q-X8-G8P"/>
+                        <outlet property="chair3Button" destination="pOP-W3-SIA" id="FiF-Xu-DmK"/>
+                        <outlet property="chair4Button" destination="ETt-Uq-pe5" id="hsS-zs-sBQ"/>
+                        <outlet property="chair5Button" destination="sqc-qe-2HT" id="oR4-bT-3HU"/>
+                        <outlet property="chair6Button" destination="HGs-go-l05" id="VC8-oK-77A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmi-64-0rn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1008,6 +1024,14 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backButton" destination="2ID-Ow-euY" id="Ucz-s2-v6X"/>
+                        <outlet property="chair1Button" destination="pF9-UG-q2b" id="EBR-hJ-Oa6"/>
+                        <outlet property="chair2Button" destination="Jfy-sY-6wG" id="OjC-Di-ydX"/>
+                        <outlet property="chair3Button" destination="rvn-TI-mPT" id="8t0-MT-ya7"/>
+                        <outlet property="chair4Button" destination="wl6-2m-Alo" id="foP-jS-hmT"/>
+                        <outlet property="chair5Button" destination="dXU-Qy-Au1" id="QPg-bv-Jo7"/>
+                        <outlet property="chair6Button" destination="jJg-Ay-Am4" id="yiE-fG-Xjn"/>
+                        <outlet property="chair7Button" destination="XTy-v0-Lgr" id="y52-CJ-dkZ"/>
+                        <outlet property="chair8Button" destination="hkS-Hv-Npe" id="VXD-No-mQM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zel-Vn-LcV" userLabel="First Responder" sceneMemberID="firstResponder"/>
