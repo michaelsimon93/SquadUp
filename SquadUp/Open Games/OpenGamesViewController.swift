@@ -147,6 +147,32 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             let sourceVC = segue.sourceViewController as! CreateGameViewController
             
             
+            //update the selections for the location, time, and place in case one of the cells isn't closed
+            //get the cell in the first section - time cell
+            let indexPath1 = NSIndexPath(forRow: 0, inSection: 0)
+            let cell1 = sourceVC.tableView.cellForRowAtIndexPath(indexPath1) as! DatePickerTableViewCell
+            let date = cell1.datePicker.date
+            //set the games NSDate
+            sourceVC.gameDate = date
+            //format the date to be displayed in the cell
+            let formattedDate = sourceVC.formatDate(date)
+            //set the labels text
+            cell1.dateLabel.text = formattedDate
+            
+            
+            //get the cell in the second section - location cell
+            let indexPath2 = NSIndexPath(forRow: 0, inSection: 1)
+            let cell2 = sourceVC.tableView.cellForRowAtIndexPath(indexPath2) as! PickerTableViewCell
+            sourceVC.gameLocation = sourceVC.pickerLocation[cell2.selectedRow]
+            sourceVC.selectedLocation! = cell2.selectedRow
+            
+            //get the cell in the third section - game type cell
+            let indexPath3 = NSIndexPath(forRow: 0, inSection: 2)
+            let cell3 = sourceVC.tableView.cellForRowAtIndexPath(indexPath3) as! GamePickerTableViewCell
+            sourceVC.gameType = sourceVC.pickerGameType[cell3.selectedRow]
+            sourceVC.selectedGameType! = cell3.selectedRow
+            
+            
             let gameType = sourceVC.gameType
             let gameDate = sourceVC.gameDate
             let gameLocation = sourceVC.gameLocation            
@@ -163,6 +189,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             
 
+
+            
             
             var gameNumber = 0
             

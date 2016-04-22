@@ -1049,7 +1049,7 @@ to register. An email containing
                                                 </constraints>
                                                 <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="vX0-65-u00" id="a9C-xP-8Po"/>
                                                 </connections>
@@ -1210,7 +1210,7 @@ for a temporary password to
                                                 </constraints>
                                                 <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="EKH-zJ-Ncd" id="lLJ-oV-ky0"/>
                                                 </connections>
@@ -1244,7 +1244,7 @@ for a temporary password to
                                                 </constraints>
                                                 <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="EKH-zJ-Ncd" id="zo5-Re-zA9"/>
                                                 </connections>
@@ -1571,7 +1571,7 @@ An email containing
                                                 </constraints>
                                                 <color key="textColor" red="0.99676257369999999" green="0.56902927160000005" blue="0.1656780243" alpha="1" colorSpace="deviceRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="3yx-MP-Lwu" id="Rnt-gO-K9T"/>
                                                 </connections>

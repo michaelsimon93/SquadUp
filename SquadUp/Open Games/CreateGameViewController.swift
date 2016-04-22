@@ -79,33 +79,6 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        //update the selections for the location, time, and place in case one of the cells isn't closed
-        //get the cell in the first section - time cell
-        let indexPath1 = NSIndexPath(forRow: 0, inSection: 0)
-        let cell1 = tableView.cellForRowAtIndexPath(indexPath1) as! DatePickerTableViewCell
-        let date = cell1.datePicker.date
-        //set the games NSDate
-        gameDate = date
-        //format the date to be displayed in the cell
-        let formattedDate = formatDate(date)
-        //set the labels text
-        cell1.dateLabel.text = formattedDate
-        
-        
-        //get the cell in the second section - location cell
-        let indexPath2 = NSIndexPath(forRow: 0, inSection: 1)
-        let cell2 = tableView.cellForRowAtIndexPath(indexPath2) as! PickerTableViewCell
-        gameLocation = pickerLocation[cell2.selectedRow]
-        selectedLocation! = cell2.selectedRow
-        
-        //get the cell in the third section - game type cell
-        let indexPath3 = NSIndexPath(forRow: 0, inSection: 2)
-        let cell3 = tableView.cellForRowAtIndexPath(indexPath3) as! GamePickerTableViewCell
-        gameType = pickerGameType[cell3.selectedRow]
-        selectedGameType! = cell3.selectedRow
-        
-        
-        
         //remove the observers before removing the view
         for cell in tableView.visibleCells {
             //check if the cell is a date picker view cell
