@@ -21,6 +21,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     //dictionary : keys is the date, value is an array of games on that specific date
     //date is formatted as "4/22/16" for the key search
     var gameDictionary = [String : [Game]]()
+    var gameDictionary2 : [String : Array<Game>] = ["test" : [Game]()]
+    
     
     let ref = Firebase(url: "https://squadupcs407.firebaseio.com")
     let gameRef = Firebase(url: "https://squadupcs407.firebaseio.com/games")
@@ -61,11 +63,50 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             //array to hold all of the currently available games
             var newGames = [Game]()
             
+            //dictionary of the new games from the server
+            var newGamesDict = [String : Game]()
+            
             //loop through all of the available games and add them to the list
             for game in snapshot.children {
                 
                 //create the game with the outer dictionary (everythign but the date)
                 let newGame = Game(snapshot: game as! FDataSnapshot)
+                
+                let dateString = newGame.dateToString()
+                
+                //check if dictionary has the current value
+                if newGamesDict[dateString] == nil {
+                    //if it doesn't have the value add the date value to the dictionary
+                    //create an array with the new game in it
+                    let newGameArr : Array<Game> = [newGame]
+                    //put the array in the dictionary
+                    //newGamesDict[dateString] = Array<Game>()
+                    self.gameDictionary[dateString]? = newGameArr
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                }
+                //the dictionary has the value add the game to the end of the array
+                else {
+                    var gameArray = self.gameDictionary[dateString]! as [Game]
+                    gameArray.append(newGame)
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                }
+                
+                
                 
                 newGames.append(newGame)
             }

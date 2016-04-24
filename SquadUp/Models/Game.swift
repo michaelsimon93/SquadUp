@@ -95,49 +95,7 @@ class Game: NSObject {
         let date = NSCalendar(calendarIdentifier: "gregorian")?.dateFromComponents(dateComponents)
         
         self.date = date
-        
-        //firebase path where the date is stored at
-//        ref?.childByAppendingPath("date").observeSingleEventOfType(.Value, withBlock: { (dateSnapshot) in
-//
-//            //get all of the values from firebase
-//            let day = dateSnapshot.value["day"] as? String
-//            let month = dateSnapshot.value["month"] as? String
-//            let year = dateSnapshot.value["year"] as? String
-//            let time = dateSnapshot.value["time"] as? String
-//            let ampm = dateSnapshot.value["ampm"] as? String
-//            
-//            let timeArr = time?.componentsSeparatedByString(":")
-//            var hour = Int(timeArr![0])!
-//            let minute = Int(timeArr![1])!
-//            
-//            if ampm == "PM" {
-//                //add 12 hours to the hour to signify PM
-//                hour += 12
-//            }
-//            //add the '20' to the beginning of the date
-//            let fullYear = "20" + year!
-//
-//            let dateComponents = NSDateComponents()
-//            dateComponents.month = Int(month!)!
-//            dateComponents.year = Int(fullYear)!
-//            dateComponents.day = Int(day!)!
-//            dateComponents.hour = hour
-//            dateComponents.minute = minute
-//            
-//            let date = NSCalendar(calendarIdentifier: "gregorian")?.dateFromComponents(dateComponents)
-//
-//
-//            self.date = date
-//        })
-        
-        //get all of the date information from the server
-        
-       
-        
-        
-//        name = snapshot.value["name"] as! String
-//        addedByUser = snapshot.value["addedByUser"] as! String
-//        completed = snapshot.value["completed"] as! Bool
+
 
     }
     
@@ -187,6 +145,19 @@ class Game: NSObject {
                                                "AMPM" : ampm]
         
         return toReturn
+    }
+    
+    //returns the date of the game represented as "4/22/16" to be used for the dictionary
+    func dateToString() -> String {
+        
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .ShortStyle
+        formatter.timeStyle = .ShortStyle
+        let fullDate:String = formatter.stringFromDate(date!)
+        var fullDateArr = fullDate.componentsSeparatedByString(", ")
+        
+        //return the date represented as "4/22/16"
+        return fullDateArr[0]
     }
     
     //converts the array of players joined in the game to dictionary so it can be saved into JSON on firebase
