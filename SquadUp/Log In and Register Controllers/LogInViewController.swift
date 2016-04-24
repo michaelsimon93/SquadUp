@@ -46,7 +46,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         configureFields()
         configureImages()
         
-        
         self.automaticallyAdjustsScrollViewInsets = false
         
         //make a copy of the constraint value for when the keybboard closes, can reset the auto layout
@@ -69,17 +68,24 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //check if the user can bypass the log in screen
+        ref.observeAuthEventWithBlock { (authData) -> Void in
+            //check if there is authentication data - bypass log in screen
+            if authData != nil {
+                //segue to the home view is the user is authenticated already
+                self.performSegueWithIdentifier("toHomeViewController", sender: nil)
+            }
+        }
+    }
+    
     override func viewDidDisappear(animated: Bool) {
        
         //remove observers when view is destroyed
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-        
-        ref.observeAuthEventWithBlock { (authData) in
-            if authData != nil {
-                //self.performSegueWithIdentifier("toHomeViewController", sender: nil)
-            }
-        }
         
     }
 
