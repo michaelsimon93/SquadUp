@@ -70,7 +70,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        ref.unauth()
         //check if the user can bypass the log in screen
         ref.observeAuthEventWithBlock { (authData) -> Void in
             
