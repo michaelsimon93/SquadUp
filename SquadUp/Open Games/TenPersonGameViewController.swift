@@ -13,16 +13,6 @@ class TenPersonGameViewController: UIViewController {
     //outlet to customize the font to fit style of the app
     @IBOutlet weak var backButton: UIBarButtonItem!
     
-    @IBOutlet weak var chair1Button: UIButton!
-    @IBOutlet weak var chair2Button: UIButton!
-    @IBOutlet weak var chair3Button: UIButton!
-    @IBOutlet weak var chair4Button: UIButton!
-    @IBOutlet weak var chair5Button: UIButton!
-    @IBOutlet weak var chair6Button: UIButton!
-    @IBOutlet weak var chair7Button: UIButton!
-    @IBOutlet weak var chair8Button: UIButton!
-    @IBOutlet weak var chair9Button: UIButton!
-    @IBOutlet weak var chair10Button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
