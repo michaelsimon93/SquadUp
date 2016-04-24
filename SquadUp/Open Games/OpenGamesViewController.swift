@@ -14,9 +14,13 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
-    
+    //ARRAY IS TEMPORARY UNTIL THE DICTIONARY TO SEPARATE BY SECTION IS COMPLETE
     //array holding all of the currently available games
     var games:[Game] = [Game]()
+    
+    //dictionary : keys is the date, value is an array of games on that specific date
+    //date is formatted as "4/22/16" for the key search
+    var gameDictionary = [String : [Game]]()
     
     let ref = Firebase(url: "https://squadupcs407.firebaseio.com")
     let gameRef = Firebase(url: "https://squadupcs407.firebaseio.com/games")

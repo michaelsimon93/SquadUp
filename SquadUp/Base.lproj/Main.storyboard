@@ -35,7 +35,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v2Q-7x-uBG" id="t7m-Wa-J3d">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Option" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEH-4V-vz2">
@@ -259,7 +259,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="88w-tq-wFl" id="AeF-lj-fIn">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="50.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5:30 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCr-8Y-ttB">
@@ -396,10 +396,10 @@
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="datePickerCell" rowHeight="112" id="9sI-Ya-ETO" customClass="DatePickerTableViewCell" customModule="SquadUp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="600" height="112"/>
+                                                <rect key="frame" x="0.0" y="49.5" width="600" height="112"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9sI-Ya-ETO" id="6YZ-wn-rrg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="111"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="111.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMG-K9-5WX">
@@ -438,10 +438,10 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell" rowHeight="184" id="H5Z-27-9nF" customClass="PickerTableViewCell" customModule="SquadUp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="162" width="600" height="184"/>
+                                                <rect key="frame" x="0.0" y="161.5" width="600" height="184"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H5Z-27-9nF" id="38N-Fl-tHa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="183"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="183.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="bYY-NF-3Ij">
@@ -482,10 +482,10 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gamePickerCell" rowHeight="97" id="WAl-Lb-Tov" userLabel="gamePickerCell" customClass="GamePickerTableViewCell" customModule="SquadUp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="346" width="600" height="97"/>
+                                                <rect key="frame" x="0.0" y="345.5" width="600" height="97"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WAl-Lb-Tov" id="g2D-HX-DKb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="96"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="96.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="B0u-2C-D38">
@@ -614,75 +614,105 @@
                                 <color key="textColor" red="0.8156862855" green="0.41176471110000001" blue="0.14509804549999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrq-ol-1rr" userLabel="chair2">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrq-ol-1rr" userLabel="chair2">
                                 <rect key="frame" x="270" y="116" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="77Q-6U-JuX"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="57M-6E-otK" eventType="touchUpInside" id="T5x-8p-SVg"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrN-As-evH" userLabel="chair1">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrN-As-evH" userLabel="chair1">
                                 <rect key="frame" x="180" y="116" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="hFe-JQ-lUD"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="57M-6E-otK" eventType="touchUpInside" id="nKt-CV-HqF"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGa-qj-5su" userLabel="chair3">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGa-qj-5su" userLabel="chair3">
                                 <rect key="frame" x="360" y="116" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="Op5-Qq-ez4"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="57M-6E-otK" eventType="touchUpInside" id="1Tk-fp-E8M"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOC-G0-7QV" userLabel="chair1">
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOC-G0-7QV" userLabel="chair1">
                                 <rect key="frame" x="360" y="372" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="vvO-ci-MKe"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="57M-6E-otK" eventType="touchUpInside" id="SyE-IS-yd9"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2H-SJ-09C" userLabel="chair1">
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2H-SJ-09C" userLabel="chair1">
                                 <rect key="frame" x="180" y="372" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="Gty-3b-dQT"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="57M-6E-otK" eventType="touchUpInside" id="xmt-cN-qWX"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKS-Qy-met" userLabel="chair5">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKS-Qy-met" userLabel="chair5">
                                 <rect key="frame" x="225" y="244" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="ltb-B5-YBj"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="57M-6E-otK" eventType="touchUpInside" id="qGi-n8-cIp"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otg-zx-K5U" userLabel="chair6">
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otg-zx-K5U" userLabel="chair6">
                                 <rect key="frame" x="315" y="244" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="Qlc-Fb-gzn"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="57M-6E-otK" eventType="touchUpInside" id="pCC-jK-fEB"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOV-Sa-k0Z" userLabel="chair6">
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOV-Sa-k0Z" userLabel="chair6">
                                 <rect key="frame" x="405" y="244" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="cU6-Bd-qJ5"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="57M-6E-otK" eventType="touchUpInside" id="AMh-Hn-umv"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHl-qi-9zR" userLabel="chair6">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHl-qi-9zR" userLabel="chair6">
                                 <rect key="frame" x="135" y="244" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="1H8-it-xcI"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="57M-6E-otK" eventType="touchUpInside" id="N2U-3B-nHg"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myg-gu-dwk" userLabel="chair1">
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myg-gu-dwk" userLabel="chair1">
                                 <rect key="frame" x="270" y="372" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="xQW-jh-JbR"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="57M-6E-otK" eventType="touchUpInside" id="q1X-MX-E4z"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -771,44 +801,70 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWX-dr-nFD" userLabel="chair1">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWX-dr-nFD" userLabel="chair1">
                                 <rect key="frame" x="180" y="178" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="f4S-qK-ZA9"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="odZ-wP-K8p" eventType="touchUpInside" id="4WF-yJ-0Rw"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNk-Zq-WLe" userLabel="chair2">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNk-Zq-WLe" userLabel="chair2">
                                 <rect key="frame" x="270" y="178" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LNk-Zq-WLe" secondAttribute="height" multiplier="109:206" id="0BX-cx-UlD"/>
                                     <constraint firstAttribute="width" constant="60" id="nil-sw-xiF"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="odZ-wP-K8p" eventType="touchUpInside" id="VS2-vs-cUQ"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOP-W3-SIA" userLabel="chair3">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOP-W3-SIA" userLabel="chair3">
                                 <rect key="frame" x="360" y="178" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pOP-W3-SIA" secondAttribute="height" multiplier="109:206" id="OBh-AP-67b"/>
                                     <constraint firstAttribute="width" constant="60" id="ob5-E2-2pX"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="odZ-wP-K8p" eventType="touchDragInside" id="dFl-6A-qM0"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqc-qe-2HT" userLabel="chair5">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETt-Uq-pe5" userLabel="chair4">
+                                <rect key="frame" x="180" y="309" width="60" height="113"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Cnz-KP-lNh"/>
+                                    <constraint firstAttribute="width" secondItem="ETt-Uq-pe5" secondAttribute="height" multiplier="109:206" id="dTB-YA-FT8"/>
+                                </constraints>
+                                <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="odZ-wP-K8p" eventType="touchUpInside" id="Xy4-BB-KIJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqc-qe-2HT" userLabel="chair5">
                                 <rect key="frame" x="270" y="309" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="08t-m6-Zmu"/>
                                     <constraint firstAttribute="width" secondItem="sqc-qe-2HT" secondAttribute="height" multiplier="109:206" id="cbz-M5-Oe5"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="odZ-wP-K8p" eventType="touchUpInside" id="71H-HN-FzS"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGs-go-l05" userLabel="chair5">
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGs-go-l05" userLabel="chair6">
                                 <rect key="frame" x="360" y="309" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="d1V-rf-pun"/>
                                     <constraint firstAttribute="width" secondItem="HGs-go-l05" secondAttribute="height" multiplier="109:206" id="eJa-D8-kci"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="odZ-wP-K8p" eventType="touchUpInside" id="fPb-SF-rf6"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LET'S BALL (TAP CHAIR TO JOIN)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVr-af-DOt">
                                 <rect key="frame" x="163" y="540" width="275" height="35"/>
@@ -821,14 +877,6 @@
                                 <color key="textColor" red="0.8156862855" green="0.41176471110000001" blue="0.14509804549999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETt-Uq-pe5" userLabel="chair5">
-                                <rect key="frame" x="180" y="309" width="60" height="113"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Cnz-KP-lNh"/>
-                                    <constraint firstAttribute="width" secondItem="ETt-Uq-pe5" secondAttribute="height" multiplier="109:206" id="dTB-YA-FT8"/>
-                                </constraints>
-                                <state key="normal" image="chair"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -910,61 +958,85 @@
                                 <color key="textColor" red="0.8156862855" green="0.41176471110000001" blue="0.14509804549999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfy-sY-6wG" userLabel="chair2">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfy-sY-6wG" userLabel="chair2">
                                 <rect key="frame" x="225" y="179" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="lMm-04-SNl"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="ngX-aI-Y7a" eventType="touchUpInside" id="X3X-vf-1R3"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvn-TI-mPT" userLabel="chair3">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvn-TI-mPT" userLabel="chair3">
                                 <rect key="frame" x="315" y="179" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="oFz-H2-L0d"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="ngX-aI-Y7a" eventType="touchUpInside" id="8dj-5Q-FVS"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wl6-2m-Alo" userLabel="chair4">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wl6-2m-Alo" userLabel="chair4">
                                 <rect key="frame" x="405" y="179" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="x9f-rY-uoi"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="ngX-aI-Y7a" eventType="touchUpInside" id="tcb-vF-O7C"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXU-Qy-Au1" userLabel="chair5">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXU-Qy-Au1" userLabel="chair5">
                                 <rect key="frame" x="135" y="309" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="maa-Om-bug"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="ngX-aI-Y7a" eventType="touchUpInside" id="Gj0-YW-ecc"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJg-Ay-Am4" userLabel="chair6">
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJg-Ay-Am4" userLabel="chair6">
                                 <rect key="frame" x="225" y="309" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="G7l-Vw-4n6"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="ngX-aI-Y7a" eventType="touchUpInside" id="zn7-lG-iOa"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTy-v0-Lgr" userLabel="chair7">
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTy-v0-Lgr" userLabel="chair7">
                                 <rect key="frame" x="315" y="309" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="5YD-Si-9HG"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="ngX-aI-Y7a" eventType="touchUpInside" id="jsh-Gb-BGN"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkS-Hv-Npe" userLabel="chair8">
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkS-Hv-Npe" userLabel="chair8">
                                 <rect key="frame" x="405" y="309" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="f7R-In-HXl"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="ngX-aI-Y7a" eventType="touchUpInside" id="Zhr-8W-eN8"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pF9-UG-q2b" userLabel="chair1">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pF9-UG-q2b" userLabel="chair1">
                                 <rect key="frame" x="135" y="179" width="60" height="113"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="q9g-6Q-qnv"/>
                                 </constraints>
                                 <state key="normal" image="chair"/>
+                                <connections>
+                                    <action selector="chairClicked:" destination="ngX-aI-Y7a" eventType="touchUpInside" id="1Yl-z9-Cag"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1397,7 +1469,7 @@ for a temporary password to
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54R-JX-dj2" id="ajc-D4-sKE">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6RJ-ul-ARg" userLabel="Friend Image">

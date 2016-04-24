@@ -38,5 +38,31 @@ class TenPersonGameViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    //MARK: - IBActions
+    
+    @IBAction func chairClicked(chair: UIButton) {
+    
+        let basketballImage = UIImageView(frame: CGRectMake(0, 0, chair.frame.width-15, chair.frame.width-15))
+        basketballImage.image = UIImage(named: "basketball")
+        basketballImage.center = CGPoint(x: chair.frame.width/2, y: chair.frame.height/2-25)
+        
+        let initialsLabel = UILabel(frame: basketballImage.frame)
+        initialsLabel.text = "MO"
+        initialsLabel.font = UIFont(name: "Futura", size: 18.0)
+        initialsLabel.textColor = UIColor.whiteColor()
+        initialsLabel.textAlignment = .Center
+        initialsLabel.center = basketballImage.center
+        
+        
+        //add the basketball to the chair
+        chair.addSubview(basketballImage)
+        //add the initials to the basketball
+        chair.addSubview(initialsLabel)
+        
+    }
+    
+    
 
 }
