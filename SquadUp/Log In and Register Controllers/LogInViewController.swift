@@ -76,28 +76,25 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             
             if authData != nil {
 
-                
-                //check if there is authentication data - bypass log in screen
-                //check if the password was a temp password
-                let isTempPass = authData.providerData["isTemporaryPassword"] as? Bool
-                //print("isTempPass \(isTempPass)")
-                if isTempPass! == true {
-                    //segue to a reset password screen - pass email with it
-                    self.performSegueWithIdentifier("toChangePasswordViewController", sender: self.emailTextField.text)
+                if self.emailTextField.text != "email" {
+                    //check if there is authentication data - bypass log in screen
+                    //check if the password was a temp password
+                    let isTempPass = authData.providerData["isTemporaryPassword"] as? Bool
+                    //print("isTempPass \(isTempPass)")
+                    if isTempPass! == true {
+                        //segue to a reset password screen - pass email with it
+                        self.performSegueWithIdentifier("toChangePasswordViewController", sender: self.emailTextField.text)
+                    }
+                        
+                        //not a temp password
+                    else {
+                        //segue to the home screen
+                        //send player object with segue
+                        self.performSegueWithIdentifier("toHomeViewController", sender: nil)
+                    }
                 }
-                    
-                    //not a temp password
-                else {
-                    //segue to the home screen
-                    //send player object with segue
-                    self.performSegueWithIdentifier("toHomeViewController", sender: nil)
-                }
-                
 
-            }
-
-
-            
+            }  
             
         }
     }
@@ -166,7 +163,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }
         
         if segue.identifier == "toChangePasswordViewController" {
-            print(sender as! String)
+            //print(sender as! String)
             let destVC = segue.destinationViewController as! ChangePasswordViewController
             //pass the email with the password to be reset
             destVC.email = sender as? String

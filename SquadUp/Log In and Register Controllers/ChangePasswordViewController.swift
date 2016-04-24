@@ -129,7 +129,7 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
         //user entered valid password
         else {
             //try to change the password in firebase, if get error check if they entered the temp password wrong
-            print(email!)
+            //print(email!)
             self.ref.changePasswordForUser(email, fromOld: oldPasswordField.text, toNew: newPasswordField.text, withCompletionBlock: { (error) in
                 
                 if error != nil {
