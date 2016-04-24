@@ -73,11 +73,32 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
         //check if the user can bypass the log in screen
         ref.observeAuthEventWithBlock { (authData) -> Void in
-            //check if there is authentication data - bypass log in screen
+            
             if authData != nil {
-                //segue to the home view is the user is authenticated already
-                self.performSegueWithIdentifier("toHomeViewController", sender: nil)
+                //clear the password field - so it isn't filled in upon log out
+                self.passwordTextField.text = "password"
+                self.emailTextField.text = "email"
+                
+                //check if there is authentication data - bypass log in screen
+                //check if the password was a temp password
+                let isTempPass = authData.providerData["isTemporaryPassword"] as? Bool
+                //print("isTempPass \(isTempPass)")
+                if isTempPass! == true {
+                    //segue to a reset password screen - pass email with it
+                    self.performSegueWithIdentifier("toChangePasswordViewController", sender: self.emailTextField.text)
+                }
+                    
+                    //not a temp password
+                else {
+                    //segue to the home screen
+                    //send player object with segue
+                    self.performSegueWithIdentifier("toHomeViewController", sender: nil)
+                }
             }
+
+
+            
+            
         }
     }
     
@@ -187,22 +208,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                                 self.invalidCredentialsLabel.text = "invalid email or password"
                                 self.invalidCredentialsLabel.hidden = false
                                 self.shakeTextField()
-                            }
-                            else {
-                                //check if the password was a temp password
-                                let isTempPass = authData.providerData["isTemporaryPassword"] as? Bool
-                                //print("isTempPass \(isTempPass)")
-                                if isTempPass! == true {
-                                    //segue to a reset password screen - pass email with it
-                                    self.performSegueWithIdentifier("toChangePasswordViewController", sender: self.emailTextField.text)
-                                }
-                                    
-                                    //not a temp password
-                                else {
-                                    //segue to the home screen
-                                    //send player object with segue
-                                    self.performSegueWithIdentifier("toHomeViewController", sender: nil)
-                                }
                             }
             })
 
