@@ -64,7 +64,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             var newGames = [Game]()
             
             //dictionary of the new games from the server
-            var newGamesDict = [String : Game]()
+            var newGamesDict = [String : [Game]]()
             
             //loop through all of the available games and add them to the list
             for game in snapshot.children {
@@ -79,30 +79,17 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
                     //if it doesn't have the value add the date value to the dictionary
                     //create an array with the new game in it
                     let newGameArr : Array<Game> = [newGame]
-                    //put the array in the dictionary
-                    //newGamesDict[dateString] = Array<Game>()
-                    self.gameDictionary[dateString]? = newGameArr
                     
-                    
-                    
-                    
-                    
-                    
-                    
+                    //initialize the array at that key
+                    newGamesDict[dateString] = Array<Game>()
+                    //sub the new game array into the spot of the empty array
+                    newGamesDict[dateString] = newGameArr
                     
                 }
                 //the dictionary has the value add the game to the end of the array
                 else {
-                    var gameArray = self.gameDictionary[dateString]! as [Game]
-                    gameArray.append(newGame)
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    //add the game to the end of the currently used
+                    //self.gameDictionary[dateString]!.append(newGame)
                     
                 }
                 
@@ -113,6 +100,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             
             //set the new games from firebase to the current set
             self.games = newGames
+            self.gameDictionary = newGamesDict
             
             //do a pulldown to refresh
             self.tableView.reloadData()
@@ -152,13 +140,31 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    //headers for the sections - date of the games
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let keyArray = Array(gameDictionary.keys)
+        
+        //let header =
+        
+        return "hello"
+    }
     
+    //the number of sections in the table view - the number of dates that currently have games
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        //return the number of key value pairs in the dictionary
+        return gameDictionary.count
+    }
     
     
     
     //MARK: - Table View Data Source
+    
+    
     //method for the number of rows in the table
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //get the keys as an array. acess the row number of the array to get the key
+        //get an array of the values and get the count from the dictionary
+        
         return games.count
     }
     

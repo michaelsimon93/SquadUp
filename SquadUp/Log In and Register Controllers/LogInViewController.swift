@@ -70,14 +70,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+        ref.unauth()
         //check if the user can bypass the log in screen
         ref.observeAuthEventWithBlock { (authData) -> Void in
             
             if authData != nil {
-                //clear the password field - so it isn't filled in upon log out
-                self.passwordTextField.text = "password"
-                self.emailTextField.text = "email"
+
                 
                 //check if there is authentication data - bypass log in screen
                 //check if the password was a temp password
@@ -94,6 +92,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                     //send player object with segue
                     self.performSegueWithIdentifier("toHomeViewController", sender: nil)
                 }
+                
+
             }
 
 
@@ -166,10 +166,15 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }
         
         if segue.identifier == "toChangePasswordViewController" {
+            print(sender as! String)
             let destVC = segue.destinationViewController as! ChangePasswordViewController
             //pass the email with the password to be reset
             destVC.email = sender as? String
         }
+        
+        //clear the password field - so it isn't filled in upon log out
+        self.passwordTextField.text = "password"
+        //self.emailTextField.text = "email"
         
     }
 
