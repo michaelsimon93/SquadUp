@@ -16,13 +16,11 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //ARRAY IS TEMPORARY UNTIL THE DICTIONARY TO SEPARATE BY SECTION IS COMPLETE
     //array holding all of the currently available games
-    var games:[Game] = [Game]()
+    //var games:[Game] = [Game]()
     
     //dictionary : keys is the date, value is an array of games on that specific date
     //date is formatted as "4/22/16" for the key search
     var gameDictionary = [String : [Game]]()
-    var gameDictionary2 : [String : Array<Game>] = ["test" : [Game]()]
-    
     
     let ref = Firebase(url: "https://squadupcs407.firebaseio.com")
     let gameRef = Firebase(url: "https://squadupcs407.firebaseio.com/games")
@@ -61,7 +59,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         gameRef.observeEventType(.Value, withBlock: { snapshot in
             
             //array to hold all of the currently available games
-            var newGames = [Game]()
+            //var newGames = [Game]()
             
             //dictionary of the new games from the server
             var newGamesDict = [String : [Game]]()
@@ -89,17 +87,17 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
                 //the dictionary has the value add the game to the end of the array
                 else {
                     //add the game to the end of the currently used
-                    //self.gameDictionary[dateString]!.append(newGame)
+                    newGamesDict[dateString]!.append(newGame)
                     
                 }
                 
                 
                 
-                newGames.append(newGame)
+                //newGames.append(newGame)
             }
             
             //set the new games from firebase to the current set
-            self.games = newGames
+            //self.games = newGames
             self.gameDictionary = newGamesDict
             
             //do a pulldown to refresh
@@ -120,34 +118,39 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         //send the event with the segue
         //print(indexPath.row)
         
+        //get the date of the game clicked on
+        let gameSection = Array(gameDictionary.keys)[indexPath.section]
+        //get the game selected
+        let game = gameDictionary[gameSection]![indexPath.row]
+
+        
         //game is a 5v5
-        if games[indexPath.row].totalPlayersAllowed == 10 {
+        if game.totalPlayersAllowed == 10 {
             //segue to the joining game view controller, pass the game to be given to the destination VC
-            self.performSegueWithIdentifier("toTenPersonViewController", sender: games[indexPath.row])
+            self.performSegueWithIdentifier("toTenPersonViewController", sender: game)
         }
         //game is a 4v4
-        else if games[indexPath.row].totalPlayersAllowed == 8 {
+        else if game.totalPlayersAllowed == 8 {
             //segue to the joining game view controller, pass the game to be given to the destination VC
-            self.performSegueWithIdentifier("toEightPersonViewController", sender: games[indexPath.row])
+            self.performSegueWithIdentifier("toEightPersonViewController", sender: game)
         }
         //game is a 3v3
-        else if games[indexPath.row].totalPlayersAllowed == 6 {
+        else if game.totalPlayersAllowed == 6 {
             //segue to the joining game view controller, pass the game to be given to the destination VC
-            self.performSegueWithIdentifier("toSixPersonViewController", sender: games[indexPath.row])
+            self.performSegueWithIdentifier("toSixPersonViewController", sender: game)
         }
 
         //delselect the row so that when the game detail is popped off there isn't a cell stil highlighted
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    
     //headers for the sections - date of the games
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let keyArray = Array(gameDictionary.keys)
-        
-        //let header =
-        
-        return "hello"
+        //return the keys for the section headers
+        return Array(gameDictionary.keys)[section]
     }
+    
     
     //the number of sections in the table view - the number of dates that currently have games
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -165,29 +168,37 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         //get the keys as an array. acess the row number of the array to get the key
         //get an array of the values and get the count from the dictionary
         
-        return games.count
+        return Array(gameDictionary.values)[section].count
     }
     
-    //add method for sections in table view and make the sections by date
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GameCell") as! GameTableViewCell
-        
+        //get an array of the section titles
+        let sectionArr = Array(gameDictionary.keys)
+        //get the array of games based on the section of the table it is
+        let gameArr = gameDictionary[sectionArr[indexPath.section]]
+        //get the current game based on the row in the section it is
+        let game = gameArr![indexPath.row]
         
         //setup cell labels from game object
-        let locationText = games[indexPath.row].location! + " " + games[indexPath.row].gameType!
+        let locationText = game.location! + " " + game.gameType!
         cell.locationLabel.text = locationText
         
-        let numSpotsFilled = String(games[indexPath.row].numPlayersJoined!) + "/" + String(games[indexPath.row].totalPlayersAllowed!)
+        let numSpotsFilled = String(game.numPlayersJoined!) + "/" + String(game.totalPlayersAllowed!)
         cell.filledSpotsLabel.text = numSpotsFilled
         
-        cell.timeLabel.text = timeFromDate(games[indexPath.row].date!)
-        
-        
+        cell.timeLabel.text = timeFromDate(game.date!)
         
         return cell
     }
 
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel!.textColor = UIColor.blackColor()
+        header.textLabel!.font = UIFont(name: "Futura", size: 12)!
+    }
+    
     
     //MARK: - Unwind Segues
     @IBAction func createGameUnwind(segue : UIStoryboardSegue){
@@ -269,20 +280,24 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
                     }
                 }
                 
-                
-                self.games.append(newGame)
+                //check if the date is already in the dictionary
+                if self.gameDictionary[newGame.dateToString()] != nil {
+                    //get the current array of games
+                    var gameArr = self.gameDictionary[newGame.dateToString()]
+                    //add the new gmae to the end of the current array
+                    gameArr?.append(newGame)
+                    //replace the new array with the added game in the dictionary
+                    self.gameDictionary[newGame.dateToString()] = gameArr
+                }
+                //no date in the dictionary, intialize the array and add game
+                else {
+                    self.gameDictionary[newGame.dateToString()] = Array<Game>()
+                    self.gameDictionary[newGame.dateToString()] = [newGame]
+                }
                 
                 self.tableView.reloadData()
-                
-                
-                
-                
+    
             })
-            
-
-            
-            //need to add backend stuff
-
             
         }
         

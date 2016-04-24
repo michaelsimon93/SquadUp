@@ -295,7 +295,25 @@ class CreateGameViewController: UIViewController, UITableViewDelegate, UITableVi
         // Pass the selected object to the new view controller.
         if (segue.identifier == "createGame") {
             let vc = segue.destinationViewController as! OpenGamesViewController
-            vc.games.append(newGame)
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            //vc.games.append(newGame)
+        
+        
+        
+        
+        
+        
+        
+        
         }
         
         /*

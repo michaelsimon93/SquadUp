@@ -569,7 +569,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KCE-3W-xsV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="HOH-mM-rQQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3123" y="-1337"/>
+            <point key="canvasLocation" x="3055" y="-1940"/>
         </scene>
         <!--Ten Person Game View Controller-->
         <scene sceneID="x6a-oN-hWr">
@@ -767,7 +767,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcY-QG-PLf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Nmv-mk-j2Y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3951" y="-1165"/>
+            <point key="canvasLocation" x="3055" y="-1265"/>
         </scene>
         <!--Six Person Game View Controller-->
         <scene sceneID="p2g-EQ-fEo">
@@ -913,7 +913,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmi-64-0rn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="uQC-Jv-9dm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3951" y="368"/>
+            <point key="canvasLocation" x="3751" y="-932"/>
         </scene>
         <!--Eight Person Game View Controller-->
         <scene sceneID="mct-n0-OcJ">
@@ -1085,7 +1085,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zel-Vn-LcV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="D4N-e8-ByS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3951" y="-425"/>
+            <point key="canvasLocation" x="3055" y="-557"/>
         </scene>
         <!--RegisterViewController-->
         <scene sceneID="VdO-MW-I91">
