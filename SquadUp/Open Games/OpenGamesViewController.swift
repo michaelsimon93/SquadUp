@@ -18,12 +18,18 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     //array holding all of the currently available games
     //var games:[Game] = [Game]()
     
+    //orange color for the views
+    let orange = UIColor(red: 0.86, green: 0.49, blue: 0.19, alpha: 1.0)
+    
     //dictionary : keys is the date, value is an array of games on that specific date
     //date is formatted as "4/22/16" for the key search
     var gameDictionary = [String : [Game]]()
     
     let ref = Firebase(url: "https://squadupcs407.firebaseio.com")
     let gameRef = Firebase(url: "https://squadupcs407.firebaseio.com/games")
+    
+    //array of the sorted keys for the dictionary to use
+    var sortedKeys = Array<String>()
     
     
     
@@ -42,6 +48,9 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         tableView.rowHeight = 50.0
         //tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
+
+        //self.tableView.tableHeaderView = UIView(frame: CGRectMake(0, 0, 0, CGFloat.min))
+        self.automaticallyAdjustsScrollViewInsets = false
         
     }
 
@@ -100,6 +109,9 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             //self.games = newGames
             self.gameDictionary = newGamesDict
             
+            
+            self.sortedKeysByDate()
+            
             //do a pulldown to refresh
             self.tableView.reloadData()
             
@@ -147,8 +159,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //headers for the sections - date of the games
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        //return the keys for the section headers
-        return Array(gameDictionary.keys)[section]
+        //return the keys for the section headers - sorted so they are in the correct order
+        return sortedKeys[section]
     }
     
     
@@ -162,13 +174,16 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //MARK: - Table View Data Source
     
-    
     //method for the number of rows in the table
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //get the keys as an array. acess the row number of the array to get the key
         //get an array of the values and get the count from the dictionary
         
-        return Array(gameDictionary.values)[section].count
+        //get the key of the value
+        let key = sortedKeys[section]
+        let gamesArr = gameDictionary[key]
+        
+        return (gamesArr?.count)!
     }
     
     
@@ -196,7 +211,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel!.textColor = UIColor.blackColor()
-        header.textLabel!.font = UIFont(name: "Futura", size: 12)!
+        header.textLabel!.font = UIFont(name: "Futura", size: 14)!
+        header.contentView.backgroundColor = orange
     }
     
     
@@ -336,7 +352,34 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
+    //MARK: - Sorting Algorithms
     
+    //sort the dictionary by date so the most recent games show in section 0
+    func sortedKeysByDate() {
+        //sorting algorithm from : http://stackoverflow.com/questions/29552292/how-do-you-sort-dates-in-a-dictionary
+        
+        let df = NSDateFormatter()
+        df.dateFormat = "mm/dd/yy"
+
+        let sorted = gameDictionary.sort{ df.dateFromString($0.0)!.compare(df.dateFromString($1.0)!) == .OrderedAscending}
+        
+        //clear the array so it can be resorted
+        sortedKeys = Array<String>()
+        
+        //convert the tuple to a dictionary
+        for tuple in sorted {
+            //add the keys in order in which they are sorted
+            sortedKeys.append(tuple.0)
+            
+        }
+        
+        
+    }
+    
+    //sort the games at the given date by time
+    func sortGamesByTime(date : String) {
+        
+    }
     
 }
 
