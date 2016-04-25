@@ -112,6 +112,10 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             
             self.sortedKeysByDate()
             
+            for date in self.sortedKeys {
+                self.sortGamesByTime(date)
+            }
+            
             //do a pulldown to refresh
             self.tableView.reloadData()
             
@@ -212,7 +216,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         let header = view as! UITableViewHeaderFooterView
         header.textLabel!.textColor = UIColor.blackColor()
         header.textLabel!.font = UIFont(name: "Futura", size: 14)!
-        header.contentView.backgroundColor = orange
+        //header.contentView.backgroundColor = orange
     }
     
     
@@ -378,6 +382,16 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //sort the games at the given date by time
     func sortGamesByTime(date : String) {
+        let unsortedGamesArr = gameDictionary[date]
+        
+        //get total seconds the event, one with the least amount of seconds
+        //is the first one displayed and so on
+        
+        let sortedGamesArr = unsortedGamesArr!.sort({ $0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970 })
+        
+        //print(sortedGamesArr)
+        
+        gameDictionary[date] = sortedGamesArr
         
     }
     
