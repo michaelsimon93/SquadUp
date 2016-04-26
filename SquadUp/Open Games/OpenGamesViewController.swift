@@ -212,6 +212,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
 
+    //conifgure the custom fonts and font color of the date headers on the table view
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel!.textColor = UIColor.blackColor()
@@ -361,7 +362,6 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     //sort the dictionary by date so the most recent games show in section 0
     func sortedKeysByDate() {
         //sorting algorithm from : http://stackoverflow.com/questions/29552292/how-do-you-sort-dates-in-a-dictionary
-        
         let df = NSDateFormatter()
         df.dateFormat = "mm/dd/yy"
 
@@ -382,17 +382,158 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //sort the games at the given date by time
     func sortGamesByTime(date : String) {
-        let unsortedGamesArr = gameDictionary[date]
-        
-        //get total seconds the event, one with the least amount of seconds
-        //is the first one displayed and so on
-        
-        let sortedGamesArr = unsortedGamesArr!.sort({ $0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970 })
+        //function from http://stackoverflow.com/questions/29902781/sort-an-array-by-nsdates-using-the-sort-function
+        let sortedGamesArr = gameDictionary[date]!.sort({ $0.date!.timeIntervalSince1970 < $1.date!.timeIntervalSince1970 })
         
         //print(sortedGamesArr)
-        
         gameDictionary[date] = sortedGamesArr
         
+    }
+    
+    
+    //MARK: - Deleting Algorithms
+    
+    func deleteOldGames() {
+        //get the current date and time
+        //get the current nsdate
+        let currDate = NSDate()
+        
+        //get a formatter to get strings to compare
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .ShortStyle
+        formatter.timeStyle = .ShortStyle
+        let fullDate:String = formatter.stringFromDate(currDate)
+        var fullDateArr = fullDate.componentsSeparatedByString(", ")
+        
+        //current date represented as "mm/dd/yy"
+        let currDateString = fullDateArr[0]
+        //curent time represented as "HH:MM AM/PM"
+        let currTimeString = fullDateArr[1]
+        
+        
+        //loop through the sorted keys ("4/22/16")
+        for gameDate in sortedKeys {
+        
+            //check if the date of the game is before the current date
+            if dateBeforeCurrentDate(gameDate, currDateString: currDateString) {
+                //delete the array of games from firebase since the games are past the current date
+                
+            }
+            
+            //check if the date of the games are the same as the current date
+            if gameDate == currDateString {
+                //get the array of the games for the current date
+                let gamesArr = gameDictionary[gameDate]
+                
+                //loop through the games for today and check if they are past the current time
+                for game in gamesArr! {
+                    let gameTime = nsDateToTime(game.date!)
+                    
+                    //check if the game time is before the current time of day
+                    if timeBeforeCurrentTime(gameTime, currTimeString: currTimeString) {
+                        //game time is before current time of day
+                        //delete game from firebase
+                        
+                        
+                    }
+                    //game is not before the current time of day
+                    else {
+                        //break out of the loop so time isn't wasted checking games
+                        //that shouldn't be deleted
+                        break
+                    }
+                }
+     
+            }
+            
+        }
+        
+        
+    }
+    
+    //checks if the date passed as an argument is before today's date
+    func dateBeforeCurrentDate(date: String, currDateString : String) -> Bool {
+        
+        let dateArr = currDateString.componentsSeparatedByString("/")
+        let currMonth = Int(dateArr[0])
+        let currDay = Int(dateArr[1])
+        let currYear = Int(dateArr[2])
+        
+        let gameDateArr = date.componentsSeparatedByString("/")
+        let gameMonth = Int(gameDateArr[0])
+        let gameDay = Int(gameDateArr[1])
+        let gameYear = Int(gameDateArr[2])
+        
+        //current game is in the previous year
+        if currYear > gameYear {
+            //date is before the current date
+            return true
+            
+        }
+        //game is in the same year as the date
+        else {
+            //check if the current month is larger than the game's month
+            if currMonth > gameMonth {
+                //date is before the current date - return true
+                return true
+            }
+            //game is in the current month or in months ahead of the current month
+            else {
+                //check if the game day is before the current day in the month
+                if currDay > gameDay {
+                    //game date is before current date - return true
+                    return true
+                }
+            }
+        }
+        
+        //game is on the current day or is ahead of the current date - return false
+        return false
+        
+    }
+    
+    //checks if the time passed as an argument is before the current time
+    func timeBeforeCurrentTime(time : String, currTimeString : String) -> Bool {
+        
+        var currHour = Int(currTimeString.componentsSeparatedByString(":")[0])
+        let currMinute = Int(currTimeString.componentsSeparatedByString(":")[1].componentsSeparatedByString(" ")[0])
+        let currAMPM = currTimeString.componentsSeparatedByString(" ")[1]
+        
+        var gameHour = Int(currTimeString.componentsSeparatedByString(":")[0])
+        let gameMinute = Int(currTimeString.componentsSeparatedByString(":")[1].componentsSeparatedByString(" ")[0])
+        let gameAMPM = currTimeString.componentsSeparatedByString(" ")[1]
+        
+        //if it is PM add 12 hours of seconds to the hour
+        if gameAMPM == "PM" {
+            gameHour! += 12
+        }
+        if currAMPM == "PM" {
+            currHour! += 12
+        }
+        
+        //total seconds from midnight the game is scheduled for on the current day
+        let gameSeconds = 3600*gameHour! + 60*gameMinute!
+        //the total seconds that pass passed in the current day
+        let currSeconds = 3600*currHour! + 60*currMinute!
+        
+        //more seconds has passed in the day than the seconds passed to reach the game
+        if currSeconds > gameSeconds {
+            return true
+        }
+        
+        return false
+    }
+    
+    //converts a NSDate to the time representation "5:30 PM"
+    func nsDateToTime(date : NSDate) -> String {
+        //get a formatter to get strings to compare
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .ShortStyle
+        formatter.timeStyle = .ShortStyle
+        let fullDate:String = formatter.stringFromDate(date)
+        let fullDateArr = fullDate.componentsSeparatedByString(", ")
+        
+        return fullDateArr[1]
     }
     
 }
