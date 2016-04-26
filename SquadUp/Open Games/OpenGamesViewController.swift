@@ -33,6 +33,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     
+    //MARK: - Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -51,6 +53,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
 
         //self.tableView.tableHeaderView = UIView(frame: CGRectMake(0, 0, 0, CGFloat.min))
         self.automaticallyAdjustsScrollViewInsets = false
+        
+       
         
     }
 
@@ -116,18 +120,22 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.sortGamesByTime(date)
             }
             
+            self.deleteOldGames()
+            
             //do a pulldown to refresh
             self.tableView.reloadData()
             
             
         })
+        
+        //self.deleteOldGames()
     }
     
     
     
     
     
-    //MARK: - Table View Delegate Methods
+    //MARK: - Table View Delegate / Datasource Methods
     
     //method called when a row in the table view is clicked on
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -173,10 +181,6 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         //return the number of key value pairs in the dictionary
         return gameDictionary.count
     }
-    
-    
-    
-    //MARK: - Table View Data Source
     
     //method for the number of rows in the table
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -271,10 +275,6 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
                 totalAllowed = 10
             }
             
-
-
-            
-            
             var gameNumber = 0
             
             ref.childByAppendingPath("gameNumber").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
@@ -316,6 +316,10 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
                     self.gameDictionary[newGame.dateToString()] = [newGame]
                 }
                 
+                //delete any old games
+                self.deleteOldGames()
+                
+                //reload table data
                 self.tableView.reloadData()
     
             })
@@ -417,6 +421,13 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             //check if the date of the game is before the current date
             if dateBeforeCurrentDate(gameDate, currDateString: currDateString) {
                 //delete the array of games from firebase since the games are past the current date
+                let gamesArr = gameDictionary[gameDate]
+                
+                //loop through and delete all of the games
+                for game in gamesArr! {
+                    //remove the game from firebase
+                    game.ref?.removeValue()
+                }
                 
             }
             
@@ -433,7 +444,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
                     if timeBeforeCurrentTime(gameTime, currTimeString: currTimeString) {
                         //game time is before current time of day
                         //delete game from firebase
-                        
+                        game.ref?.removeValue()
                         
                     }
                     //game is not before the current time of day
@@ -499,9 +510,9 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         let currMinute = Int(currTimeString.componentsSeparatedByString(":")[1].componentsSeparatedByString(" ")[0])
         let currAMPM = currTimeString.componentsSeparatedByString(" ")[1]
         
-        var gameHour = Int(currTimeString.componentsSeparatedByString(":")[0])
-        let gameMinute = Int(currTimeString.componentsSeparatedByString(":")[1].componentsSeparatedByString(" ")[0])
-        let gameAMPM = currTimeString.componentsSeparatedByString(" ")[1]
+        var gameHour = Int(time.componentsSeparatedByString(":")[0])
+        let gameMinute = Int(time.componentsSeparatedByString(":")[1].componentsSeparatedByString(" ")[0])
+        let gameAMPM = time.componentsSeparatedByString(" ")[1]
         
         //if it is PM add 12 hours of seconds to the hour
         if gameAMPM == "PM" {
