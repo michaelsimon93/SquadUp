@@ -77,6 +77,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             //dictionary of the new games from the server
             var newGamesDict = [String : [Game]]()
             
+            //print(snapshot.children)
+            
             //loop through all of the available games and add them to the list
             for game in snapshot.children {
                 
@@ -89,12 +91,12 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
                 if newGamesDict[dateString] == nil {
                     //if it doesn't have the value add the date value to the dictionary
                     //create an array with the new game in it
-                    let newGameArr : Array<Game> = [newGame]
+                    //let newGameArr : Array<Game> = [newGame]
                     
                     //initialize the array at that key
                     newGamesDict[dateString] = Array<Game>()
                     //sub the new game array into the spot of the empty array
-                    newGamesDict[dateString] = newGameArr
+                    newGamesDict[dateString]?.append(newGame)
                     
                 }
                 //the dictionary has the value add the game to the end of the array
@@ -111,6 +113,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             
             //set the new games from firebase to the current set
             //self.games = newGames
+            //print("newGamesDict \(newGamesDict)")
             self.gameDictionary = newGamesDict
             
             
@@ -171,6 +174,14 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //headers for the sections - date of the games
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        //special case when there is only 1 game and it is added
+        if sortedKeys.count == 0 {
+            let date = Array(gameDictionary.keys)[0]
+            let game = gameDictionary[date]?[0]
+            
+            return game?.dateToString()
+        }
+        
         //return the keys for the section headers - sorted so they are in the correct order
         return sortedKeys[section]
     }
@@ -187,25 +198,31 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         //get the keys as an array. acess the row number of the array to get the key
         //get an array of the values and get the count from the dictionary
         
-        //get the key of the value
-        let key = sortedKeys[section]
-        let gamesArr = gameDictionary[key]
+        //check if there is no sorted keys
+        if sortedKeys.count != 0 {
+            //get the key of the value
+            let key = sortedKeys[section]
+            let gamesArr = gameDictionary[key]
+            
+            return (gamesArr?.count)!
+        }
         
-        return (gamesArr?.count)!
+        //there is one section in the table - since there is no sorted keys
+        return 1
+
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GameCell") as! GameTableViewCell
-        //get an array of the section titles
-        let sectionArr = Array(gameDictionary.keys)
         //get the array of games based on the section of the table it is
-        let gameArr = gameDictionary[sectionArr[indexPath.section]]
+        let gameArr = gameDictionary[sortedKeys[indexPath.section]]
         //get the current game based on the row in the section it is
         let game = gameArr![indexPath.row]
         
         //setup cell labels from game object
         let locationText = game.location! + " " + game.gameType!
+        //let locationText = game.location!
         cell.locationLabel.text = locationText
         
         let numSpotsFilled = String(game.numPlayersJoined!) + "/" + String(game.totalPlayersAllowed!)
