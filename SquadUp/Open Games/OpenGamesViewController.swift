@@ -215,8 +215,20 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GameCell") as! GameTableViewCell
-        //get the array of games based on the section of the table it is
-        let gameArr = gameDictionary[sortedKeys[indexPath.section]]
+        
+        let gameArr : [Game]?
+        
+        if sortedKeys.count != 0 {
+            //get the array of games based on the section of the table it is
+            gameArr = gameDictionary[sortedKeys[indexPath.section]]
+        }
+        else {
+            //only 1 key in the dictionary
+            let key = Array(gameDictionary.keys)[0]
+            gameArr = gameDictionary[key]
+        }
+
+
         //get the current game based on the row in the section it is
         let game = gameArr![indexPath.row]
         
@@ -333,8 +345,10 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
                     self.gameDictionary[newGame.dateToString()] = [newGame]
                 }
                 
+                self.sortedKeysByDate()
+                
                 //delete any old games
-                self.deleteOldGames()
+                //self.deleteOldGames()
                 
                 //reload table data
                 self.tableView.reloadData()
@@ -386,7 +400,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         let df = NSDateFormatter()
         df.dateFormat = "mm/dd/yy"
 
-        let sorted = gameDictionary.sort{ df.dateFromString($0.0)!.compare(df.dateFromString($1.0)!) == .OrderedAscending}
+        let sorted = gameDictionary.sort{ df.dateFromString($0.0)!.compare(df.dateFromString($1.0)!) == .OrderedDescending}
         
         //clear the array so it can be resorted
         sortedKeys = Array<String>()
@@ -508,7 +522,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             //game is in the current month or in months ahead of the current month
             else {
                 //check if the game day is before the current day in the month
-                if currDay > gameDay {
+                if currDay > gameDay && currMonth == gameMonth {
                     //game date is before current date - return true
                     return true
                 }
