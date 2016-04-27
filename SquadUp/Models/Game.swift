@@ -23,8 +23,8 @@ class Game: NSObject {
     var numPlayersJoined: Int?
     //the total number of players allowed for the game (ie: 10, 8, 6)
     var totalPlayersAllowed: Int?
-    //array to holding all of the users/players curently entered in the game
-    var players:[Player] = [Player]()
+    //array to holding the uid's of al the users/players curently entered in the game
+    var players:[String]?
     
     
     //FIREBASE PROPERTIES
@@ -32,6 +32,7 @@ class Game: NSObject {
     let key : String!
     //firebase reference for where the data came from
     let ref : Firebase?
+    
     
     //MARK: - Initialization
     
@@ -46,6 +47,7 @@ class Game: NSObject {
         self.totalPlayersAllowed = totalPlayersAllowed
         self.key = key
         self.ref = nil
+        
         
     }
     
