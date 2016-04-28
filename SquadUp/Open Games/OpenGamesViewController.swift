@@ -29,6 +29,9 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     let gameRef = Firebase(url: "https://squadupcs407.firebaseio.com/games")
     let usersRef = Firebase(url: "https://squadupcs407.firebaseio.com/users")
     
+    //auth data from user logging in - used to create Player object
+    var userUID : String?
+    
     //array of the sorted keys for the dictionary to use
     var sortedKeys = Array<String>()
     
@@ -46,6 +49,17 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
 
         //self.tableView.tableHeaderView = UIView(frame: CGRectMake(0, 0, 0, CGFloat.min))
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        let playerRef = usersRef.childByAppendingPath(userUID!)
+        
+        //get player information and make player object
+        playerRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            //get the player reference
+            self.user = Player(snapshot: snapshot, uid: self.userUID!)
+        })
+        
+        
+        
         
     }
 

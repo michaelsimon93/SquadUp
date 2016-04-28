@@ -50,6 +50,16 @@ class Player: NSObject {
         
     }
     
+    init(snapshot : FDataSnapshot, uid : String) {
+        self.uid = uid
+        self.initials = snapshot.value["initials"] as? String
+        self.numGamesPlayed = snapshot.value["numGamesPlayed"] as? Int
+        self.name = snapshot.value["name"] as? String
+        self.email = snapshot.value["email"] as! String
+        
+        
+    }
+    
     //Initialize from arbitrary data
     init(uid: String, email: String, initials : String, numGamesPlayed : Int, name : String) {
         self.uid = uid

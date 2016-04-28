@@ -23,7 +23,9 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     //the default the scroll view height is. Intialized upon view did load
     var defaultScrollViewHeightConstraint: CGFloat = 0.0
     
+    //user/ player information
     var email : String?
+    var userUID : String?
     
     //orange color for the views
     let orange = UIColor(red: 0.86, green: 0.49, blue: 0.19, alpha: 1.0)
@@ -274,14 +276,23 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
         oldPasswordField.text = ""
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "toHomeViewController" {
+            let tabController = segue.destinationViewController as! TabBarController
+            let openGamesController = tabController.viewControllers?[0] as! OpenGamesViewController
+            //user UID so player can be created
+            openGamesController.userUID = userUID!
+            
+        }
+        
     }
-    */
+    
 
 }

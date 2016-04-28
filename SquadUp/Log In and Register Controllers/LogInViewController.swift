@@ -34,6 +34,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     //orange color for the views
     let orange = UIColor(red: 0.86, green: 0.49, blue: 0.19, alpha: 1.0)
     
+    //temproary auth data to hold users uid
+    var tempAuthData : FAuthData?
+    
     //backend properties
     //reference to firebase app
     let ref  = Firebase(url: "https://squadupcs407.firebaseio.com")
@@ -76,31 +79,31 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         super.viewDidAppear(animated)
         //check if the user can bypass the log in screen
         handle = ref.observeAuthEventWithBlock { (authData) -> Void in
+            //save the temp auth data
+            self.tempAuthData = authData
             
-            if authData != nil {
+            //check if there is authentication data - bypass log in screen
+            //check if the password was a temp password
+            let isTempPass = authData.providerData["isTemporaryPassword"] as? Bool
+            //print("isTempPass \(isTempPass)")
+            
+            //make sure it is a temp password and the user has entered an email
+            if isTempPass! == true && self.emailTextField.text != "email" {
+                //segue to a reset password screen - pass email with it
+                self.performSegueWithIdentifier("toChangePasswordViewController", sender: self.emailTextField.text)
+            }
                 
-                //check if there is authentication data - bypass log in screen
-                //check if the password was a temp password
-                let isTempPass = authData.providerData["isTemporaryPassword"] as? Bool
-                //print("isTempPass \(isTempPass)")
-                
-                //make sure it is a temp password and the user has entered an email
-                if isTempPass! == true && self.emailTextField.text != "email" {
-                    //segue to a reset password screen - pass email with it
-                    self.performSegueWithIdentifier("toChangePasswordViewController", sender: self.emailTextField.text)
-                }
-                    
-                    //not a temp password
-                else {
-                    //segue to the home screen
-                    //send player object with segue
-                    self.performSegueWithIdentifier("toHomeViewController", sender: authData)
-                }
-                
-                
+            //not a temp password
+            else {
+                //segue to the home screen
+                //send player object with segue
+                self.performSegueWithIdentifier("toHomeViewController", sender: authData.uid)
             }
             
+            
         }
+        
+        
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -165,6 +168,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         //going to the main screen
         if segue.identifier == "toHomeViewController" {
             
+            let tabController = segue.destinationViewController as! TabBarController
+            let openGamesController = tabController.viewControllers?[0] as! OpenGamesViewController
+            //auth data passed as sender
+            openGamesController.userUID = (sender as! String)
+            
             
         }
         
@@ -173,6 +181,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             let destVC = segue.destinationViewController as! ChangePasswordViewController
             //pass the email with the password to be reset
             destVC.email = sender as? String
+            destVC.userUID = tempAuthData?.uid
+            
         }
         
         //clear the password field - so it isn't filled in upon log out
@@ -208,7 +218,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             ref.authUser(emailTextField.text, password: passwordTextField.text,
                          withCompletionBlock: { (error, authData) in
                             
-                            
                             if error != nil {
                                 //there was an error authorizing
                                 //print(error.description)
@@ -225,12 +234,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             invalidCredentialsLabel.text = "please enter an email and password"
             invalidCredentialsLabel.hidden = false
         }
-        
-        
-
-        
-
-
         
     }
     
