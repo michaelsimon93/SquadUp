@@ -23,6 +23,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scrollViewHeightConstraint : NSLayoutConstraint!
     @IBOutlet weak var invalidCredentialsLabel: UILabel!
     
+    //handle to remove the auth observer
+    var handle : UInt?
+    
     //the default the scroll view height is. Intialized upon view did load
     var defaultScrollViewHeightConstraint: CGFloat = 0.0
     //active text field to scroll up to
@@ -34,6 +37,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     //backend properties
     //reference to firebase app
     let ref  = Firebase(url: "https://squadupcs407.firebaseio.com")
+    let usersRef = Firebase(url: "https://squadupcs407.firebaseio.com/users")
     
     //MARK: - Lifecycle
     
@@ -71,7 +75,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         //check if the user can bypass the log in screen
-        ref.observeAuthEventWithBlock { (authData) -> Void in
+        handle = ref.observeAuthEventWithBlock { (authData) -> Void in
             
             if authData != nil {
                 
@@ -90,7 +94,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 else {
                     //segue to the home screen
                     //send player object with segue
-                    self.performSegueWithIdentifier("toHomeViewController", sender: nil)
+                    self.performSegueWithIdentifier("toHomeViewController", sender: authData)
                 }
                 
                 
@@ -105,6 +109,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         
+        //remove the auth observer
+        ref.removeObserverWithHandle(handle!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -158,7 +164,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
         //going to the main screen
         if segue.identifier == "toHomeViewController" {
-            //pass player object/information to main view controller so that it can display the correct info
+            
             
         }
         

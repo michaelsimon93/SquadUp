@@ -41,12 +41,54 @@ class Player: NSObject {
         
         //acesss the rest of the Player variables with a firebase search
         
+        
+        //general placeholder variables to make it compile for now
+        initials = "MO"
+        numGamesPlayed = 0
+        name = "Michael"
+        friends = ["uid1234"]
+        
     }
     
     //Initialize from arbitrary data
-    init(uid: String, email: String) {
+    init(uid: String, email: String, initials : String, numGamesPlayed : Int, name : String) {
         self.uid = uid
         self.email = email
+        self.initials = initials
+        self.numGamesPlayed = numGamesPlayed
+        self.name = name
+        
+    }
+    
+    //converts to 'AnyObject' Dictonary so that it can be sent to firebase
+    func toDictionary() -> AnyObject {
+        
+        let toReturn : [String: AnyObject] = ["initials" : initials!,
+                                              "uid": uid,
+                                              "numGamesPlayed" : numGamesPlayed!,
+                                              "name" : name!,
+                                              "email" : email,
+                                              "friends" : friendsToDictionary()]
+        
+        
+        return toReturn
+    }
+    
+    //converts the friends array to a dictionary that holds the friends uid's
+    func friendsToDictionary() -> AnyObject {
+        //dictionary to return with friends
+        var toReturn : [String : AnyObject] = [String:AnyObject]()
+        
+        if friends != nil {
+            //loop through friends and put them in a dictionary
+            for i in 0..<friends!.count {
+                let friendNo = "friend" + String(i)
+                toReturn[friendNo] = friends![i]
+            }
+        }
+
+        
+        return toReturn
         
     }
     

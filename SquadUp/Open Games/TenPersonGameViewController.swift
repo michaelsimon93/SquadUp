@@ -10,9 +10,16 @@ import UIKit
 
 class TenPersonGameViewController: UIViewController {
     
+    //MARK: - Properties
+    
     //outlet to customize the font to fit style of the app
     @IBOutlet weak var backButton: UIBarButtonItem!
     
+    //array holding players uid's if they are joined, if not joined spot is empty string
+    var players = ["", "", "", "", "", "", "", "", "", ""]
+    
+    
+    //MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +34,10 @@ class TenPersonGameViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
     }
     
 

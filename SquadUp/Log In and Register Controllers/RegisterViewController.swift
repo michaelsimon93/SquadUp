@@ -21,6 +21,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     //label to display if passwords do not match
     @IBOutlet weak var invalidEmailLabel: UILabel!
     
+
+    
     //orange color for the views
     let orange = UIColor(red: 0.86, green: 0.49, blue: 0.19, alpha: 1.0)
     
@@ -32,6 +34,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     //backend properties
     //reference to firebase app
     let ref  = Firebase(url: "https://squadupcs407.firebaseio.com")
+    let usersRef = Firebase(url: "https://squadupcs407.firebaseio.com/users")
  
     
     
@@ -142,17 +145,28 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             self.ref.createUser(emailTextField.text, password: tempPassword) { (error: NSError!) in
                 //check if there was an error creating the account
                 if error == nil {
+                    
                     //no error creating account, segue to confirmation view controller
                     self.performSegueWithIdentifier("toConfirmationViewController", sender: nil)
                     
-                    //reset user account password so they have to verify their account 
-                    self.ref.resetPasswordForUser(self.emailTextField.text, withCompletionBlock: { error in
-                        if error != nil {
-                            // There was an error processing the request
-                        } else {
-                            // Password reset sent successfully
-                        }
+                    //authorize the user so that
+                    self.ref.authUser(self.emailTextField.text, password: tempPassword, withCompletionBlock: { (error, authData) in
+                        //create the user in the list of users on firebase with auth data
+                        self.createUserOnFirebase(authData)
+                        
+                        //unauthorize, done using UID
+                        self.ref.unauth()
+                        
+                        //reset user account password so they have to verify their account
+                        self.ref.resetPasswordForUser(self.emailTextField.text, withCompletionBlock: { error in
+                            if error != nil {
+                                // There was an error processing the request
+                            } else {
+                                // Password reset sent successfully
+                            }
+                        })
                     })
+                    
                 }
                 
                 //else there was an error creating the account 
@@ -164,7 +178,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                     }
                     //all other errors tell user an error occured
                     else {
-                        self.invalidEmailLabel.text = "an error occurred. Please try again."
+                        self.invalidEmailLabel.text = "an error occurred, please try again."
                         self.invalidEmailLabel.hidden = false
                     }
                 }
@@ -268,16 +282,36 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             self.view.endEditing(true)
             return false
             
-            //add activity indicator
-            //call the server to check for log in credentials
-            
-            
         }
         
         
         //done clicked from email box, close the keyboard
         self.view.endEditing(true)
         return false
+        
+    }
+    
+    
+    //MARK: - Firebase
+    func createUserOnFirebase(authData : FAuthData) {
+        //get users unique uid for storing their account information
+        let uid = authData.uid
+        
+        //endpoint in which the users information is saved on firebase
+        let userEndpoint = usersRef.childByAppendingPath(uid)
+        
+        //make the initials the first two letters of their email
+        
+        let index = emailTextField.text?.startIndex.advancedBy(2)
+        
+        
+        let initials = emailTextField.text?.substringToIndex(index!).uppercaseString
+        let name = "Anonymous Baller"
+        
+        let newPlayer = Player(uid: uid, email: emailTextField.text!, initials: initials!, numGamesPlayed: 0, name: name)
+        
+        userEndpoint.updateChildValues(newPlayer.toDictionary() as! [NSObject : AnyObject])
+        
         
     }
 

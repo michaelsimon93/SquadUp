@@ -10,8 +10,16 @@ import UIKit
 
 class SixPersonGameViewController: UIViewController {
 
+    //MARK: - Properties
+    
     //outlet to customize the font to fit style of the app
     @IBOutlet weak var backButton: UIBarButtonItem!
+    
+    //array holding players uid's if they are joined, if not joined spot is empty string
+    var players = ["", "", "", "", "", ""]
+    
+    
+    //MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()

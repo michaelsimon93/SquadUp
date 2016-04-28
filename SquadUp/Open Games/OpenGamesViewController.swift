@@ -27,11 +27,13 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let ref = Firebase(url: "https://squadupcs407.firebaseio.com")
     let gameRef = Firebase(url: "https://squadupcs407.firebaseio.com/games")
+    let usersRef = Firebase(url: "https://squadupcs407.firebaseio.com/users")
     
     //array of the sorted keys for the dictionary to use
     var sortedKeys = Array<String>()
     
-    
+    //Player using the app
+    var user : Player?
     
     //MARK: - Lifecycle Methods
     
@@ -39,22 +41,11 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //load some generic games into the table view
-//        let game1 = Game(date: NSDate(), location: "SERF", gameType: "5v5", numPlayersJoined: 5, totalPlayersAllowed: 10)
-//        let game2 = Game(date: NSDate(), location: "NAT", gameType: "4v4", numPlayersJoined: 2, totalPlayersAllowed: 8)
-//        let game3 = Game(date: NSDate(), location: "James Madison", gameType: "3v3", numPlayersJoined: 3, totalPlayersAllowed: 6)
-//        
-//        games.append(game1)
-//        games.append(game2)
-//        games.append(game3)
-        
         tableView.rowHeight = 50.0
         //tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
 
         //self.tableView.tableHeaderView = UIView(frame: CGRectMake(0, 0, 0, CGFloat.min))
         self.automaticallyAdjustsScrollViewInsets = false
-        
-       
         
     }
 
@@ -69,6 +60,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        
         gameRef.observeEventType(.Value, withBlock: { snapshot in
             
             //array to hold all of the currently available games
