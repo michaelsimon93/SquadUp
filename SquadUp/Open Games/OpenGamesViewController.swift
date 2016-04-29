@@ -38,6 +38,9 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     //Player using the app
     var user : Player?
     
+    
+    
+    
     //MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
@@ -153,7 +156,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         //print(indexPath.row)
         
         //get the date of the game clicked on
-        let gameSection = Array(gameDictionary.keys)[indexPath.section]
+        //let gameSection = Array(gameDictionary.keys)[indexPath.section]
+        let gameSection = sortedKeys[indexPath.section]
         //get the game selected
         let game = gameDictionary[gameSection]![indexPath.row]
 
@@ -258,6 +262,40 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         header.textLabel!.textColor = UIColor.blackColor()
         header.textLabel!.font = UIFont(name: "Futura", size: 14)!
         //header.contentView.backgroundColor = orange
+    }
+    
+    
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        //if going to a game detail view, pass the users player object
+        if segue.identifier == "toTenPersonViewController" {
+            let destVC = segue.destinationViewController as! TenPersonGameViewController
+            let game = sender as! Game
+            //give the game the user and the game so if they joined they can be added in firebase
+            destVC.game = game
+            destVC.user = self.user
+        }
+        else if segue.identifier == "toEightPersonViewController" {
+            let destVC = segue.destinationViewController as! EightPersonGameViewController
+            let game = sender as! Game
+            //give the game the user and the game so if they joined they can be added in firebase
+            destVC.game = game
+            destVC.user = self.user
+        }
+        else if segue.identifier == "toSixPersonViewController" {
+            let destVC = segue.destinationViewController as! SixPersonGameViewController
+            let game = sender as! Game
+            //give the game the user and the game so if they joined they can be added in firebase
+            destVC.game = game
+            destVC.user = self.user
+        }
+        
     }
     
     
@@ -398,26 +436,42 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         return time
     }
     
+    func dateFromDate(date: NSDate) -> String {
+        
+        //convert the DateTimePicker
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        formatter.timeStyle = .ShortStyle
+        let fullDate:String = formatter.stringFromDate(date)
+        var fullDateArr = fullDate.componentsSeparatedByString(", ")
+        
+        //zero position is the short style date
+        return fullDateArr[0]
+    }
+    
     
     //MARK: - Sorting Algorithms
     
     //sort the dictionary by date so the most recent games show in section 0
     func sortedKeysByDate() {
         //sorting algorithm from : http://stackoverflow.com/questions/29552292/how-do-you-sort-dates-in-a-dictionary
-        let df = NSDateFormatter()
-        df.dateFormat = "mm/dd/yy"
-
-        let sorted = gameDictionary.sort{ df.dateFromString($0.0)!.compare(df.dateFromString($1.0)!) == .OrderedDescending}
         
+        var dates = Array<NSDate>()
+        
+        //loop through each key and add the nsdate into the dates array
+        for date in gameDictionary {
+            let game = date.1[0]
+            dates.append(game.date!)
+        }
+        //sort NSDates in ascending order
+        let sorted = dates.sort{($0).compare($1) == .OrderedAscending}
         //clear the array so it can be resorted
         sortedKeys = Array<String>()
         
-        //convert the tuple to a dictionary
-        for tuple in sorted {
-            //add the keys in order in which they are sorted
-            sortedKeys.append(tuple.0)
-            
+        for item in sorted {
+            sortedKeys.append(dateFromDate(item))
         }
+        
         
         
     }
@@ -585,6 +639,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         return fullDateArr[1]
     }
     
+    
+
 }
 
 

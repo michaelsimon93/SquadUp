@@ -24,7 +24,7 @@ class Game: NSObject {
     //the total number of players allowed for the game (ie: 10, 8, 6)
     var totalPlayersAllowed: Int?
     //array to holding the uid's of al the users/players curently entered in the game
-    var players:[String]?
+    var players:[String] = [String]()
     
     
     //FIREBASE PROPERTIES
@@ -36,8 +36,7 @@ class Game: NSObject {
     
     //MARK: - Initialization
     
-    //FOR TESTING ONLY
-    //custom game object initializer - to be used by object loading games from JSON
+    //custom game object initializer - used when creating a new game to be loaded to firebase
     init(date: NSDate, location: String, gameType: String, numPlayersJoined: Int, totalPlayersAllowed: Int, key: String!) {
         //initialize given variables with passed arguments
         self.date = date
@@ -47,6 +46,12 @@ class Game: NSObject {
         self.totalPlayersAllowed = totalPlayersAllowed
         self.key = key
         self.ref = nil
+        
+        //initialize the player array to all empty players with the length of the amount
+        //of players that can join the game
+        for _ in 0..<totalPlayersAllowed {
+            players.append("")
+        }
         
         
     }
@@ -97,7 +102,28 @@ class Game: NSObject {
         let date = NSCalendar(calendarIdentifier: "gregorian")?.dateFromComponents(dateComponents)
         
         self.date = date
+        
+        //load the current players
+        let playersDictionary = snapshot.value["players"] as! NSDictionary
+        let playersKeys = playersDictionary.allKeys as NSArray
+        
+        //initialize the players array to the correct length
+        for _ in 0..<playersKeys.count {
+            players.append("")
+        }
+        
+        //loop through all the keys and add all player uid's to the array
+        for i in 0..<playersKeys.count {
+            let playerKeyString = playersKeys[i] as! String
+            
+            //get just the number on the end of the player string so it is placed in the right spot in the array
+            let index = playerKeyString.startIndex.advancedBy(6)
+            let num = Int(playerKeyString.substringFromIndex(index))
+            
 
+            players[num!] = playersDictionary.valueForKey(playerKeyString) as! String
+        }
+        
 
     }
     
@@ -112,7 +138,8 @@ class Game: NSObject {
                                               "gameType": gameType!,
                                               "numPlayersJoined" : numPlayersJoined!,
                                               "totalPlayersAllowed" : totalPlayersAllowed!,
-                                              "date" : dateToDictionary()]
+                                              "date" : dateToDictionary(),
+                                              "players" : playersToDictionary()]
         
         
         return toReturn
@@ -163,10 +190,16 @@ class Game: NSObject {
     }
     
     //converts the array of players joined in the game to dictionary so it can be saved into JSON on firebase
-//    func playersToDictionary() -> AnyObject {
-//        
-//        
-//        return nil
-//        
-//    }
+    func playersToDictionary() -> AnyObject {
+        var toReturn = [String : AnyObject]()
+        
+        //loop through the players and make them to a dictionary
+        for i in 0..<players.count {
+            let playerString = "player" + String(i)
+            toReturn[playerString] = players[i]
+        }
+        
+        return toReturn
+        
+    }
 }

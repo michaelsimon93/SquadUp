@@ -34,21 +34,21 @@ class Player: NSObject {
     
     //MARK: - Initialization
     
-    //Initialize from Firebase
-    init(authData : FAuthData) {
-        uid = authData.uid
-        email = authData.providerData["email"] as! String
-        
-        //acesss the rest of the Player variables with a firebase search
-        
-        
-        //general placeholder variables to make it compile for now
-        initials = "MO"
-        numGamesPlayed = 0
-        name = "Michael"
-        friends = ["uid1234"]
-        
-    }
+    //Initialize from Firebase -   METHOD UNUSED
+//    init(authData : FAuthData) {
+//        uid = authData.uid
+//        email = authData.providerData["email"] as! String
+//        
+//        //acesss the rest of the Player variables with a firebase search
+//        
+//        
+//        //general placeholder variables to make it compile for now
+//        initials = "MO"
+//        numGamesPlayed = 0
+//        name = "Michael"
+//        friends = ["uid1234"]
+//        
+//    }
     
     init(snapshot : FDataSnapshot, uid : String) {
         self.uid = uid
