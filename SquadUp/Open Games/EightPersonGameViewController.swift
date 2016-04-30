@@ -150,6 +150,8 @@ class EightPersonGameViewController: UIViewController {
     //MARK: - IBActions
     
     @IBAction func chairClicked(chair: UIButton) {
+        //set the chair that was clicked
+        chairNumClicked = chair.tag
         
         //check if the user is currently in the game
         if userInGame() {
