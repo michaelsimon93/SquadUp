@@ -162,7 +162,8 @@ class SixPersonGameViewController: UIViewController {
         game?.ref?.updateChildValues(["players" : (game?.playersToDictionary())!])
         //add one to the number of players inthe game
         game?.ref?.updateChildValues(["numPlayersJoined" : ((game?.numPlayersJoined)!+1)])
-        
+        //add one to the game object in case use immediately
+        game?.numPlayersJoined! += 1
     }
     
     //removes the user from the game in firebase and on the screen

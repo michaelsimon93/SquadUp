@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SquadUp/Open Games/EightPersonGameViewController.swift"
-            timestampString = "483672840.192497"
+            timestampString = "483673371.409324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "removeUserFromGame(_:)"
             landmarkType = "5">
          </BreakpointContent>
