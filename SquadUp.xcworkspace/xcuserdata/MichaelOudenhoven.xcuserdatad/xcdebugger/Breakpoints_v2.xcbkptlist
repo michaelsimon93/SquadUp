@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SquadUp/Open Games/TenPersonGameViewController.swift"
-            timestampString = "483592966.267922"
+            timestampString = "483669594.939279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "addUserToGame(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SquadUp/Open Games/TenPersonGameViewController.swift"
-            timestampString = "483592966.267922"
+            timestampString = "483669594.939279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "removeUserFromGame(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SquadUp/Open Games/TenPersonGameViewController.swift"
-            timestampString = "483592966.267922"
+            timestampString = "483669594.939279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "chairClicked(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -129,6 +129,70 @@
             endingLineNumber = "50"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SquadUp/Log In and Register Controllers/LogInViewController.swift"
+            timestampString = "483671009.368129"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SquadUp/Log In and Register Controllers/LogInViewController.swift"
+            timestampString = "483671021.857039"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SquadUp.LogInViewController.viewWillAppear (Swift.Bool) -&gt; ()"
+                  moduleName = "SquadUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MichaelOudenhoven/Documents/College/Spring%202016/CS%20407/SquadUp/SquadUp/Log%20In%20and%20Register%20Controllers/LogInViewController.swift"
+                  timestampString = "483671021.858904"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SquadUp.LogInViewController.(viewWillAppear (Swift.Bool) -&gt; ()).(closure #1)"
+                  moduleName = "SquadUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MichaelOudenhoven/Documents/College/Spring%202016/CS%20407/SquadUp/SquadUp/Log%20In%20and%20Register%20Controllers/LogInViewController.swift"
+                  timestampString = "483671021.859044"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

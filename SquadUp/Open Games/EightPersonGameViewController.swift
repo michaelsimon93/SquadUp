@@ -28,6 +28,11 @@ class EightPersonGameViewController: UIViewController {
     //the game the user is viewing
     var game : Game?
     
+    //alert that shows if the user wants to leave the game for sure or not
+    var alertLeaveGame : UIAlertController?
+    //chair number clicked - so if user confirms they want to leave they have the chair number
+    var chairNumClicked : Int = 0
+    
     //title of game displayed on the navigation bar
     @IBOutlet weak var gameTitle: UINavigationItem!
     
@@ -66,6 +71,31 @@ class EightPersonGameViewController: UIViewController {
         players = (game?.players)!
         
         gameTitle.title = (game?.location)! + " at " + timeFromDate((game?.date)!)
+        
+        //configure the alert controller
+        alertLeaveGame = UIAlertController(title: "Leave Game?", message: "Are you sure you want to leave the game?", preferredStyle: .Alert)
+        
+        let confirm = UIAlertAction(title: "Leave", style: .Default) { (alert: UIAlertAction!) -> Void in
+            //make the user leave the game
+            //remove the user from the game
+            self.removeUserFromGame(self.chairNumClicked)
+            self.notificationLabel.text = "LET'S BALL (TAP CHAIR TO JOIN)"
+            //remove graphics from chair that user left
+            let subViews = (self.chairArr![self.chairNumClicked-1]).subviews
+            for subView in subViews {
+                if subView.tag == self.deleteTag {
+                    subView.removeFromSuperview()
+                }
+                
+            }
+            
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .Default) { (alert: UIAlertAction!) -> Void in
+            //do nothign the user cancelled leaving
+        }
+        //add the actions to the alert
+        alertLeaveGame?.addAction(cancel)
+        alertLeaveGame?.addAction(confirm)
         
     }
 
@@ -125,17 +155,9 @@ class EightPersonGameViewController: UIViewController {
         if userInGame() {
             //user in the game check if the chair they clicked on is theirs
             if userCanLeaveChair(chair.tag) {
-                //remove the user from the game
-                removeUserFromGame(chair.tag)
-                notificationLabel.text = "LET'S BALL (TAP CHAIR TO JOIN)"
-                //remove graphics from chair that user left
-                let subViews = chair.subviews
-                for subView in subViews {
-                    if subView.tag == deleteTag {
-                        subView.removeFromSuperview()
-                    }
-                    
-                }
+                //present the alert game to confirm the user actually wants to leave
+                self.presentViewController(self.alertLeaveGame!, animated: true, completion: nil)
+                
             }
             
             //user clicked not their chair, don't leave game, take to others profile here if possible

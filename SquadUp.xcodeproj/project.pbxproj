@@ -163,8 +163,8 @@
 			children = (
 				DA01587A1CC70C810002FA31 /* Models */,
 				DA0158781CC70B4C0002FA31 /* Log In and Register Controllers */,
-				DA73EBB51C8BA9FF00E89F15 /* ProfileViewController.swift */,
 				DA23A5AC1C98F2B900B7DE68 /* Open Games */,
+				DA73EBB51C8BA9FF00E89F15 /* ProfileViewController.swift */,
 				DA73EBCA1C8BAB8500E89F15 /* MessagesViewController.swift */,
 				DA73EBCC1C8BAB9500E89F15 /* FriendsViewController.swift */,
 				DA08BF021C9722CD00206E88 /* TabBarController.swift */,

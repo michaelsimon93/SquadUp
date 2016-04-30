@@ -46,7 +46,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()      
-        
+
         // Do any additional setup after loading the view.
         
         //configure the custom text field, button borders, and image views
@@ -68,40 +68,49 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                                                          name: UIKeyboardWillHideNotification,
                                                          object: nil)
         
+        ref.unauth()
+        
     }
     
     
     override func viewWillAppear(animated: Bool) {
-        
+        //check if the user can bypass the log in screen
+        handle = ref.observeAuthEventWithBlock { (authData) -> Void in
+            
+            if authData != nil {
+                //save the temp auth data
+                self.tempAuthData = authData
+                
+                //check if there is authentication data - bypass log in screen
+                //check if the password was a temp password
+                let isTempPass = authData.providerData["isTemporaryPassword"] as? Bool
+                //print("isTempPass \(isTempPass)")
+                
+                //make sure it is a temp password and the user has entered an email
+                if isTempPass! == true && self.emailTextField.text != "email" {
+                    //segue to a reset password screen - pass email with it
+                    self.performSegueWithIdentifier("toChangePasswordViewController", sender: self.emailTextField.text)
+                }
+                    
+                    //not a temp password
+                else {
+                    //segue to the home screen
+                    //send player object with segue
+                    self.performSegueWithIdentifier("toHomeViewController", sender: authData.uid)
+                    
+                }
+            }
+
+            
+            
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        //check if the user can bypass the log in screen
-        handle = ref.observeAuthEventWithBlock { (authData) -> Void in
-            //save the temp auth data
-            self.tempAuthData = authData
-            
-            //check if there is authentication data - bypass log in screen
-            //check if the password was a temp password
-            let isTempPass = authData.providerData["isTemporaryPassword"] as? Bool
-            //print("isTempPass \(isTempPass)")
-            
-            //make sure it is a temp password and the user has entered an email
-            if isTempPass! == true && self.emailTextField.text != "email" {
-                //segue to a reset password screen - pass email with it
-                self.performSegueWithIdentifier("toChangePasswordViewController", sender: self.emailTextField.text)
-            }
-                
-            //not a temp password
-            else {
-                //segue to the home screen
-                //send player object with segue
-                self.performSegueWithIdentifier("toHomeViewController", sender: authData.uid)
-            }
-            
-            
-        }
+ 
+        
+
         
         
     }

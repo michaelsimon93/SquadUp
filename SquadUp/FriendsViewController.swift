@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate  {
 
     let friendCellID = "friendCell"
     //friends are an array of players to be loaded
@@ -16,10 +16,18 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     
+    var allUsers = [Player]()
+    var filteredUsers = [Player]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //add users to all users array here
+        //add users to friends array here
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +39,11 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     //MARK: - Table View Delegate
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         //selected row, go to friends profile
@@ -39,12 +52,41 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: - Table View Data Source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //check if the user is currently using the search
+//        if tableView == self.searchDisplayController?.searchResultsTableView {
+//            //number of cells is the number of filtered users
+//            return self.filteredUsers.count
+//        }
+//        //not searching - just regular table view
+//        else {
+//            //placeholder
+//            return 2
+//            //the number of your friends
+//            //return friends.count
+//        }
+        
+        
         //return users number of friends
         return 2
+        
+        
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(friendCellID, forIndexPath: indexPath)
+        //player the cell represents
+//        var player : Player
+//        
+//        //if the player is using the search - make the cell the filtered users
+//        if tableView == self.searchDisplayController?.searchResultsTableView {
+//            player = filteredUsers[indexPath.row]
+//        }
+//        //not searching make the cells the players friends
+//        else {
+//            player = friends[indexPath.row]
+//        }
+        
         
         return cell
     }
