@@ -8,5 +8,10 @@
 
 * Download the project through Xcode with the clone link
 * You may have to navigate to the folder in terminal and do a 'pod install' or 'pod update'
+* Since log in has changed over time you will have to add '
+```
+#!swift
 
-
+ref.unauth()
+```
+' to the 
