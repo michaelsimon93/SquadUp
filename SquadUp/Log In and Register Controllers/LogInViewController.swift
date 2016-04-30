@@ -68,8 +68,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                                                          name: UIKeyboardWillHideNotification,
                                                          object: nil)
         
-        ref.unauth()
-        
     }
     
     
