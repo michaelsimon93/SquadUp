@@ -172,13 +172,17 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
+        
+        
         //going to the main screen
         if segue.identifier == "toHomeViewController" {
             
             let tabController = segue.destinationViewController as! TabBarController
             let openGamesController = tabController.viewControllers?[0] as! OpenGamesViewController
+            let profileController = tabController.viewControllers?[3] as! ProfileViewController
             //auth data passed as sender
             openGamesController.userUID = (sender as! String)
+            profileController.userUID = (sender as! String)
             
             
         }

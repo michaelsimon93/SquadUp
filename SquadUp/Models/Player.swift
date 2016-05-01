@@ -28,6 +28,8 @@ class Player: NSObject {
     //uid's of the users friends
     var friends : [String]?
     
+    let ref : Firebase?
+    
     //firebase reference to users dictionary
     let usersRef = Firebase(url: "https://squadupcs407.firebaseio.com/users")
     
@@ -56,7 +58,7 @@ class Player: NSObject {
         self.numGamesPlayed = snapshot.value["numGamesPlayed"] as? Int
         self.name = snapshot.value["name"] as? String
         self.email = snapshot.value["email"] as! String
-        
+        self.ref = usersRef.childByAppendingPath(self.uid)
         
     }
     
@@ -67,7 +69,7 @@ class Player: NSObject {
         self.initials = initials
         self.numGamesPlayed = numGamesPlayed
         self.name = name
-        
+        self.ref = usersRef.childByAppendingPath(self.uid)
     }
     
     //converts to 'AnyObject' Dictonary so that it can be sent to firebase

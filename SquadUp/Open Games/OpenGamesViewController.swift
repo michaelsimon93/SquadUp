@@ -59,6 +59,9 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         playerRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             //get the player reference
             self.user = Player(snapshot: snapshot, uid: self.userUID!)
+            
+            let profileController = self.tabBarController?.viewControllers![3] as! ProfileViewController
+            profileController.user = self.user
         })
         
         
@@ -242,6 +245,15 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
 
         //get the current game based on the row in the section it is
         let game = gameArr![indexPath.row]
+        
+        //if its iPhone 5 make the font a little smaller - iphone is 568 pt tall
+        //prevents labels from overlapping on iPhone 5 due to smaller screen
+        if self.view.frame.size.height < 600 {
+            cell.locationLabel.font = UIFont(name: (cell.locationLabel?.font.fontName)!, size: 13.0)
+            cell.timeLabel.font = UIFont(name: (cell.locationLabel?.font.fontName)!, size: 13.0)
+            cell.filledSpotsLabel.font = UIFont(name: (cell.locationLabel?.font.fontName)!, size: 13.0)
+        }
+        
         
         //setup cell labels from game object
         let locationText = game.location! + " " + game.gameType!
