@@ -61,6 +61,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             self.user = Player(snapshot: snapshot, uid: self.userUID!)
             
             let profileController = self.tabBarController?.viewControllers![3] as! ProfileViewController
+            //profileController.viewDidLoad()
             profileController.user = self.user
         })
         

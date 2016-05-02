@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     let profileOptionCellID = "profileOption"
     
     let ref = Firebase(url: "https://squadupcs407.firebaseio.com")
-    let playerRef = Firebase(url: "https://squadupcs407.firebaseio.com/users")
+    let usersRef = Firebase(url: "https://squadupcs407.firebaseio.com/users")
     
     @IBOutlet weak var editNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
@@ -27,6 +27,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var editInitialsButton: UIButton!
     
     @IBOutlet weak var numGamesPlayedLabel: UILabel!
+    
+    @IBOutlet weak var logOutButton: UIButton!
     
     var editNameAlert : UIAlertController?
     var editInitialsAlert : UIAlertController?
@@ -42,8 +44,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+//        let playerRef = usersRef.childByAppendingPath(userUID)
+//        
+//        //get player information and make player object
+//        playerRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+//            //get the player reference
+//            self.user = Player(snapshot: snapshot, uid: self.userUID!)
+//            
+//            let profileController = self.tabBarController?.viewControllers![3] as! ProfileViewController
+//            //profileController.viewDidLoad()
+//            profileController.user = self.user
+//        })
+//        
+        
         //make the profile image a circle
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        profileImage.layer.borderWidth = 2
+        profileImage.layer.borderColor = UIColor.whiteColor().CGColor
         
         //add tap gesture recognizer for uimageview
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.imageTapped))
@@ -59,6 +76,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         editInitialsButton.layer.borderWidth = 1
         editInitialsButton.layer.borderColor = UIColor.whiteColor().CGColor
         
+        logOutButton.layer.cornerRadius = 5
+        logOutButton.layer.borderColor = UIColor.whiteColor().CGColor
+        logOutButton.layer.borderWidth = 2
         
         //initialize alert controllers here
         initializeNameAlert()
