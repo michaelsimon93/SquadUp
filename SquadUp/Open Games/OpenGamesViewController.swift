@@ -532,6 +532,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
                 for game in gamesArr! {
                     //remove the game from firebase
                     game.ref?.removeValue()
+                    addGamePlayedToPlayers(game)
                 }
                 
             }
@@ -547,6 +548,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
                     
                     //check if the game time is before the current time of day
                     if timeBeforeCurrentTime(gameTime, currTimeString: currTimeString) {
+                        //add a game played to all players in the game
+                        addGamePlayedToPlayers(game)
                         //game time is before current time of day
                         //delete game from firebase
                         game.ref?.removeValue()
@@ -652,7 +655,32 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         return fullDateArr[1]
     }
     
-    
+    func addGamePlayedToPlayers(game : Game) {
+        
+        let players = game.players
+        
+        //loop thorugh all the players
+        for player in players {
+            //check if there is a player uid in the spot, if not a player isn't joined in that spot
+            
+            if player != "" {
+                usersRef.childByAppendingPath(player).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                    var currGamesPlayed = snapshot.value["numGamesPlayed"] as? Int
+                    currGamesPlayed = currGamesPlayed! + 1
+                    self.usersRef.childByAppendingPath(player).updateChildValues(["numGamesPlayed" : currGamesPlayed!])
+                })
+
+            }
+            
+            //add one to the player using the devices games played if it is them
+            if player == user?.uid {
+                //add one to the current using player - since otherwise their new number won't update
+                user?.numGamesPlayed = (user?.numGamesPlayed)!+1
+            }
+            
+        }
+        
+    }
 
 }
 
