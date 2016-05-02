@@ -9,12 +9,11 @@
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     //MARK: - Properties
     
     @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var tableView: UITableView!
     
     let profileOptionCellID = "profileOption"
     
@@ -46,6 +45,12 @@ class ProfileViewController: UIViewController {
         //make the profile image a circle
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
         
+        //add tap gesture recognizer for uimageview
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileViewController.imageTapped))
+        tapGesture.numberOfTapsRequired = 1
+        profileImage.addGestureRecognizer(tapGesture)
+        
+        //custom button setup
         editNameButton.layer.cornerRadius = 3
         editNameButton.layer.borderWidth = 1
         editNameButton.layer.borderColor = UIColor.whiteColor().CGColor
@@ -58,11 +63,7 @@ class ProfileViewController: UIViewController {
         //initialize alert controllers here
         initializeNameAlert()
         initializeInitialsAlert()
-//        
-//        playerRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-//            //get the player reference
-//            self.user = Player(snapshot: snapshot, uid: self.userUID!)
-//        })
+
         
     }
     
@@ -105,6 +106,10 @@ class ProfileViewController: UIViewController {
     @IBAction func editInitialsClicked(button : UIButton) {
         self.presentViewController(editInitialsAlert!, animated: true, completion: nil)
     }
+    
+    
+    
+    //MARK: - Alert Controller Initialization
     
     func initializeNameAlert() {
         editNameAlert = UIAlertController(title: "Edit Name", message: "Enter the name you'd like friends to find you as.", preferredStyle: .Alert)
@@ -196,6 +201,59 @@ class ProfileViewController: UIViewController {
         editInitialsAlert?.addAction(okAction)
         editInitialsAlert?.addAction(cancelAction)
     }
+    
+    
+    //MARK: - Image Picker
+    //code from: https://www.hackingwithswift.com/example-code/media/how-to-choose-a-photo-from-the-camera-roll-using-uiimagepickercontroller
+    
+    func selectPicture() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        presentViewController(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        //dismiss the image picker controller when the user clicks cancel
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        var newImage : UIImage
+        
+        if let possibleImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            newImage = possibleImage
+        }
+        else if let possibleImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            newImage = possibleImage
+        }
+        else {
+            return
+        }
+        
+        
+        //save image to firebase and update the uiimageview
+        print(newImage)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    //user tapped on the image show image picker
+    func imageTapped() {
+        print("image tapped")
+        selectPicture()
+        
+    }
+    
 
 
 }
