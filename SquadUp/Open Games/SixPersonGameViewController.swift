@@ -103,6 +103,39 @@ class SixPersonGameViewController: UIViewController {
     }
     
 
+    override func viewWillAppear(animated: Bool) {
+        //show leave game button if and only if the user is already in the game
+        if userInGame() {
+            notificationLabel.text = "TAP CHAIR TO LEAVE GAME"
+        }
+        else {
+            notificationLabel.text = "LET'S BALL (TAP CHAIR TO JOIN)"
+        }
+        
+        
+        //loop through the players uids, for those that aren't empty strings request their
+        //intiials from firebase then add basketball and initials on chair
+        
+        for (i,player) in players.enumerate() {
+            //check to see if player is actually a player or empty seat
+            if player != "" {
+                //actually a player - get initials
+                //get player endpoint by adding their uid to the end of the users ref
+                let playerEndpoint = usersRef.childByAppendingPath(player)
+                
+                playerEndpoint.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                    let userInitial = snapshot.value["initials"] as? String
+                    //add the ball to the chair of the user in the game currently
+                    self.addBallToChair(self.chairArr![i], initials: userInitial!)
+                    
+                })
+                
+            }
+        }
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 
