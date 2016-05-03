@@ -22,6 +22,8 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var allUsers = [Player]()
     var filteredUsers = [Player]()
     
+    let searchController = UISearchController(searchResultsController: nil)
+    
     let usersRef = Firebase(url: "https://squadupcs407.firebaseio.com/users")
     
     
@@ -36,8 +38,13 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         // Do any additional setup after loading the view.
         
-        //add users to all users array here
-        //add users to friends array here
+        //add users to all users array here - done in tab bar controller
+        //add users to friends array here - done in tab bar controller
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
         
     }
     
@@ -75,20 +82,14 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - Table View Data Source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //check if the user is currently using the search
-//        if tableView == self.searchDisplayController?.searchResultsTableView {
-//            //number of cells is the number of filtered users
-//            return self.filteredUsers.count
-//        }
-//        //not searching - just regular table view
-//        else {
-//            //placeholder
-//            return 2
-//            //the number of your friends
-//            //return friends.count
-//        }
+
         
         
-        //return users number of friends
+        //return users number of friends or filtered users
+        
+        if searchController.active && searchController.searchBar.text != "" {
+            return filteredUsers.count
+        }
         return friends.count
         
         
@@ -97,8 +98,21 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(friendCellID, forIndexPath: indexPath) as! FriendTableViewCell
+        
+        let friend: Player
+        if searchController.active && searchController.searchBar.text != "" {
+            friend = filteredUsers[indexPath.row]
+        } else {
+            friend = friends[indexPath.row]
+        }
+        
+        
+        
         //player the cell represents
-        cell.friendNameLabel.text = friends[indexPath.row].name
+        cell.friendNameLabel.text = friend.name
+        
+        //change to star highlighted if the user is already a friend (check UID)
+        cell.starImageView.image = UIImage(named: "star_highlighted")
         
         
         return cell
@@ -113,8 +127,45 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    //MARK: - Searching
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredUsers = allUsers.filter { friend in
+            
+            //return the search by email or by name
+            return (friend.name!.lowercaseString.containsString(searchText.lowercaseString))
+                || (friend.email.lowercaseString.containsString(searchText.lowercaseString))
+        }
+        
+        tableView.reloadData()
+    }
 
 }
+
+
+extension FriendsViewController : UISearchResultsUpdating {
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
 
 
 

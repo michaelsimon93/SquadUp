@@ -278,6 +278,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Fk-Xq-Q4s">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                    <color key="textColor" red="0.8156862855" green="0.41176471110000001" blue="0.14509804549999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="OPEN GAMES" id="5bO-Eb-dIN">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wil-OJ-WxY">
+                                            <color key="tintColor" red="0.8156862855" green="0.41176471110000001" blue="0.14509804549999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="b4s-Tl-o57" kind="showDetail" identifier="toCreateGameViewController" id="pdq-w6-5oE"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="51" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jTd-zr-qXn">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -331,32 +348,15 @@
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="6sP-jG-qbp"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Fk-Xq-Q4s">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                    <color key="textColor" red="0.8156862855" green="0.41176471110000001" blue="0.14509804549999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="OPEN GAMES" id="5bO-Eb-dIN">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wil-OJ-WxY">
-                                            <color key="tintColor" red="0.8156862855" green="0.41176471110000001" blue="0.14509804549999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <segue destination="b4s-Tl-o57" kind="showDetail" identifier="toCreateGameViewController" id="pdq-w6-5oE"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jTd-zr-qXn" firstAttribute="top" secondItem="0Fk-Xq-Q4s" secondAttribute="bottom" id="6Pq-Ke-tbf"/>
                             <constraint firstItem="0Fk-Xq-Q4s" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="H4w-xg-Nwb"/>
-                            <constraint firstItem="0Fk-Xq-Q4s" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="LpW-bS-jpq"/>
                             <constraint firstAttribute="trailing" secondItem="jTd-zr-qXn" secondAttribute="trailing" id="XOJ-9B-BKa"/>
                             <constraint firstAttribute="trailing" secondItem="0Fk-Xq-Q4s" secondAttribute="trailing" id="Xm4-2G-Dz7"/>
                             <constraint firstItem="jTd-zr-qXn" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="eWx-8G-GFv"/>
+                            <constraint firstItem="0Fk-Xq-Q4s" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="p8l-lD-Mqo"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="jTd-zr-qXn" secondAttribute="bottom" id="y2D-Ye-bE0"/>
                         </constraints>
                     </view>
@@ -1519,7 +1519,7 @@ for a temporary password to
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GD0-yW-boa">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="60" id="54R-JX-dj2" customClass="FriendTableViewCell" customModule="SquadUp" customModuleProvider="target">
@@ -1572,20 +1572,13 @@ for a temporary password to
                                     <outlet property="delegate" destination="SB2-Y5-W4Z" id="Ccw-uH-llf"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search for Friends..." translatesAutoresizingMaskIntoConstraints="NO" id="fGN-8P-jBa">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fGN-8P-jBa" firstAttribute="leading" secondItem="vaS-AZ-jWd" secondAttribute="leading" id="0mn-Z7-pKT"/>
-                            <constraint firstAttribute="trailing" secondItem="fGN-8P-jBa" secondAttribute="trailing" id="5MQ-5Q-zk4"/>
                             <constraint firstItem="4Kt-7f-iVj" firstAttribute="top" secondItem="GD0-yW-boa" secondAttribute="bottom" id="CHA-Xt-fb4"/>
-                            <constraint firstItem="fGN-8P-jBa" firstAttribute="top" secondItem="f7O-YL-ERc" secondAttribute="bottom" id="KmH-4a-utx"/>
                             <constraint firstAttribute="trailing" secondItem="GD0-yW-boa" secondAttribute="trailing" id="Ozv-h9-DGS"/>
                             <constraint firstItem="GD0-yW-boa" firstAttribute="leading" secondItem="vaS-AZ-jWd" secondAttribute="leading" id="ga4-s9-8JN"/>
-                            <constraint firstItem="GD0-yW-boa" firstAttribute="top" secondItem="fGN-8P-jBa" secondAttribute="bottom" id="sWf-px-6aM"/>
+                            <constraint firstItem="GD0-yW-boa" firstAttribute="top" secondItem="vaS-AZ-jWd" secondAttribute="top" id="noy-kb-BDX"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Friends" image="friends" id="Kh8-yV-xek"/>

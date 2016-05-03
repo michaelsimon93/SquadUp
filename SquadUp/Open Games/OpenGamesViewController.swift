@@ -274,7 +274,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         let header = view as! UITableViewHeaderFooterView
         header.textLabel!.textColor = UIColor.blackColor()
         header.textLabel!.font = UIFont(name: "Futura", size: 14)!
-        //header.contentView.backgroundColor = orange
+        let darkerGray = UIColor(colorLiteralRed: 0.9176, green: 0.9176, blue: 0.9176, alpha: 1.0)
+        header.contentView.backgroundColor = darkerGray
     }
     
     
