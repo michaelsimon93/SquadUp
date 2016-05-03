@@ -36,29 +36,24 @@ class Player: NSObject {
     
     //MARK: - Initialization
     
-    //Initialize from Firebase -   METHOD UNUSED
-//    init(authData : FAuthData) {
-//        uid = authData.uid
-//        email = authData.providerData["email"] as! String
-//        
-//        //acesss the rest of the Player variables with a firebase search
-//        
-//        
-//        //general placeholder variables to make it compile for now
-//        initials = "MO"
-//        numGamesPlayed = 0
-//        name = "Michael"
-//        friends = ["uid1234"]
-//        
-//    }
-    
+    //Initialize from Firebase
     init(snapshot : FDataSnapshot, uid : String) {
+        
         self.uid = uid
         self.initials = snapshot.value["initials"] as? String
         self.numGamesPlayed = snapshot.value["numGamesPlayed"] as? Int
         self.name = snapshot.value["name"] as? String
         self.email = snapshot.value["email"] as! String
         self.ref = usersRef.childByAppendingPath(self.uid)
+        
+        super.init()
+        
+        self.friends = [String]()
+        let friendsDictionary = snapshot.value["friends"] as? NSDictionary
+        //intialize friends to string array - only if the user has added friends
+        if friendsDictionary != nil {
+           self.convertFriendsToArray(friendsDictionary!)
+        }
         
     }
     
@@ -69,6 +64,7 @@ class Player: NSObject {
         self.initials = initials
         self.numGamesPlayed = numGamesPlayed
         self.name = name
+        self.friends = [String]()
         self.ref = usersRef.childByAppendingPath(self.uid)
     }
     
@@ -104,5 +100,16 @@ class Player: NSObject {
         
     }
     
+    //method to convert the friends from a dictionary from firebase to a string
+    func convertFriendsToArray(dictionary : NSDictionary) {
+        //get all of the keys friend the dictionary (ie: 'friend0', 'friend1', etc.)
+        let keys = dictionary.allKeys as? [String]
+        
+        //loop through the keys, get the uid and add it to the friends array
+        for key in keys! {
+            //add the uid to the friends array
+            friends?.append((dictionary.valueForKey(key) as? String)!)
+        }
+    }
     
 }

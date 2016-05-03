@@ -89,7 +89,7 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         //return users number of friends
-        return allUsers.count
+        return friends.count
         
         
         
@@ -98,7 +98,7 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(friendCellID, forIndexPath: indexPath) as! FriendTableViewCell
         //player the cell represents
-        cell.friendNameLabel.text = allUsers[indexPath.row].name
+        cell.friendNameLabel.text = friends[indexPath.row].name
         
         
         return cell

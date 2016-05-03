@@ -18,6 +18,7 @@ class TabBarController: UITabBarController {
     let usersRef = Firebase(url: "https://squadupcs407.firebaseio.com/users")
     
     var user : Player?
+    var userFriends = [Player]()
     
     
     //orange color for the views
@@ -36,6 +37,8 @@ class TabBarController: UITabBarController {
         //self.tabBar.layer.backgroundColor = UIColor.blackColor().CGColor
 
         // Do any additional setup after loading the view.
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +62,30 @@ class TabBarController: UITabBarController {
         playerRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             //get the player reference
             self.user = Player(snapshot: snapshot, uid: self.userUID!)
+            
+            
         })
+        
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        //loop through all the friends UID's and add the player object that matches from the all users array
+        for friendUID in (self.user?.friends)! {
+            
+            //loop through the array of all of the users to find the user that they are friends with
+            for player in allUsers {
+                if friendUID == player.uid {
+                    //user found, add their player object to the array and break from interior loop
+                    userFriends.append(player)
+                    break
+                }
+            }
+            
+        }
+        
+        let friendController = self.viewControllers![2] as? FriendsViewController
+        friendController?.friends = self.userFriends
     }
     
 
