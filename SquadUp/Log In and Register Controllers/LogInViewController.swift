@@ -183,7 +183,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             //auth data passed as sender
             openGamesController.userUID = (sender as! String)
             profileController.userUID = (sender as! String)
-            
+            tabController.userUID = (sender as! String)
             
         }
         

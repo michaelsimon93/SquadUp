@@ -30,8 +30,9 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        //get all the users loaded in the tab bar
+        allUsers = (self.tabBarController as! TabBarController).allUsers
+
 
         // Do any additional setup after loading the view.
         
@@ -41,22 +42,14 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func viewWillAppear(animated: Bool) {
-        //goes through each of the elements in the users
-        usersRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-            //create the player and add it to the allusers array
-            let uid = snapshot.value["uid"] as? String
-            let player = Player(snapshot: snapshot, uid: uid!)
-            self.allUsers.append(player)
-                        
-            
-        })
-        
+
+        //all users loaded in initialization of tab bar controller
 
         
     }
     
     override func viewDidAppear(animated: Bool) {
-        print(allUsers)
+        //print(allUsers)
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,7 +89,7 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         //return users number of friends
-        return 2
+        return allUsers.count
         
         
         
@@ -105,7 +98,7 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(friendCellID, forIndexPath: indexPath) as! FriendTableViewCell
         //player the cell represents
-        //cell.friendNameLabel.text = allUsers[indexPath.row].name
+        cell.friendNameLabel.text = allUsers[indexPath.row].name
         
         
         return cell

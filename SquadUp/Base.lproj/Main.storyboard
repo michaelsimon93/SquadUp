@@ -279,7 +279,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="51" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jTd-zr-qXn">
-                                <rect key="frame" x="0.0" y="44" width="600" height="507"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="51" id="88w-tq-wFl" customClass="GameTableViewCell" customModule="SquadUp" customModuleProvider="target">
@@ -351,7 +351,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jTd-zr-qXn" firstAttribute="top" secondItem="0Fk-Xq-Q4s" secondAttribute="bottom" constant="-20" id="6Pq-Ke-tbf"/>
+                            <constraint firstItem="jTd-zr-qXn" firstAttribute="top" secondItem="0Fk-Xq-Q4s" secondAttribute="bottom" id="6Pq-Ke-tbf"/>
                             <constraint firstItem="0Fk-Xq-Q4s" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="H4w-xg-Nwb"/>
                             <constraint firstItem="0Fk-Xq-Q4s" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="LpW-bS-jpq"/>
                             <constraint firstAttribute="trailing" secondItem="jTd-zr-qXn" secondAttribute="trailing" id="XOJ-9B-BKa"/>
@@ -1577,7 +1577,7 @@ for a temporary password to
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fGN-8P-jBa" firstAttribute="leading" secondItem="vaS-AZ-jWd" secondAttribute="leading" id="0mn-Z7-pKT"/>
                             <constraint firstAttribute="trailing" secondItem="fGN-8P-jBa" secondAttribute="trailing" id="5MQ-5Q-zk4"/>

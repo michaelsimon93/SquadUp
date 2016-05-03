@@ -23,6 +23,10 @@ class FriendTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        profileImage.layer.cornerRadius = profileImage.frame.width/2
+        //self.backgroundColor = UIColor.grayColor()
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

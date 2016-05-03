@@ -36,7 +36,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     var sortedKeys = Array<String>()
     
     //Player using the app
-    var user : Player?
+    //var user : Player?
     
     
     
@@ -53,17 +53,17 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         //self.tableView.tableHeaderView = UIView(frame: CGRectMake(0, 0, 0, CGFloat.min))
         self.automaticallyAdjustsScrollViewInsets = false
         
-        let playerRef = usersRef.childByAppendingPath(userUID!)
-        
-        //get player information and make player object
-        playerRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            //get the player reference
-            self.user = Player(snapshot: snapshot, uid: self.userUID!)
-            
-            let profileController = self.tabBarController?.viewControllers![3] as! ProfileViewController
-            //profileController.viewDidLoad()
-            profileController.user = self.user
-        })
+//        let playerRef = usersRef.childByAppendingPath(userUID!)
+//        
+//        //get player information and make player object
+//        playerRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+//            //get the player reference
+//            self.user = Player(snapshot: snapshot, uid: self.userUID!)
+//            
+//            let profileController = self.tabBarController?.viewControllers![3] as! ProfileViewController
+//            //profileController.viewDidLoad()
+//            profileController.user = self.user
+//        })
         
         
         
@@ -292,21 +292,21 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
             let game = sender as! Game
             //give the game the user and the game so if they joined they can be added in firebase
             destVC.game = game
-            destVC.user = self.user
+            destVC.user = (self.tabBarController as? TabBarController)?.user
         }
         else if segue.identifier == "toEightPersonViewController" {
             let destVC = segue.destinationViewController as! EightPersonGameViewController
             let game = sender as! Game
             //give the game the user and the game so if they joined they can be added in firebase
             destVC.game = game
-            destVC.user = self.user
+            destVC.user = (self.tabBarController as? TabBarController)?.user
         }
         else if segue.identifier == "toSixPersonViewController" {
             let destVC = segue.destinationViewController as! SixPersonGameViewController
             let game = sender as! Game
             //give the game the user and the game so if they joined they can be added in firebase
             destVC.game = game
-            destVC.user = self.user
+            destVC.user = (self.tabBarController as? TabBarController)?.user
         }
         
     }
@@ -658,6 +658,7 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     func addGamePlayedToPlayers(game : Game) {
         
         let players = game.players
+        let user = (self.tabBarController as? TabBarController)?.user
         
         //loop thorugh all the players
         for player in players {

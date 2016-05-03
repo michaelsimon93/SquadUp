@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var editNameAlert : UIAlertController?
     var editInitialsAlert : UIAlertController?
     
-    var user : Player?
+    //var user : Player?
     //auth data from user logging in - used to create Player object
     var userUID : String?
     
@@ -88,6 +88,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     override func viewWillAppear(animated: Bool) {
+        let user = (self.tabBarController as? TabBarController)?.user
         //change the name initials and number of games played to the correct number
         //for the player
         nameLabel.text = user?.name!
@@ -145,11 +146,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             let textField = self.editNameAlert?.textFields?.first
             
             if textField?.text?.characters.count > 3 {
-                
+                //(self.tabBarController as? TabBarController)?.user?.
                 //change name Label and update firebase
                 self.nameLabel.text = textField?.text
-                self.user?.ref?.updateChildValues(["name" : self.nameLabel.text!])
-                self.user?.name = self.nameLabel.text
+                (self.tabBarController as? TabBarController)?.user?.ref?.updateChildValues(["name" : self.nameLabel.text!])
+                (self.tabBarController as? TabBarController)?.user?.name = self.nameLabel.text
                 
                 //update constraints
                 self.view.updateConstraints()
@@ -194,8 +195,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 //add 'Initials: ' before the entered initials - so the label stays the same
                 self.initialsLabel.text = "Initials: " + initials!
                 //update firebase and player object
-                self.user?.ref?.updateChildValues(["initials" : initials!])
-                self.user?.initials = initials!
+                (self.tabBarController as? TabBarController)?.user?.ref?.updateChildValues(["initials" : initials!])
+                (self.tabBarController as? TabBarController)?.user?.initials = initials!
                 
                 //update the constraints for the sreen
                 self.view.updateConstraints()
