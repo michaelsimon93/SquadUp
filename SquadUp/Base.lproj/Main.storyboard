@@ -1522,7 +1522,7 @@ for a temporary password to
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="60" id="54R-JX-dj2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="60" id="54R-JX-dj2" customClass="FriendTableViewCell" customModule="SquadUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54R-JX-dj2" id="ajc-D4-sKE">
@@ -1537,18 +1537,18 @@ for a temporary password to
                                                         <constraint firstAttribute="width" constant="50" id="uZO-Ga-4V6"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cum-e9-RE7">
-                                                    <rect key="frame" x="75" y="18" width="108" height="23"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_unhighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="Sut-2f-x1B" userLabel="Add Friend Image/Button">
                                                     <rect key="frame" x="537" y="20" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="zUx-Dg-lsj"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cum-e9-RE7">
+                                                    <rect key="frame" x="75" y="18" width="108" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Sut-2f-x1B" firstAttribute="centerY" secondItem="ajc-D4-sKE" secondAttribute="centerY" id="Hzj-8F-EgV"/>
@@ -1560,6 +1560,11 @@ for a temporary password to
                                                 <constraint firstAttribute="trailing" secondItem="Sut-2f-x1B" secondAttribute="trailing" constant="10" id="wt8-VN-ewY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="friendNameLabel" destination="cum-e9-RE7" id="wxW-pH-aTh"/>
+                                            <outlet property="profileImage" destination="6RJ-ul-ARg" id="aTy-KY-9rE"/>
+                                            <outlet property="starImageView" destination="Sut-2f-x1B" id="9mR-dh-hKf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1567,41 +1572,28 @@ for a temporary password to
                                     <outlet property="delegate" destination="SB2-Y5-W4Z" id="Ccw-uH-llf"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search for Friends..." translatesAutoresizingMaskIntoConstraints="NO" id="TNz-bF-7aL">
+                            <searchBar contentMode="redraw" placeholder="Search for Friends..." translatesAutoresizingMaskIntoConstraints="NO" id="fGN-8P-jBa">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="SB2-Y5-W4Z" id="AV8-G2-4VX"/>
-                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fGN-8P-jBa" firstAttribute="leading" secondItem="vaS-AZ-jWd" secondAttribute="leading" id="0mn-Z7-pKT"/>
+                            <constraint firstAttribute="trailing" secondItem="fGN-8P-jBa" secondAttribute="trailing" id="5MQ-5Q-zk4"/>
                             <constraint firstItem="4Kt-7f-iVj" firstAttribute="top" secondItem="GD0-yW-boa" secondAttribute="bottom" id="CHA-Xt-fb4"/>
-                            <constraint firstAttribute="trailing" secondItem="TNz-bF-7aL" secondAttribute="trailing" id="Gec-MU-MyL"/>
+                            <constraint firstItem="fGN-8P-jBa" firstAttribute="top" secondItem="f7O-YL-ERc" secondAttribute="bottom" id="KmH-4a-utx"/>
                             <constraint firstAttribute="trailing" secondItem="GD0-yW-boa" secondAttribute="trailing" id="Ozv-h9-DGS"/>
-                            <constraint firstItem="TNz-bF-7aL" firstAttribute="leading" secondItem="vaS-AZ-jWd" secondAttribute="leading" id="XVE-1W-RfU"/>
-                            <constraint firstItem="GD0-yW-boa" firstAttribute="top" secondItem="TNz-bF-7aL" secondAttribute="bottom" id="gYr-bf-Nih"/>
                             <constraint firstItem="GD0-yW-boa" firstAttribute="leading" secondItem="vaS-AZ-jWd" secondAttribute="leading" id="ga4-s9-8JN"/>
-                            <constraint firstItem="TNz-bF-7aL" firstAttribute="top" secondItem="f7O-YL-ERc" secondAttribute="bottom" id="mcy-ww-iSi"/>
+                            <constraint firstItem="GD0-yW-boa" firstAttribute="top" secondItem="fGN-8P-jBa" secondAttribute="bottom" id="sWf-px-6aM"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Friends" image="friends" id="Kh8-yV-xek"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="j6g-k5-0as" id="lQ4-0L-m1o"/>
                         <outlet property="tableView" destination="GD0-yW-boa" id="k4e-8K-f7I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQc-3l-sdA" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="j6g-k5-0as">
-                    <connections>
-                        <outlet property="delegate" destination="SB2-Y5-W4Z" id="1CC-00-ued"/>
-                        <outlet property="searchBar" destination="TNz-bF-7aL" id="0OX-1A-UyK"/>
-                        <outlet property="searchContentsController" destination="SB2-Y5-W4Z" id="ngK-8p-ZGU"/>
-                        <outlet property="searchResultsDataSource" destination="SB2-Y5-W4Z" id="xxd-Hj-cxh"/>
-                        <outlet property="searchResultsDelegate" destination="SB2-Y5-W4Z" id="OGW-ey-INq"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2366" y="480"/>
         </scene>
