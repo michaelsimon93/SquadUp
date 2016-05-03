@@ -45,6 +45,7 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.placeholder = "Search by email or name..."
         
     }
     
@@ -76,6 +77,14 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         //selected row, go to friends profile
+        let friend: Player
+        if searchController.active && searchController.searchBar.text != "" {
+            friend = filteredUsers[indexPath.row]
+        } else {
+            friend = friends[indexPath.row]
+        }
+        
+        self.performSegueWithIdentifier("toProfileDetailViewController", sender: friend)
         
     }
     
@@ -118,15 +127,20 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "toProfileDetailViewController" {
+            //give the profile detail the user to be displayed
+            let destVC = segue.destinationViewController as! ProfileDetailViewController
+            destVC.user = sender as? Player
+        }
+        
     }
-    */
+    
     
     
     //MARK: - Searching
@@ -140,6 +154,14 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         tableView.reloadData()
+    }
+    
+    
+    //MARK: - Unwind Segues
+    
+    @IBAction func profileDetailUnwind(segue : UIStoryboardSegue) {
+        //unwind to here when user clicks back on the profile detail
+        
     }
 
 }

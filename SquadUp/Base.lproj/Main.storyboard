@@ -93,6 +93,7 @@
                             <constraint firstItem="iQc-xp-eEZ" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="EjC-TW-3Pk"/>
                             <constraint firstItem="uLP-qP-IHr" firstAttribute="centerY" secondItem="rOw-3C-Ncj" secondAttribute="centerY" id="FdF-e0-hv1"/>
                             <constraint firstItem="oDL-jc-Buz" firstAttribute="width" secondItem="oDL-jc-Buz" secondAttribute="height" multiplier="1:1" id="GLH-E8-YfW"/>
+                            <constraint firstItem="iQc-xp-eEZ" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="40" id="Ijf-uM-ebG"/>
                             <constraint firstItem="Dwa-Gc-AIb" firstAttribute="centerX" secondItem="11X-jf-5BW" secondAttribute="centerX" id="Mki-e1-8Y9"/>
                             <constraint firstItem="rR4-l6-pbU" firstAttribute="centerY" secondItem="oDL-jc-Buz" secondAttribute="centerY" id="MoE-0O-hUY"/>
                             <constraint firstAttribute="trailing" secondItem="11X-jf-5BW" secondAttribute="trailing" id="N62-qd-90g"/>
@@ -105,7 +106,6 @@
                             <constraint firstItem="rR4-l6-pbU" firstAttribute="centerX" secondItem="11X-jf-5BW" secondAttribute="centerX" constant="-15" id="ijp-PJ-UQ8"/>
                             <constraint firstItem="nZv-dt-2HI" firstAttribute="top" secondItem="Dwa-Gc-AIb" secondAttribute="bottom" constant="30" id="nEo-bg-hFo"/>
                             <constraint firstItem="11X-jf-5BW" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="qgw-pf-Oya"/>
-                            <constraint firstItem="iQc-xp-eEZ" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="40" id="qjV-PC-jR4"/>
                             <constraint firstItem="Dwa-Gc-AIb" firstAttribute="top" secondItem="oDL-jc-Buz" secondAttribute="bottom" constant="30" id="wkE-En-k9D"/>
                             <constraint firstItem="oDL-jc-Buz" firstAttribute="top" secondItem="uLP-qP-IHr" secondAttribute="bottom" constant="30" id="zfT-aL-fef"/>
                         </constraints>
@@ -1584,11 +1584,95 @@ for a temporary password to
                     <tabBarItem key="tabBarItem" title="Friends" image="friends" id="Kh8-yV-xek"/>
                     <connections>
                         <outlet property="tableView" destination="GD0-yW-boa" id="k4e-8K-f7I"/>
+                        <segue destination="sax-NH-hKB" kind="show" identifier="toProfileDetailViewController" id="0FF-8o-1uR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQc-3l-sdA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2366" y="480"/>
+            <point key="canvasLocation" x="2366" y="474"/>
+        </scene>
+        <!--Profile Detail View Controller-->
+        <scene sceneID="pdq-Ac-y9J">
+            <objects>
+                <viewController id="sax-NH-hKB" customClass="ProfileDetailViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7x4-iM-GAg"/>
+                        <viewControllerLayoutGuide type="bottom" id="njX-4F-aZ8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k9E-65-DdN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gmi-p8-gG9" userLabel="Background Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tj-wt-tcK">
+                                <rect key="frame" x="237" y="240" width="126" height="28"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initials: MO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgg-8x-Sai">
+                                <rect key="frame" x="244" y="298" width="113" height="28"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S8f-sQ-882" userLabel="Profile Image">
+                                <rect key="frame" x="225" y="70" width="150" height="150"/>
+                                <color key="backgroundColor" red="0.8156862855" green="0.41176471110000001" blue="0.14509804549999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="S8f-sQ-882" secondAttribute="height" multiplier="1:1" id="Nvu-vg-aig"/>
+                                    <constraint firstAttribute="width" constant="150" id="ojE-zy-Adu"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Games Played: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj6-u8-h7I">
+                                <rect key="frame" x="189" y="356" width="222" height="23"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrO-TS-9fp">
+                                <rect key="frame" x="15" y="15" width="57" height="36"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                <state key="normal" title="&lt; Back"/>
+                                <connections>
+                                    <segue destination="XVP-iQ-wJD" kind="unwind" unwindAction="profileDetailUnwind:" id="EGg-u1-LUo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LrO-TS-9fp" firstAttribute="top" secondItem="k9E-65-DdN" secondAttribute="top" constant="15" id="CNz-t1-qQt"/>
+                            <constraint firstItem="S8f-sQ-882" firstAttribute="centerX" secondItem="gmi-p8-gG9" secondAttribute="centerX" id="HZr-0t-3MF"/>
+                            <constraint firstItem="fj6-u8-h7I" firstAttribute="centerX" secondItem="gmi-p8-gG9" secondAttribute="centerX" id="Hg7-8K-Dgw"/>
+                            <constraint firstItem="9tj-wt-tcK" firstAttribute="top" secondItem="S8f-sQ-882" secondAttribute="bottom" constant="20" id="VdO-hc-Yg8"/>
+                            <constraint firstItem="LrO-TS-9fp" firstAttribute="leading" secondItem="k9E-65-DdN" secondAttribute="leading" constant="15" id="Wcd-u3-YQu"/>
+                            <constraint firstAttribute="trailing" secondItem="gmi-p8-gG9" secondAttribute="trailing" id="cZM-dJ-pBZ"/>
+                            <constraint firstItem="S8f-sQ-882" firstAttribute="top" secondItem="7x4-iM-GAg" secondAttribute="bottom" constant="50" id="dxO-Mz-gWf"/>
+                            <constraint firstItem="9tj-wt-tcK" firstAttribute="centerX" secondItem="gmi-p8-gG9" secondAttribute="centerX" id="fvE-O0-vzg"/>
+                            <constraint firstItem="gmi-p8-gG9" firstAttribute="top" secondItem="k9E-65-DdN" secondAttribute="top" id="hnO-KG-eje"/>
+                            <constraint firstItem="njX-4F-aZ8" firstAttribute="top" secondItem="gmi-p8-gG9" secondAttribute="bottom" id="knS-ob-Vdg"/>
+                            <constraint firstItem="Cgg-8x-Sai" firstAttribute="centerX" secondItem="gmi-p8-gG9" secondAttribute="centerX" id="nyf-pq-ehd"/>
+                            <constraint firstItem="Cgg-8x-Sai" firstAttribute="top" secondItem="9tj-wt-tcK" secondAttribute="bottom" constant="30" id="oLC-7v-ncG"/>
+                            <constraint firstItem="fj6-u8-h7I" firstAttribute="top" secondItem="Cgg-8x-Sai" secondAttribute="bottom" constant="30" id="pb0-0y-UZ4"/>
+                            <constraint firstItem="gmi-p8-gG9" firstAttribute="leading" secondItem="k9E-65-DdN" secondAttribute="leading" id="upZ-vY-fhw"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="initialsLabel" destination="Cgg-8x-Sai" id="Gbd-yB-0kf"/>
+                        <outlet property="nameLabel" destination="9tj-wt-tcK" id="jhu-IH-wqs"/>
+                        <outlet property="numGamesPlayedLabel" destination="fj6-u8-h7I" id="Ioe-QO-zkR"/>
+                        <outlet property="profileImage" destination="S8f-sQ-882" id="WAd-vc-MDY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TRC-ck-Phg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="XVP-iQ-wJD" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3040" y="480"/>
         </scene>
         <!--Messages Controller-->
         <scene sceneID="BXi-aq-OSD">
