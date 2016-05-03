@@ -14,7 +14,7 @@ class FriendTableViewCell: UITableViewCell {
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var friendNameLabel: UILabel!
-    @IBOutlet weak var starImageView: UIImageView!
+    @IBOutlet weak var friendButton: UIButton!
     
     
     
@@ -34,5 +34,7 @@ class FriendTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
 
 }

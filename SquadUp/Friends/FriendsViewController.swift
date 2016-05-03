@@ -86,6 +86,9 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.performSegueWithIdentifier("toProfileDetailViewController", sender: friend)
         
+        //delselect the row so that when the game detail is popped off there isn't a cell stil highlighted
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
     }
     
     //MARK: - Table View Data Source
@@ -121,7 +124,8 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.friendNameLabel.text = friend.name
         
         //change to star highlighted if the user is already a friend (check UID)
-        cell.starImageView.image = UIImage(named: "star_highlighted")
+        cell.friendButton.setImage(UIImage(named: "star_highlighted"), forState: .Normal)
+        
         
         
         return cell
@@ -164,7 +168,12 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
 
+
+    
+    
 }
+
+
 
 
 extension FriendsViewController : UISearchResultsUpdating {
@@ -172,117 +181,8 @@ extension FriendsViewController : UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
 }
 
 
-
-
-
-
-
-
-/*
- //THIS IS THE SEARCH VIEW CONTROLLER THAT I USED FOR THE INSTRAGRAM APP OVER THE SUMMER. I WAS USING PARSE, BUT SOME OF THE
- //CODE COULD BE SIMILAR AND USABLE 
- 
- 
- class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource {
- 
-    //create the connections
-    @IBOutlet var searchBar: UISearchBar?
-    @IBOutlet var tableView: UITableView?
- 
-    //array to hold the search results
-    var searchResults = []
- 
-    override func viewDidLoad() {
-        super.viewDidLoad()
- 
-        //reference the nib file to show up during search
-        let nib = UINib(nibName: "PersonCell", bundle: nil)
-        self.tableView?.registerNib(nib, forCellReuseIdentifier: "PersonCellIdentifier")
- 
-    }
- 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
- 
-    //when person clicks on the text field
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
- 
-        //clears text each time the search bar is clikced
-        searchBar.text = ""
- 
-        //show the cancel button whenever someone clicks on the search bar
-        searchBar.setShowsCancelButton(true, animated: true)
-    }
- 
-    //when the text field exits edit mode
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
- 
-        searchBar.setShowsCancelButton(false, animated: true)
-    }
- 
-    //handles wehn cancel was clicked
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
- 
-        searchBar.resignFirstResponder()
-    }
- 
-    //handles when someone makes a search
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
- 
-        //gets rid of cancel and keyboard so you can see results on the full screen when a search is made
-        searchBar.resignFirstResponder()
- 
-        //variable to hold the typed text in the search bar
-        let searchTerm = searchBar.text
- 
-        //call the find user method from NetworkManager
-        NetworkManager.sharedInstance.findUsers(searchTerm, completionHandler: {
-            (objects, error) -> () in
- 
-            //if in the search, then refresh the table and show the result
-            if let constObjects = objects {
- 
-                self.searchResults = constObjects
-                self.tableView?.reloadData()
-            }
-            else if let constError = error {
- 
-                self.showAlert("Unable to conduct Search")
-            }
-        })
- 
-    }
- 
-    //same as in FeedViewController
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.searchResults.count
-    }
- 
-    //same as in FeedViewController
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PersonCellIdentifier") as! PersonCell
-        let user = self.searchResults[indexPath.row] as! PFUser
- 
-        cell.user = user
- 
-        return cell
-    }
- 
- }
- 
-*/

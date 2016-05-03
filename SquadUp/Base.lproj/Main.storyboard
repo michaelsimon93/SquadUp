@@ -1537,33 +1537,34 @@ for a temporary password to
                                                         <constraint firstAttribute="width" constant="50" id="uZO-Ga-4V6"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_unhighlighted" translatesAutoresizingMaskIntoConstraints="NO" id="Sut-2f-x1B" userLabel="Add Friend Image/Button">
-                                                    <rect key="frame" x="537" y="20" width="20" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="zUx-Dg-lsj"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cum-e9-RE7">
                                                     <rect key="frame" x="75" y="18" width="108" height="23"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zat-X5-XEM">
+                                                    <rect key="frame" x="534" y="17" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="4lI-dR-7UB"/>
+                                                        <constraint firstAttribute="width" secondItem="zat-X5-XEM" secondAttribute="height" multiplier="1:1" id="voT-SG-daQ"/>
+                                                    </constraints>
+                                                    <state key="normal" image="star_unhighlighted"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Sut-2f-x1B" firstAttribute="centerY" secondItem="ajc-D4-sKE" secondAttribute="centerY" id="Hzj-8F-EgV"/>
+                                                <constraint firstItem="zat-X5-XEM" firstAttribute="centerY" secondItem="ajc-D4-sKE" secondAttribute="centerY" id="3QM-au-Fwn"/>
                                                 <constraint firstItem="cum-e9-RE7" firstAttribute="leading" secondItem="6RJ-ul-ARg" secondAttribute="trailing" constant="15" id="So4-xd-v7F"/>
                                                 <constraint firstItem="6RJ-ul-ARg" firstAttribute="centerY" secondItem="ajc-D4-sKE" secondAttribute="centerY" id="bxV-Gv-4bh"/>
                                                 <constraint firstItem="cum-e9-RE7" firstAttribute="centerY" secondItem="ajc-D4-sKE" secondAttribute="centerY" id="fd4-kr-h4n"/>
-                                                <constraint firstItem="Sut-2f-x1B" firstAttribute="width" secondItem="Sut-2f-x1B" secondAttribute="height" multiplier="1:1" id="nUi-Tr-QUq"/>
                                                 <constraint firstItem="6RJ-ul-ARg" firstAttribute="leading" secondItem="ajc-D4-sKE" secondAttribute="leading" constant="10" id="vuN-fU-4g3"/>
-                                                <constraint firstAttribute="trailing" secondItem="Sut-2f-x1B" secondAttribute="trailing" constant="10" id="wt8-VN-ewY"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zat-X5-XEM" secondAttribute="trailing" id="xGh-2h-tNc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="friendButton" destination="zat-X5-XEM" id="Lgc-dB-7gD"/>
                                             <outlet property="friendNameLabel" destination="cum-e9-RE7" id="wxW-pH-aTh"/>
                                             <outlet property="profileImage" destination="6RJ-ul-ARg" id="aTy-KY-9rE"/>
-                                            <outlet property="starImageView" destination="Sut-2f-x1B" id="9mR-dh-hKf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
