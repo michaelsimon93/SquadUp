@@ -117,8 +117,8 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else {
             friend = friends[indexPath.row]
         }
-        
-        
+        cell.tag = 543
+        cell.friendButton.addTarget(self, action: #selector(FriendsViewController.friendButtonClicked(_:)), forControlEvents: .TouchUpInside)
         
         //player the cell represents
         cell.friendNameLabel.text = friend.name
@@ -168,6 +168,24 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
 
+    //MARK: - Cell Button Click
+    
+    func friendButtonClicked(button : UIButton) {
+        //convert the point the button is at to table view coordinates
+        let buttonPoint = button.superview?.convertPoint(button.center, toView: self.tableView)
+        //get the index path of the cell at that point
+        let indexPath = self.tableView.indexPathForRowAtPoint(buttonPoint!)
+        
+        //print(indexPath!.row)
+        //print(indexPath!.section)
+        
+        //get the cell the user clicked on
+        let friendCell = tableView.cellForRowAtIndexPath(indexPath!)
+        
+        
+        
+        
+    }
 
     
     
