@@ -16,6 +16,9 @@ class FriendTableViewCell: UITableViewCell {
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBOutlet weak var friendButton: UIButton!
     
+    //player the cell is displaying - needed to delete and update friends
+    var player : Player?
+    
     //boolean representing if the user is a friend or not
     var isFriend = false
     
@@ -28,6 +31,8 @@ class FriendTableViewCell: UITableViewCell {
         
         profileImage.layer.cornerRadius = profileImage.frame.width/2
         //self.backgroundColor = UIColor.grayColor()
+        
+        //check if the user is a friend
 
     }
 

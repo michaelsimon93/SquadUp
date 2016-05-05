@@ -47,15 +47,6 @@ class TabBarController: UITabBarController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        usersRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-            //create the player and add it to the allusers array
-            let uid = snapshot.value["uid"] as? String
-            let player = Player(snapshot: snapshot, uid: uid!)
-            self.allUsers.append(player)
-            
-            
-        })
-        
         let playerRef = usersRef.childByAppendingPath(userUID!)
         
         //get player information and make player object
@@ -65,6 +56,18 @@ class TabBarController: UITabBarController {
             
             
         })
+        
+        usersRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+            
+            //create the player and add it to the allusers array
+            let uid = snapshot.value["uid"] as? String
+            let player = Player(snapshot: snapshot, uid: uid!)
+            self.allUsers.append(player)
+            
+            
+        })
+        
+
         
 
     }

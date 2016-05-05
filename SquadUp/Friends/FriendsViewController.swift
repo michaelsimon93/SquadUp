@@ -25,8 +25,12 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     let searchController = UISearchController(searchResultsController: nil)
     
     let usersRef = Firebase(url: "https://squadupcs407.firebaseio.com/users")
+    var user : Player?
     
+    var unfriendAlert : UIAlertController?
     
+    //cell star button that is clicked
+    var cellClicked : FriendTableViewCell?
     
     //MARK: - Lifecycle Methods
     
@@ -35,17 +39,24 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         //get all the users loaded in the tab bar
         allUsers = (self.tabBarController as! TabBarController).allUsers
 
-
-        // Do any additional setup after loading the view.
+        //get the user object from the tab bar controller
+        user = (self.tabBarController as? TabBarController)?.user
         
         //add users to all users array here - done in tab bar controller
         //add users to friends array here - done in tab bar controller
         
+        //setup the table searching
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchBar.placeholder = "Search by email or name..."
+        
+        
+        //initialize the unfriend alert
+        initializeUnfriendAlert()
+        
+
         
     }
     
@@ -117,14 +128,29 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else {
             friend = friends[indexPath.row]
         }
-        cell.tag = 543
+
         cell.friendButton.addTarget(self, action: #selector(FriendsViewController.friendButtonClicked(_:)), forControlEvents: .TouchUpInside)
+        //set the player object so they can be added removed from list
+        cell.player = friend
         
         //player the cell represents
         cell.friendNameLabel.text = friend.name
         
-        //change to star highlighted if the user is already a friend (check UID)
-        cell.friendButton.setImage(UIImage(named: "star_highlighted"), forState: .Normal)
+        //check if the current user is a friend
+        cell.isFriend = isUserAFriend(friend)
+        
+        //person is the users friend
+        if cell.isFriend {
+            //change to star highlighted if the user is already a friend (check UID)
+            cell.friendButton.setImage(UIImage(named: "star_highlighted"), forState: .Normal)
+            
+        }
+        //not a friend - blank star
+        else {
+            //change to star highlighted if the user is already a friend (check UID)
+            cell.friendButton.setImage(UIImage(named: "star_unhighlighted"), forState: .Normal)
+        }
+
         
         
         
@@ -152,9 +178,9 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredUsers = allUsers.filter { friend in
             
-            //return the search by email or by name
+            //return the search by email or by name - make sure it also isn't the person using the app as well
             return (friend.name!.lowercaseString.containsString(searchText.lowercaseString))
-                || (friend.email.lowercaseString.containsString(searchText.lowercaseString))
+                || (friend.email.lowercaseString.containsString(searchText.lowercaseString)) && (friend.uid != self.user!.uid)
         }
         
         tableView.reloadData()
@@ -180,11 +206,81 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         //print(indexPath!.section)
         
         //get the cell the user clicked on
-        let friendCell = tableView.cellForRowAtIndexPath(indexPath!)
+        cellClicked = tableView.cellForRowAtIndexPath(indexPath!) as? FriendTableViewCell
+        
+        //if the friend is currently a friend
+        if cellClicked!.isFriend {
+            //alert user if they want to 'unfriend' the user
+            presentViewController(unfriendAlert!, animated: true, completion: {
+                
+            })
+            
+            
+        }
+            
+        //user not currently friends - add them to the friends
+        else {
+            //add the player to the users friends
+            user?.friends?.append((cellClicked?.player?.uid)!)
+            //update firebase to have new friends
+            user?.ref?.updateChildValues(["friends" : (user?.friendsToDictionary())!])
+            
+            //change the image and update
+            self.cellClicked!.friendButton.setImage(UIImage(named:"star_highlighted"), forState: .Normal)
+            self.cellClicked!.isFriend = true
+            
+            //add player to tab bar friends
+            (self.tabBarController as? TabBarController)?.userFriends.append((cellClicked?.player)!)
+            
+            //add to friends array
+            friends.append((self.cellClicked?.player)!)
+            
+            
+            
+        }
         
         
+    }
+    
+    //MARK: - Alert Initialization
+    func initializeUnfriendAlert() {
+        let message = "Are you sure you want to remove fullname as a friend?"
+        
+        unfriendAlert = UIAlertController(title: "Unfriend firstname?", message: message , preferredStyle: .Alert)
+        
+        let unfriendAction = UIAlertAction(title: "Unfriend", style: .Default) { (alertAction) in
+            
+            //change the image and update
+            self.cellClicked!.friendButton.setImage(UIImage(named:"star_unhighlighted"), forState: .Normal)
+            self.cellClicked!.isFriend = false
+            
+            
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alertAction) in
+            
+        }
+        
+        //add the actions to the alert
+        unfriendAlert?.addAction(unfriendAction)
+        unfriendAlert?.addAction(cancelAction)
         
         
+    }
+    
+    //method takes a user in and checks if they are in the current users friends list
+    func isUserAFriend(playerToCheck : Player) -> Bool {
+        //loop through all the users current friends
+        for friendUID in user!.friends! {
+            //return true if a friend uid matches user UID passed
+            if friendUID == playerToCheck.uid {
+                return true
+            }
+        }
+        
+        //player not found in friends list return false
+        return false
     }
 
     
