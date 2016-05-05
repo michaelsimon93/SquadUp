@@ -63,7 +63,6 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(animated: Bool) {
 
         //all users loaded in initialization of tab bar controller
-
         
     }
     
@@ -180,7 +179,7 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             //return the search by email or by name - make sure it also isn't the person using the app as well
             return (friend.name!.lowercaseString.containsString(searchText.lowercaseString))
-                || (friend.email.lowercaseString.containsString(searchText.lowercaseString)) && (friend.uid != self.user!.uid)
+                || (friend.email.lowercaseString.containsString(searchText.lowercaseString))
         }
         
         tableView.reloadData()
@@ -210,6 +209,12 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //if the friend is currently a friend
         if cellClicked!.isFriend {
+            let title = "Unfriend " + (cellClicked?.player?.name)! + "?"
+            let message = "Are you sure you want to remove " + (cellClicked?.player?.name)! + " as a friend?"
+            
+            unfriendAlert?.message = message
+            unfriendAlert?.title = title
+            
             //alert user if they want to 'unfriend' the user
             presentViewController(unfriendAlert!, animated: true, completion: {
                 
@@ -230,7 +235,7 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.cellClicked!.isFriend = true
             
             //add player to tab bar friends
-            (self.tabBarController as? TabBarController)?.userFriends.append((cellClicked?.player)!)
+            //(self.tabBarController as? TabBarController)?.userFriends.append((cellClicked?.player)!)
             
             //add to friends array
             friends.append((self.cellClicked?.player)!)
@@ -253,9 +258,19 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
             //change the image and update
             self.cellClicked!.friendButton.setImage(UIImage(named:"star_unhighlighted"), forState: .Normal)
             self.cellClicked!.isFriend = false
+
+            //find the index of the player
+            var index = self.friends.indexOf((self.cellClicked?.player)!)
+            self.friends.removeAtIndex(index!)
+
+            //find the index of the uid in the users friends array and remove it
+            index = self.user?.friends?.indexOf((self.cellClicked?.player?.uid)!)
+            
+            self.user?.friends?.removeAtIndex(index!)
+            self.user?.ref?.updateChildValues(["friends" : (self.user?.friendsToDictionary())!])
             
             
-            
+            self.tableView.reloadData()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alertAction) in
