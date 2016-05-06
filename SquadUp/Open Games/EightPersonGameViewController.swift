@@ -166,7 +166,18 @@ class EightPersonGameViewController: UIViewController {
             }
             
             //user clicked not their chair, don't leave game, take to others profile here if possible
-            
+                //user taped a chair that is occupied and they aren't currently in the game
+                //prompt other users profile to show if time
+            else {
+                //get the players uid
+                let playerUID = players[chair.tag-1]
+                usersRef.childByAppendingPath(playerUID).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                    let player = Player(snapshot: snapshot, uid: playerUID)
+                    
+                    self.performSegueWithIdentifier("toPlayerDetail", sender: player)
+                })
+                
+            }
         }
             //user is currently not in the game
         else {
