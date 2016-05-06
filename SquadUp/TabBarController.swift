@@ -104,7 +104,13 @@ class TabBarController: UITabBarController {
                     }
                     let friendController = self.viewControllers![2] as? FriendsViewController
                     friendController?.friends = self.userFriends
+                    friendController?.allUsers = self.allUsers
+                    friendController?.user = self.user
                     self.firstLoad = false
+                    if friendController?.tableView != nil {
+                        friendController?.tableView.reloadData()
+                    }
+                    
                 }
                 
             })
