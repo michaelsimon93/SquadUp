@@ -141,15 +141,18 @@ class TenPersonGameViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "toPlayerDetail" {
+            //give the profile detail the user to be displayed
+            let destVC = segue.destinationViewController as! ProfileDetailViewController
+            destVC.user = sender as? Player
+        }
+        
     }
-    */
     
     
     //MARK: - IBActions
@@ -171,7 +174,7 @@ class TenPersonGameViewController: UIViewController {
             //user clicked not their chair, don't leave game, take to others profile here if possible
             
         }
-            //user is currently not in the game
+        //user is currently not in the game
         else {
             //check if the chair the user clicked is not already occupied
             if userCanJoinChair(chair.tag) {
@@ -184,6 +187,16 @@ class TenPersonGameViewController: UIViewController {
             }
             //user taped a chair that is occupied and they aren't currently in the game
             //prompt other users profile to show if time
+            else {
+                //get the players uid
+                let playerUID = players[chair.tag-1]
+                usersRef.childByAppendingPath(playerUID).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                    let player = Player(snapshot: snapshot, uid: playerUID)
+                    
+                    self.performSegueWithIdentifier("toPlayerDetail", sender: player)
+                })
+                
+            }
             
         }
         

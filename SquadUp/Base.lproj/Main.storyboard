@@ -801,6 +801,7 @@
                         <outlet property="chair9Button" destination="YOC-G0-7QV" id="uyw-YW-bQv"/>
                         <outlet property="gameTitle" destination="lNe-UY-3fK" id="r46-lt-PbA"/>
                         <outlet property="notificationLabel" destination="oMT-Nk-CZd" id="Oeb-hj-Ib9"/>
+                        <segue destination="hIt-Sg-Kjv" kind="show" identifier="toPlayerDetail" id="fgG-UX-CM2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcY-QG-PLf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -955,12 +956,13 @@
                         <outlet property="chair5Button" destination="HGs-go-l05" id="F3a-QT-hLe"/>
                         <outlet property="gameTitle" destination="DlJ-FO-P05" id="I8D-FG-lCh"/>
                         <outlet property="notificationLabel" destination="XVr-af-DOt" id="A1g-fx-LdB"/>
+                        <segue destination="hIt-Sg-Kjv" kind="show" identifier="toPlayerDetail" id="cdp-9t-vuc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmi-64-0rn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="uQC-Jv-9dm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3751" y="-932"/>
+            <point key="canvasLocation" x="3753" y="-954"/>
         </scene>
         <!--Eight Person Game View Controller-->
         <scene sceneID="mct-n0-OcJ">
@@ -1137,6 +1139,7 @@
                         <outlet property="chair7Button" destination="hkS-Hv-Npe" id="UJW-7r-6XV"/>
                         <outlet property="gameTitle" destination="r8d-Iq-NHi" id="YSc-im-Uuo"/>
                         <outlet property="notificationLabel" destination="Y63-1Z-IkA" id="18U-bU-sp6"/>
+                        <segue destination="hIt-Sg-Kjv" kind="show" identifier="toPlayerDetail" id="v3r-MZ-QlK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zel-Vn-LcV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1865,6 +1868,97 @@ An email containing
             </objects>
             <point key="canvasLocation" x="1367" y="712"/>
         </scene>
+        <!--Profile Detail View Controller - Game-->
+        <scene sceneID="1cV-hS-DRk">
+            <objects>
+                <viewController id="hIt-Sg-Kjv" userLabel="Profile Detail View Controller - Game" customClass="ProfileDetailViewController" customModule="SquadUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lde-u2-p3m"/>
+                        <viewControllerLayoutGuide type="bottom" id="YcP-kF-8m8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OzA-wt-cTb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="bt5-fj-uvx" userLabel="Background Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HG4-MP-Kfl">
+                                <rect key="frame" x="237" y="240" width="126" height="28"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initials: MO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4Y-sQ-y9A">
+                                <rect key="frame" x="244" y="298" width="113" height="28"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nq5-QY-lad" userLabel="Profile Image">
+                                <rect key="frame" x="225" y="70" width="150" height="150"/>
+                                <color key="backgroundColor" red="0.8156862855" green="0.41176471110000001" blue="0.14509804549999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Nq5-QY-lad" secondAttribute="height" multiplier="1:1" id="TBX-ex-Emg"/>
+                                    <constraint firstAttribute="width" constant="150" id="wgm-eh-uNV"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Games Played: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrF-pa-i1s">
+                                <rect key="frame" x="189" y="356" width="222" height="23"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqi-JZ-YvQ">
+                                <rect key="frame" x="15" y="15" width="57" height="36"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                <state key="normal" title="&lt; Back"/>
+                                <connections>
+                                    <segue destination="ZQ8-8i-c3m" kind="unwind" unwindAction="profileDetailUnwind:" id="4Ai-gx-6uS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEq-IL-ENJ">
+                                <rect key="frame" x="15" y="15" width="57" height="36"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                <state key="normal" title="&lt; Back"/>
+                                <connections>
+                                    <action selector="backClicked:" destination="hIt-Sg-Kjv" eventType="touchUpInside" id="CYo-II-uAR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bt5-fj-uvx" firstAttribute="leading" secondItem="OzA-wt-cTb" secondAttribute="leading" id="1J6-eH-xKU"/>
+                            <constraint firstItem="Wqi-JZ-YvQ" firstAttribute="top" secondItem="OzA-wt-cTb" secondAttribute="top" constant="15" id="1yZ-FH-BgJ"/>
+                            <constraint firstItem="HG4-MP-Kfl" firstAttribute="centerX" secondItem="bt5-fj-uvx" secondAttribute="centerX" id="4bg-ZS-srX"/>
+                            <constraint firstItem="Wqi-JZ-YvQ" firstAttribute="leading" secondItem="OzA-wt-cTb" secondAttribute="leading" constant="15" id="5S6-yV-bKH"/>
+                            <constraint firstItem="j4Y-sQ-y9A" firstAttribute="top" secondItem="HG4-MP-Kfl" secondAttribute="bottom" constant="30" id="GAP-b8-w5n"/>
+                            <constraint firstItem="YcP-kF-8m8" firstAttribute="top" secondItem="bt5-fj-uvx" secondAttribute="bottom" id="OuE-Jq-UQt"/>
+                            <constraint firstItem="bt5-fj-uvx" firstAttribute="top" secondItem="OzA-wt-cTb" secondAttribute="top" id="Wr5-xq-5Wr"/>
+                            <constraint firstItem="zrF-pa-i1s" firstAttribute="centerX" secondItem="bt5-fj-uvx" secondAttribute="centerX" id="ZJ3-tN-Rn8"/>
+                            <constraint firstItem="j4Y-sQ-y9A" firstAttribute="centerX" secondItem="bt5-fj-uvx" secondAttribute="centerX" id="kd7-Up-lHF"/>
+                            <constraint firstItem="Nq5-QY-lad" firstAttribute="top" secondItem="Lde-u2-p3m" secondAttribute="bottom" constant="50" id="oIJ-0d-J8L"/>
+                            <constraint firstItem="HG4-MP-Kfl" firstAttribute="top" secondItem="Nq5-QY-lad" secondAttribute="bottom" constant="20" id="obS-bK-Zlz"/>
+                            <constraint firstItem="zrF-pa-i1s" firstAttribute="top" secondItem="j4Y-sQ-y9A" secondAttribute="bottom" constant="30" id="pds-ay-Nms"/>
+                            <constraint firstItem="Nq5-QY-lad" firstAttribute="centerX" secondItem="bt5-fj-uvx" secondAttribute="centerX" id="ttd-cT-Muc"/>
+                            <constraint firstAttribute="trailing" secondItem="bt5-fj-uvx" secondAttribute="trailing" id="w4b-lm-l6e"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="initialsLabel" destination="j4Y-sQ-y9A" id="uFP-dd-L63"/>
+                        <outlet property="nameLabel" destination="HG4-MP-Kfl" id="4xa-me-z0u"/>
+                        <outlet property="numGamesPlayedLabel" destination="zrF-pa-i1s" id="JN5-12-AIM"/>
+                        <outlet property="profileImage" destination="Nq5-QY-lad" id="Vpf-MR-IRd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lfK-DG-ws1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ZQ8-8i-c3m" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3821" y="-24"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="1536" height="1536"/>
@@ -1880,5 +1974,6 @@ An email containing
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fYW-Kh-FO3"/>
+        <segue reference="v3r-MZ-QlK"/>
     </inferredMetricsTieBreakers>
 </document>

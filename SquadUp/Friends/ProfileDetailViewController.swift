@@ -56,6 +56,10 @@ class ProfileDetailViewController: UIViewController {
     }
     
 
+    @IBAction func backClicked(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+        
+    }
     /*
     // MARK: - Navigation
 

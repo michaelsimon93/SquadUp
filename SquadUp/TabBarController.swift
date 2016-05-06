@@ -72,14 +72,10 @@ class TabBarController: UITabBarController {
                 self.allUsers.append(player)
             }
 
-            
-            
         })
-        
-
-        
 
     }
+    
     
     override func viewDidAppear(animated: Bool) {
         //if it is the first time the tab bar is loaded load the friends of the user
