@@ -245,6 +245,7 @@ class TenPersonGameViewController: UIViewController {
         game?.ref?.updateChildValues(["players" : (game?.playersToDictionary())!])
         //subtract one to the number of players inthe game on firebase
         game?.ref?.updateChildValues(["numPlayersJoined" : ((game?.numPlayersJoined)!-1)])
+        game?.numPlayersJoined = (game?.numPlayersJoined)!-1
         
     }
     
