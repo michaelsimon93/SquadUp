@@ -32,8 +32,12 @@ class ProfileDetailViewController: UIViewController {
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
         profileImage.layer.borderWidth = 2
         profileImage.layer.borderColor = UIColor.whiteColor().CGColor
-        
-        
+        if user?.profileImage != nil {
+            profileImage.image = user?.profileImage
+        }
+        else {
+            profileImage.image = UIImage(named: "empty_profile")
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
