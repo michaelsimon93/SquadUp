@@ -44,9 +44,7 @@ class TabBarController: UITabBarController {
         
 
         //get the number of users so it can add friends at the correct time
-        numUsersRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            self.numUsers = snapshot.value as? Int
-        })
+
         
     }
 
@@ -57,57 +55,68 @@ class TabBarController: UITabBarController {
     
     override func viewWillAppear(animated: Bool) {
         
-
-        
-        let playerRef = usersRef.childByAppendingPath(userUID!)
-        
-        //get player information and make player object
-        playerRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            //get the player reference
-            self.user = Player(snapshot: snapshot, uid: self.userUID!)
+        numUsersRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            self.numUsers = snapshot.value as? Int
             
             
-        })
-        
-
-        
-        usersRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+            let playerRef = self.usersRef.childByAppendingPath(self.userUID!)
             
-            //create the player and add it to the allusers array
-            let uid = snapshot.value["uid"] as? String
+            //get player information and make player object
+            playerRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                //get the player reference
+                self.user = Player(snapshot: snapshot, uid: self.userUID!)
+                
+                
+            })
             
-            let player = Player(snapshot: snapshot, uid: uid!)
             
-            //add it to the users only if it isn't the person using the app - that way won't find themselves
-            //when searching for friends
-            if uid != self.user?.uid {
-                self.allUsers.append(player)
-            }
             
-            //print(self.numUsers)
-            
-            //if it is the first time the tab bar is loaded load the friends of the user
-            //subtract one so yourself is counted as a user
-            if self.firstLoad && self.allUsers.count == (self.numUsers!-1){
-                //loop through all the friends UID's and add the player object that matches from the all users array
-                for friendUID in (self.user?.friends)! {
-                    
-                    //loop through the array of all of the users to find the user that they are friends with
-                    for player in self.allUsers {
-                        if friendUID == player.uid {
-                            //user found, add their player object to the array and break from interior loop
-                            self.userFriends.append(player)
-                            break
-                        }
-                    }
-                    
+            self.usersRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+                
+                //create the player and add it to the allusers array
+                let uid = snapshot.value["uid"] as? String
+                
+                let player = Player(snapshot: snapshot, uid: uid!)
+                
+                //add it to the users only if it isn't the person using the app - that way won't find themselves
+                //when searching for friends
+                if uid != self.user?.uid {
+                    self.allUsers.append(player)
                 }
-                let friendController = self.viewControllers![2] as? FriendsViewController
-                friendController?.friends = self.userFriends
-                self.firstLoad = false
-            }
+                
+                //print(self.numUsers)
+                
+                //if it is the first time the tab bar is loaded load the friends of the user
+                //subtract one so yourself is counted as a user
+                if self.firstLoad && self.allUsers.count == (self.numUsers!-1){
+                    //loop through all the friends UID's and add the player object that matches from the all users array
+                    for friendUID in (self.user?.friends)! {
+                        
+                        //loop through the array of all of the users to find the user that they are friends with
+                        for player in self.allUsers {
+                            if friendUID == player.uid {
+                                //user found, add their player object to the array and break from interior loop
+                                self.userFriends.append(player)
+                                break
+                            }
+                        }
+                        
+                    }
+                    let friendController = self.viewControllers![2] as? FriendsViewController
+                    friendController?.friends = self.userFriends
+                    self.firstLoad = false
+                }
+                
+            })
+            
+            
+            
+            
+            
             
         })
+        
+
 
     }
     
