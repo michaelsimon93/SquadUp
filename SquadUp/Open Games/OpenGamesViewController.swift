@@ -38,6 +38,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     //Player using the app
     //var user : Player?
     
+    //checks if the tab bar is first loaded
+    var firstLoad = true
     
     
     
@@ -53,21 +55,6 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         //self.tableView.tableHeaderView = UIView(frame: CGRectMake(0, 0, 0, CGFloat.min))
         self.automaticallyAdjustsScrollViewInsets = false
         
-//        let playerRef = usersRef.childByAppendingPath(userUID!)
-//        
-//        //get player information and make player object
-//        playerRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-//            //get the player reference
-//            self.user = Player(snapshot: snapshot, uid: self.userUID!)
-//            
-//            let profileController = self.tabBarController?.viewControllers![3] as! ProfileViewController
-//            //profileController.viewDidLoad()
-//            profileController.user = self.user
-//        })
-        
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,11 +63,34 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func viewDidAppear(animated: Bool) {
-        
+//        //if it is the first time the tab bar is loaded load the friends of the user
+//        if firstLoad {
+//            let user = (self.tabBarController as? TabBarController)!.user
+//            let allUsers = (self.tabBarController as? TabBarController)!.allUsers
+//            var userFriends = [Player]()
+//            //loop through all the friends UID's and add the player object that matches from the all users array
+//            for friendUID in (user?.friends)! {
+//                
+//                //loop through the array of all of the users to find the user that they are friends with
+//                for player in allUsers {
+//                    if friendUID == player.uid {
+//                        //user found, add their player object to the array and break from interior loop
+//                        userFriends.append(player)
+//                        break
+//                    }
+//                }
+//                
+//            }
+//            (self.tabBarController as? TabBarController)?.userFriends = userFriends
+//            let friendController = self.tabBarController!.viewControllers![2] as? FriendsViewController
+//            friendController?.friends = (self.tabBarController as? TabBarController)!.userFriends
+//            firstLoad = false
+//        }
 
     }
     
     override func viewWillAppear(animated: Bool) {
+
         
         
         gameRef.observeEventType(.Value, withBlock: { snapshot in
@@ -146,6 +156,8 @@ class OpenGamesViewController: UIViewController, UITableViewDelegate, UITableVie
         })
         
         //self.deleteOldGames()
+        
+        self.viewDidAppear(animated)
     }
     
     

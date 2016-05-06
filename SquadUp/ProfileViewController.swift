@@ -33,6 +33,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     var editNameAlert : UIAlertController?
     var editInitialsAlert : UIAlertController?
     
+    //image to save to firebase as a string
+    var base64String : String!
+    
     //var user : Player?
     //auth data from user logging in - used to create Player object
     var userUID : String?
@@ -83,6 +86,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         //initialize alert controllers here
         initializeNameAlert()
         initializeInitialsAlert()
+        
+        if (self.tabBarController as? TabBarController)?.user?.profileImage != nil {
+            profileImage.image = (self.tabBarController as? TabBarController)?.user?.profileImage
+        }
+
+        
+        //getProfileImage()
 
         
     }
@@ -252,29 +262,40 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             return
         }
         
-        
         //save image to firebase and update the uiimageview
-        print(newImage)
+        //print(newImage)
         
+        profileImage.image = newImage
         
+        let imageData : NSData = UIImagePNGRepresentation(newImage)!
+        self.base64String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
         
+        (self.tabBarController as? TabBarController)?.user?.ref?.updateChildValues(["image" : base64String])
+        (self.tabBarController as? TabBarController)?.user?.profileImageString = self.base64String
+        (self.tabBarController as? TabBarController)?.user?.getProfileImage()
         
-        
-        
-        
-        
-        
-        
+        dismissViewControllerAnimated(true, completion: nil)
         
     }
     
     //user tapped on the image show image picker
     func imageTapped() {
-        print("image tapped")
+        //print("image tapped")
         selectPicture()
         
     }
     
+//    func getProfileImage() {
+//        let user = (self.tabBarController as? TabBarController)?.user
+//        
+//        if user?.profileImageString != nil {
+//            let decodedData = NSData(base64EncodedString: (user?.profileImageString)!, options: .IgnoreUnknownCharacters)
+//            let decodedImage = UIImage(data: decodedData!)
+//            self.profileImage.image = decodedImage
+//        }
+//        
+//
+//    }
 
 
 }

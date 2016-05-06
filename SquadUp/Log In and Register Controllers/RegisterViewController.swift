@@ -35,7 +35,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     //reference to firebase app
     let ref  = Firebase(url: "https://squadupcs407.firebaseio.com")
     let usersRef = Firebase(url: "https://squadupcs407.firebaseio.com/users")
- 
+    let numUsersRef = Firebase(url: "https://squadupcs407.firebaseio.com/numUsers")
     
     
     //MARK: - Lifecycle
@@ -312,7 +312,16 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
         userEndpoint.updateChildValues(newPlayer.toDictionary() as! [NSObject : AnyObject])
         
-        
+        //add one to the number of app users
+        numUsersRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            
+            var numUsers = snapshot.value as? Int
+            numUsers! = numUsers! + 1
+            
+            self.ref.updateChildValues(["numUsers" : numUsers!])
+            
+            
+        })
     }
 
 }

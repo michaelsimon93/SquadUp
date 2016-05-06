@@ -27,6 +27,10 @@ class Player: NSObject {
     let email : String
     //uid's of the users friends
     var friends : [String]?
+    //string that is the user profile image
+    var profileImageString : String?
+    //users profile image
+    var profileImage : UIImage?
     
     let ref : Firebase?
     
@@ -45,6 +49,7 @@ class Player: NSObject {
         self.name = snapshot.value["name"] as? String
         self.email = snapshot.value["email"] as! String
         self.ref = usersRef.childByAppendingPath(self.uid)
+        self.profileImageString = snapshot.value["image"] as? String
         
         super.init()
         
@@ -54,6 +59,9 @@ class Player: NSObject {
         if friendsDictionary != nil {
            self.convertFriendsToArray(friendsDictionary!)
         }
+        
+        //convert the profile image string into a picture
+        getProfileImage()
         
     }
     
@@ -112,4 +120,14 @@ class Player: NSObject {
         }
     }
     
+    
+    func getProfileImage() {
+        if profileImageString != nil {
+            let decodedData = NSData(base64EncodedString: (profileImageString)!, options: .IgnoreUnknownCharacters)
+            let decodedImage = UIImage(data: decodedData!)
+            profileImage = decodedImage
+        }
+        
+        
+    }
 }

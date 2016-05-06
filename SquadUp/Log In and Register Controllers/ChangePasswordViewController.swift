@@ -287,8 +287,11 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "toHomeViewController" {
             let tabController = segue.destinationViewController as! TabBarController
             let openGamesController = tabController.viewControllers?[0] as! OpenGamesViewController
+            let profileController = tabController.viewControllers![3] as! ProfileViewController
             //user UID so player can be created
             openGamesController.userUID = userUID!
+            profileController.userUID = userUID!
+            tabController.userUID = userUID!
             
         }
         

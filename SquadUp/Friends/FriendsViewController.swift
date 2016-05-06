@@ -128,6 +128,12 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
             friend = friends[indexPath.row]
         }
 
+        
+        if friend.profileImage != nil {
+            cell.profileImage.image = friend.profileImage
+        }
+        
+        
         cell.friendButton.addTarget(self, action: #selector(FriendsViewController.friendButtonClicked(_:)), forControlEvents: .TouchUpInside)
         //set the player object so they can be added removed from list
         cell.player = friend
