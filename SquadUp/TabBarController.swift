@@ -43,6 +43,11 @@ class TabBarController: UITabBarController {
         // Do any additional setup after loading the view.
         
 
+        //get the number of users so it can add friends at the correct time
+        numUsersRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            self.numUsers = snapshot.value as? Int
+        })
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,10 +57,7 @@ class TabBarController: UITabBarController {
     
     override func viewWillAppear(animated: Bool) {
         
-        //get the number of users so it can add friends at the correct time
-        numUsersRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            self.numUsers = snapshot.value as? Int
-        })
+
         
         let playerRef = usersRef.childByAppendingPath(userUID!)
         

@@ -46,7 +46,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()      
-
         // Do any additional setup after loading the view.
         
         //configure the custom text field, button borders, and image views
