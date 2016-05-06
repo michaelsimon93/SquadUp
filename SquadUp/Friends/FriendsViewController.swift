@@ -120,6 +120,7 @@ class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(friendCellID, forIndexPath: indexPath) as! FriendTableViewCell
+        cell.profileImage.image = UIImage(named: "empty_profile")
         
         let friend: Player
         if searchController.active && searchController.searchBar.text != "" {
