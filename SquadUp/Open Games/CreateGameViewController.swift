@@ -2,7 +2,6 @@
 //  CreateGameViewController.swift
 //  SquadUp
 //
-//  Created by Michael Oudenhoven on 3/15/16.
 //  Copyright © 2016 CS 407. All rights reserved.
 //
 

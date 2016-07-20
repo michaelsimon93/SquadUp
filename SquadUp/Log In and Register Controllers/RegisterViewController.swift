@@ -2,7 +2,6 @@
 //  RegisterViewController.swift
 //  SquadUp
 //
-//  Created by Michael Oudenhoven on 3/5/16.
 //  Copyright © 2016 CS 407. All rights reserved.
 //
 

@@ -2,7 +2,6 @@
 //  ChangePasswordViewController.swift
 //  SquadUp
 //
-//  Created by Michael Oudenhoven on 4/19/16.
 //  Copyright © 2016 CS 407. All rights reserved.
 //
 

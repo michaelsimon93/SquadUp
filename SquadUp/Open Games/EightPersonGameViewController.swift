@@ -2,7 +2,6 @@
 //  EightPersonGameViewController.swift
 //  SquadUp
 //
-//  Created by Michael Oudenhoven on 4/12/16.
 //  Copyright © 2016 CS 407. All rights reserved.
 //
 
